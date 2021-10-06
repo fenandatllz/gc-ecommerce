@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Modal</title>
+</head>
+<body>
+    <div class="center">
+        <button onclick="openLoginForm()">Enviar</button>
+    </div>
+    <div class="popup-overlay"></div>
+        <div class="popup">
+            <div class="popup-close" onclick="closeLoginForm()">×</div>
+                <div class="form">
+                    <div class="header">
+                        Introduzca Datos del Contacto
+                        <div class="division-modal"></div>
+                    </div>
+                    <div class="element">
+                        <input type="text" id="username" placeholder="Nombre Cliente">
+                    </div>
+                    <div class="element">
+                        <input type="password" id="password" placeholder="Correo electrónico">
+                    </div>
+                    <div class="element">
+                        
+                        <select name="monto-pago" id="monto-pago">
+                            <option value="0" disabled selected> Seleccione Monto de Apartado </option>
+                            <option value="1">$ 50.00 DLLS</option>
+                            <option value="2">$ 100.00 DLLS</option>
+                            <option value="3">$ 150.00 DLLS</option>
+                            <option value="4">$ 200.00 DLLS</option>
+                        </select>
+                    </div>
+                   
+                        <div class="element">                          
+                            <button class="enviar">Enviar</button>
+                        </div>
+                        <div class="element">
+                            <button class="cancelar">Cancelar</button>
+                        </div>
+                </div>
+        </div>
+        <script>
+            function openLoginForm(){
+                document.body.classList.add("showLoginForm");
+            }
+            function closeLoginForm(){
+                document.body.classList.remove("showLoginForm");
+            }
+        </script>
+</body>
+</html>

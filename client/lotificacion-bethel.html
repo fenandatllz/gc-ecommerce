@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotificacion</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/load.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+</head>
+<body>
+
+    <div class="loader_bg">
+        <div class="loader"></div>
+    </div>
+
+    <nav class="menu">
+        <a class="navbar-logo" href="index.html">
+            <img src="https://download-accl.zoho.com/v1/docs/prv/i8756b24e8c232e0c4decb5911f28b49469b0?_t=1630356068833" >
+        </a>
+    </nav>
+    <header>
+        <img class="img-logo" src="img/bethel.png" alt="">
+    </header>
+    <div class="center">
+        <button onclick="openLoginForm()">Enviar</button>
+    </div>
+    <div class="popup-overlay"></div>
+    <div class="popup">
+        <div class="popup-close" onclick="closeLoginForm()">×</div>
+            <div class="form">
+                <div class="header">
+                    Introduzca Datos del Contacto
+                    <div class="division-modal"></div>
+                </div>
+                <div class="element">
+                    <input type="text" id="nombre-cliente" placeholder="Nombre Cliente">
+                </div>
+                <div class="element">
+                    <input type="text" id="correo-cliente" placeholder="Correo electrónico">
+                </div>
+                <div class="element"> 
+                    <select name="monto-pago" id="monto-pago">
+                        <option value="0" disabled selected> Seleccione Monto de Apartado </option>
+                        <option value="1">$ 50.00 DLLS</option>
+                        <option value="2">$ 100.00 DLLS</option>
+                        <option value="3">$ 150.00 DLLS</option>
+                        <option value="4">$ 200.00 DLLS</option>
+                    </select>
+                </div>              
+                    <div class="element">                          
+                        <button id="btn-enviar" onclick="showToast()" class="enviar">Enviar</button>
+                    </div>
+                    <div class="element">
+                        <button id="btn-cancelar" onclick="showAlerta()" class="cancelar">Cancelar</button>
+                    </div>
+            </div>
+    </div>
+    
+     <!-- Alertas -->
+     <div class="wrapper">
+        <div id="toast" class ="success">
+            <div class="container-1">
+                <i class="fas fa-check-square"></i>
+            </div>
+            <div class="container-2">
+                <p>Pago Exitoso</p>
+                <p>Pago Realizado Con Exito.</p>
+            </div>
+            <button id="close" onclick="closeToast()">&times;</button>
+        </div>
+        <div id="toast2" class="error">
+            <div class="container-1">
+                <i class="fas fa-times-circle"></i>
+            </div>
+            <div class="container-2">
+                <p>Pago No Exitoso</p>
+                <p>Pago Realizado Sin Exito.</p>
+            </div>
+            <button id="close" onclick="closeToast()">&times;</button>
+        </div>
+    </div>
+<!-- Fin xD -->
+   
+    <div class="contenedor-mapa">
+        <div class="mapa">
+            <img class="img-lote" src="img/manzanas-alamar.png" alt="">
+        </div>
+    </div>
+    <span class="arriba">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-circle" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#DE9F27" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <circle cx="12" cy="12" r="9" />
+            <line x1="12" y1="8" x2="8" y2="12" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="16" y1="12" x2="12" y2="8" />
+        </svg>
+    </span>
+    <footer class="footer tres-columnas">
+        <div class="col-1">
+            <p><i class="fas fa-map-marker-alt"></i>Paseo Centenario 10310-101, Zona Urbana Rio Tijuana.</p>
+            <p><i class="fas fa-phone-alt"></i>(664) 391 1328</p>
+            <a href="">Aviso de privacidad</a>
+        </div>
+        <div class="col-2">
+            <a href="https://www.facebook.com/grupoconcordiamx" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+              </svg></a>
+            <a href="https://www.instagram.com/grupoconcordia/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <rect x="4" y="4" width="16" height="16" rx="4" />
+                <circle cx="12" cy="12" r="3" />
+                <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+              </svg></a>
+            <a href="https://www.youtube.com/channel/UCPtc8WHOip-C7gfRXdd2dgw" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <rect x="3" y="5" width="18" height="14" rx="4" />
+                <path d="M10 9l5 3l-5 3z" />
+              </svg></a>
+            <p>Grupo Concordia 2021</p>
+        </div>div class="col-3">
+            <p><i class="far fa-envelope"></i>info@grupoconcordia.com</p>
+            <p><i class="far fa-clock"></i>Horario de atención:<br>L-V 9:00 a 6:00 pm <br>S 9:00 a 4:00 pm</p>
+        </div>
+    </footer>
+    
+    <script src="./js/loader.js"></script>
+    <script src="./js/navegacion.js"></script>
+    <script src="./js/alertas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>
+</html>
