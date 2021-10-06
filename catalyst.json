@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "targets": [
+      "ecommerce"
+    ],
+    "ignore": [],
+    "source": "functions"
+  },
+  "client": {
+    "source": "client"
+  }
+}

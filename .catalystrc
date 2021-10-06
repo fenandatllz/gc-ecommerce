@@ -1,0 +1,29 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "8253000000062062",
+      "name": "GC-eCommerce",
+      "domain": {
+        "id": "10033156662",
+        "name": "gc-ecommerce-755070814.development"
+      },
+      "env": [
+        {
+          "idx": 1,
+          "id": "755070814",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}

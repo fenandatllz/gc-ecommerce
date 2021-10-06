@@ -1,0 +1,10 @@
+{
+	"deployment": {
+		"name": "ecommerce",
+		"stack": "node12",
+		"type": "advancedio"
+	},
+	"execution": {
+		"main": "server.js"
+	}
+}
