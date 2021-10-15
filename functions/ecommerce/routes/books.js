@@ -23,7 +23,7 @@ router.get('/getIdProducto/:id', async (req, res) => {
   // Realizar peticion con Axios
   try {
     const resp = await axios(config)
-    res.send(resp.data.items[0].item_id)
+    res.json(resp.data.items[0].item_id)
     // console.log(resp.data)
   } catch (error) {
     console.log(error)
@@ -236,6 +236,31 @@ router.get('/getContacto/:id', async (req, res) => {
     res.send(resp.data)
   } catch (error) {
     console.log(error)
+  }
+})
+
+//Sincronizar contacto books
+router.get('/syncContactoBooks/:id', async (req, res) => {
+  // obtener access token
+  const accessToken = await catalystToken(req)
+
+  //Conf Axios
+  const contactID = req.params.id
+
+  const config = {
+    method: 'post',
+    url: `https://books.zoho.com/api/v3/crm/contact/${contactID}/import?organization_id=${process.env.ORGANIZATION_BOOKS}`,
+    headers: {
+      Authorization: `Zoho-oauthtoken ${accessToken}`,
+    },
+  }
+
+  // Realizar peticion con Axios
+  try {
+    const resp = await axios(config)
+    res.send(resp.data)
+  } catch (error) {
+    res.status(400).send(error)
   }
 })
 
