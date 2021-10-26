@@ -41,8 +41,8 @@
 <main class="contenedor">
     <div class="descripcion">
         <article>
-            <h1>Descripción</h1>
-            <div class="division-detalle"></div>
+            <h1>Costa Dorada</h1>
+            <div class="division-detalle "></div>
                 <p class="parrafo-descripcion">Costa Dorada es uno de nuestros desarrollos que cuenta con todos los servicios necesarios para ser habitado.
                   Se ubica en una zona estratégica, con fácil acceso a cualquiera de nuestras ciudades vecinas: Tijuana, Rosarito y San Diego.
                   Justo en la puerta de entrada a la zona dorada del corredor turístico Rosarito – Ensenada.</p>
@@ -80,43 +80,16 @@
 
     <div class="contenedor-mapa">
         <div class=contenedor-select> 
-            <select name="secciones" class="secciones">
+            <select id="desarrollo" name="secciones" class="secciones">
               <option disabled selected> Seleccionar Sección </option>
-              <option value="1">Costa Dorada "Elite"</option>
-              <option value="2">Costa Dorada "Oro"</option>
-              <option value="3">Costa Dorada "Perla"</option>
+              <option>Costa Dorada "Elite"</option>
+              <option>Costa Dorada "Oro"</option>
+              <option>Costa Dorada "Perla"</option>
             </select>
-            <select name="modelo" class="modelo">
-              <option disabled selected> Seleccionar Modelo </option>
-              <option value="1">Costa Dorada Solera</option>
-              <option value="2">Costa Dorada Sunset</option>
-              <option value="3">Costa Dorada Ocaso</option>
-              <option value="4">Costa Dorada Alba</option>
-              <option value="5">Costa Dorada Isla</option>
-            </select>  
+            <button id="get-desarrollo" class="seleccion-btn">Escoger desarrollo</button>
         </div>
-        <div class="mapa">
-            <div class="manzana-secc1">
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-            </div>
-            <div class="manzana-secc2">
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-            </div>
-            <div class="manzana-secc3">
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-                <a href="lotificacion-costa-dorada.html"><img src="img/manzanas-alamar.png" alt=""></a>
-            </div>      
+        <div  id="mapa-interactivo" class="mapa-interactivo">
+        
         </div>
     </div>
     <!-- Flecha navegacion arriba -->

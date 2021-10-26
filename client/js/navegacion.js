@@ -17,27 +17,6 @@ $(document).ready(function(){
 
 });
 
-//seleccion de secciones
-$('.secciones').change(function(){
-    var valorCambiado =$(this).val();
-    if((valorCambiado == '1')){
-       $('.manzana-secc1').css('display','block');
-	   $('.manzana-secc2').css('display','none');
-	   $('.manzana-secc3').css('display','none');
-	   
-     }
-	 else if(valorCambiado == '2'){
-		$('.manzana-secc2').css('display','block');
-		$('.manzana-secc1').css('display','none');
-		$('.manzana-secc3').css('display','none');
-	 }
-	 else if(valorCambiado == '3'){
-		$('.manzana-secc3').css('display','block');
-		$('.manzana-secc1').css('display','none');
-		$('.manzana-secc2').css('display','none');
-	 }
-});
-
 // Carrusel
 if(document.querySelector('#container-slider')){
     setInterval('fntExecuteSlide("next")',5000);

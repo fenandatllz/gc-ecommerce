@@ -1,0 +1,57 @@
+<svg id="M3" data-desarrollo="villa-prueba" data-name="Manzana 3" data-lotificacion xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 630 377">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: rgba(223, 233, 233, 0.863);
+        stroke: #000;
+        stroke-width: 1px;
+        fill-rule: evenodd;
+      }
+      .cls-1:hover{
+          fill: rgba(238, 208, 40, 0.781);
+        }
+      .Manzanas{
+        fill: red;
+        display: none;
+      }
+
+    </style>
+  </defs>
+  <g id="map" pointer-events="all">
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L1" class="cls-1" d="M592,299l8-46-44-10Z"/>
+    <path data-lote id="M3-L2" class="cls-1" d="M603,232l-47-10-2,12s-1.367,7.473,3,9,43,10,43,10Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L3" class="cls-1" d="M608,206l-47-10-5,26,47,10Z"/>
+    <path data-lote id="M3-L4" class="cls-1" d="M613,176l-50,2-2,18,46,10Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L5" class="cls-1" d="M620,133l-12-5-48,34s5.474,0.035,3,16c14.968,0,50.591-2.591,50-2S620,133,620,133Z"/>
+    <path data-lote id="M3-L6" class="cls-1" d="M608,128l-47,33-17-7,19-48Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L7" class="cls-1" d="M518,141l26,13,19-47L539,95Z"/>
+    <path data-lote id="M3-L8" class="cls-1" d="M494,130l24,11,21-46L515,83Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L9" class="cls-1" d="M470,119l24,11,21-46L492,73Z"/>
+    <path data-lote id="M3-L10" class="cls-1" d="M440,105l30,14,22-46L461,58Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L11" class="cls-1" d="M416,94l24,11,22-47L438,47Z"/>
+    <path data-lote id="M3-L12" class="cls-1" d="M390,82l27,12,21-47L410,33Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L13" class="cls-1" d="M365,71l25,10,20-48L383,20Z"/>
+    <path data-lote id="M3-L14" class="cls-1" d="M346,74L307,33l9-17s5.729-19.987,66,3c-4.473,17.665-17,51-17,51S349.252,60.1,346,74Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L15" class="cls-1" d="M346,73l-6,21-7,7L300,65l7-32Z"/>
+    <path data-lote id="M3-L16" class="cls-1" d="M300,65L286,78l29,40,18-18Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L17" class="cls-1" d="M267,93l29,40,19-15L286,78Z"/>
+    <path data-lote id="M3-L18" class="cls-1" d="M267,93l-20,15,29,40,21-15Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L19" class="cls-1" d="M227,122l28,42,21-16-29-40Z"/>
+    <path data-lote id="M3-L20" class="cls-1" d="M227,122l-20,15,29,40,19-14Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L21" class="cls-1" d="M208,138l-21,15,28,39,21-15Z"/>
+    <path data-lote id="M3-L22" class="cls-1" d="M187,153l-18,14,27,39,20-14Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L23" class="cls-1" d="M169,167l-21,13,29,40,19-14Z"/>
+    <path data-lote id="M3-L24" class="cls-1" d="M149,180l-31,20,46,29,13-9Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L25" class="cls-1" d="M118,200c-0.591-2.661,5,45,5,45l39,2s-1.548-18.3,2-18S118.591,202.661,118,200Z"/>
+    <path data-lote id="M3-L26" class="cls-1" d="M123,245l4,36,32-1s6.331,2.231,6-11a90.76,90.76,0,0,0-3-22Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L27" class="cls-1" d="M122,245l-20,2,4,37,21-2Z"/>
+    <path data-lote id="M3-L28" class="cls-1" d="M102,248l-22,2,3,29s0.553,6.55,8,6,15-1,15-1Z"/>
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M3-L29" class="cls-1" d="M57,188l2,19H74l6,43,43-5-4-45,29-21Z"/>
+    <path id="Linea1" class="cls-1" d="M599,368l-8-69"/>
+    <path id="Linea2" class="cls-1" d="M570,368v-8l-7-48-23-45s-0.511-6.334-15-5c2.82,33.081,5,54,5,54l-14,51"/>
+    <path data-manzana ="M1" id="M1" class="cls-1" d="M388,103l23,11s5.453,5.131,0,12-15,31-15.007,31q-25.518,51.017-51.243,102.2s-3.717,4.693-12.032,5.315C323.973,265.172,190.032,275.006,190,275c0,0-3.809-.052-5-6s-3-24-3-24,1.558-5.384,3.963-8.1c2.69-3.033,139-100.93,139.032-100.9,0,0,7.891-4.91,9-7s20-21,20-21,1.7-5.017,2-6,4-9,4-9,3.181-3.152,7-1,21,11,21,11"/>
+    <path data-manzana ="M2" id="M2" class="cls-1" d="M364,254l63-128s3.521-5.482,8-2,106,51,106,51,4.045,0.994,3,9-11,57-11,57,0.483,5.824-8,7-155,14-155,14S359.144,263.888,364,254Z"/>
+    <path data-manzana ="M3" id="M3" class="cls-1" d="M525,262L290,286,75,303s-7.966.716-8-12S57,188,57,188L8,195,32,358l287-19,210-23Z"/>
+  <!-- <path data-manzana ="M4" id="M4" class="cls-1" d="M592,300l28-167L383,19,340,8a30.065,30.065,0,0,0-11,0,24.732,24.732,0,0,0-13,8c-3.41,3.857-9,16-9,16l-7,34L149,180l-92,8,2,20H75l8,73s-0.781,4.078,7,4,71-6,71-6,4.972,1.473,4-10-3-30-3-30-1.276-7.8,4-10S315,119,315,119l25-26,6-19s4.7-12.717,19-3c15.983,6.544,196,91,196,91s5.223,0.223,2,15-9,52-9,52-1.931,13.918,4,19S592,300,592,300Z"/> -->
+  </g>
+</svg> 

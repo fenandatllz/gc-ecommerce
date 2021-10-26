@@ -1,0 +1,41 @@
+ <svg id="M1" data-desarrollo="villa-prueba" data-name="Manzana 1" data-lotificacion xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 630 377">
+    <defs>
+      <style>
+        .cls-1 {
+          fill: rgba(223, 233, 233, 0.863);
+          stroke: #000;
+          stroke-width: 1px;
+          fill-rule: evenodd;
+        }
+        .cls-1:hover{
+            fill: rgba(238, 208, 40, 0.781);
+          }
+        .Manzanas{
+          fill: red;
+          display: none;
+        }
+  
+      </style>
+    </defs>
+    <g id="map" pointer-events="all">
+    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M1-L1" class="cls-1" d="M217,214l-32,24s-3.027,1.867-3,7,3,26,3,26a5.927,5.927,0,0,0,6,4c4.6-.34,33-3,33-3Z"/>
+    <path data-lote id="M1-L2" class="cls-1" d="M224,272l40-3-3-38-40,13Z"/>
+    <path data-lote data-costototal='20000' data-dimension='200' data-costom2='200' id="M1-L3" class="cls-1" d="M261,231l3,38,27-2-4-44Z"/>
+    <path data-lote id="M1-L4" class="cls-1" d="M287,223l4,44,24-1-4-51Z"/>
+    <path data-lote data-costototal='30000' data-dimension='300' data-costom2='300' id="M1-L5" class="cls-1" d="M315,210l-4,5,4,50,21-1s7.269-.691,10-6,11-22,11-22Z"/>
+    <path data-lote id="M1-L6" class="cls-1" d="M315,211l41,25,12-24-37-22Z"/>
+    <path data-lote data-costototal='40000' data-dimension='400' data-costom2='400' id="M1-L7" class="cls-1" d="M331,190l37,22,13-27-33-20Z"/>
+    <path data-lote id="M1-L8" class="cls-1" d="M348,165l33,20,16-31-30-17Z"/>
+    <path data-lote data-costototal='50000' data-dimension='500' data-costom2='500' id="M1-L9" class="cls-1" d="M371,139l26,15,15-31s3.123-5.771-2-9-23-11-23-11Z"/>
+    <path data-lote id="M1-L10" class="cls-1" d="M379,120l8-17L366,92s-4.569-2.758-6,3-6,13-6,13Z"/>
+    <path data-lote data-costototal='60000' data-dimension='600' data-costom2='600' id="M1-L11" class="cls-1" d="M379,120l-24-12-14,14,30,17Z"/>
+    <path data-lote id="M1-L12" class="cls-1" d="M337,180l30-43-26-16-12,12-15,12Z"/>
+    <path data-lote data-costototal='70000' data-dimension='700' data-costom2='700' id="M1-L13" class="cls-1" d="M270,228l17-5,24-8,27-35-24-35-67,47Z"/>
+    <path data-lote id="M1-L14" class="cls-1" d="M221,244l49-16-23-36-30,22Z"/>
+    </g>
+  <path id="Linea1" class="cls-1" d="M599,368l-8-69"/>
+  <path id="Linea2" class="cls-1" d="M570,368v-8l-7-48-23-45s-0.511-6.334-15-5c2.82,33.081,5,54,5,54l-14,51"/>
+  <path data-manzana ="M2" id="M2" class="cls-1" d="M364,254l63-128s3.521-5.482,8-2,106,51,106,51,4.045,0.994,3,9-11,57-11,57,0.483,5.824-8,7-155,14-155,14S359.144,263.888,364,254Z"/>
+  <path data-manzana ="M3" id="M3" class="cls-1" d="M525,262L290,286,75,303s-7.966.716-8-12S57,188,57,188L8,195,32,358l287-19,210-23Z"/>
+  <path data-manzana ="M4" id="M4" class="cls-1" d="M592,300l28-167L383,19,340,8a30.065,30.065,0,0,0-11,0,24.732,24.732,0,0,0-13,8c-3.41,3.857-9,16-9,16l-7,34L149,180l-92,8,2,20H75l8,73s-0.781,4.078,7,4,71-6,71-6,4.972,1.473,4-10-3-30-3-30-1.276-7.8,4-10S315,119,315,119l25-26,6-19s4.7-12.717,19-3c15.983,6.544,196,91,196,91s5.223,0.223,2,15-9,52-9,52-1.931,13.918,4,19S592,300,592,300Z"/>
+  </svg>

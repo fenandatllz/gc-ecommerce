@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/load.css" />
+    <link rel="stylesheet" href="./css/login.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -26,6 +27,7 @@
           src="https://download-accl.zoho.com/v1/docs/prv/i8756b24e8c232e0c4decb5911f28b49469b0?_t=1630356068833"
         />
       </a>
+      <button class="btn-login">Iniciar Sesión</button>
     </nav>
     <header class="portada">
       <div id="container-slider">
@@ -62,7 +64,7 @@
     <main class="contenedor">
       <div class="descripcion">
         <article>
-          <h1>Descripción</h1>
+          <h1 id="nombre-desarrollo">Villa Prueba</h1>
           <div class="division-detalle"></div>
           <p class="parrafo-descripcion">
             Villa Prueba se encuentra en el corazón industrial de Tijuana a solo
@@ -95,288 +97,169 @@
         </div>
       </div>
     </main>
-
     <div class="contenedor-mapa">
-      <div class="contenedor-select">
-        <select name="secciones" class="secciones">
-          <option disabled selected>Seleccionar Sección</option>
-          <option value="1">Villa Prueba</option>
-          <option value="2">Villa Prueba "Segunda Sección"</option>
-          <option value="3">Villa Prueba "Tercera Sección"</option>
-        </select>
+      <!-- <div class=contenedor-select> 
+      <select id="desarrollo" name="secciones" class="secciones">
+        <option disabled selected> Seleccionar Sección </option>
+        <option>Villa Prueba</option>
+        <option>Villa Prueba "Segunda Sección"</option>
+        <option>Villa Prueba "Tercera Sección"</option>
+    </select>
+    <button id="get-desarrollo" class="seleccion-btn">Escoger desarrollo</button>
+  </div> -->
+      <div id="mapa-interactivo" class="mapa-interactivo"></div>
+    </div>
+    <div id="info-lote" class="burbuja"></div>
+    <!-- MODAL PAGO DE APARTADO -->
+    <div class="popup-overlay"></div>
+    <div id="modal" class="popup">
+      <div id="popup-apartado-close" class="popup-close">×</div>
+      <form class="form">
+        <div class="header">
+          Introduzca Datos del Contacto
+          <div class="division-modal"></div>
+        </div>
+        <div class="element">
+          <span class="info-apartado"> </span>
+        </div>
+        <div class="element">
+          <input
+            type="text"
+            id="nombres-cliente"
+            placeholder="Nombre(s)"
+            required
+          />
+        </div>
+        <div class="element">
+          <input
+            type="text"
+            id="apellidos-cliente"
+            placeholder="Apellidos"
+            required
+          />
+        </div>
+        <div class="element">
+          <input
+            type="email"
+            id="correo-cliente"
+            placeholder="Correo electrónico"
+            required
+          />
+        </div>
+        <div class="element">
+          <select name="monto-pago" id="monto-pago" required>
+            <option value="0" disabled>Seleccione Monto de Apartado</option>
+            <option value="1">$ 50.00 DLLS</option>
+            <option value="2">$ 100.00 DLLS</option>
+            <option value="3">$ 150.00 DLLS</option>
+            <option value="4">$ 200.00 DLLS</option>
+          </select>
+        </div>
+        <div class="element">
+          <button type="submit" id="btn-enviar" class="enviar">Enviar</button>
+        </div>
+        <div class="element">
+          <button type="submit" id="btn-cancelar" class="cancelar">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- Alertas -->
+    <div class="wrapper">
+      <div id="toast" class="success">
+        <div class="container-1">
+          <i class="fas fa-check-square"></i>
+        </div>
+        <div class="container-2">
+          <p>Apartado Exitoso</p>
+          <p>Apartado Realizado Con Exito.</p>
+        </div>
+        <button id="close">&times;</button>
       </div>
-
-      <div class="mapa">
-        <div class="manzana-secc1">
-          <svg
-            id="Lineas"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            width="100%"
-            height="100%"
-            viewBox="0 0 630 377"
-          >
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: rgba(223, 233, 233, 0.863);
-                  stroke: #000;
-                  stroke-width: 1px;
-                  fill-rule: evenodd;
-                }
-                .cls-1:hover {
-                  fill: rgba(238, 208, 40, 0.781);
-                  cursor: pointer;
-                }
-              </style>
-            </defs>
-            <path id="Linea1" class="cls-1" d="M599,368l-8-69" />
-            <path
-              id="Linea2"
-              class="cls-1"
-              d="M570,368v-8l-7-48-23-45s-0.511-6.334-15-5c2.82,33.081,5,54,5,54l-14,51"
-            />
-            <image
-              id="Ciculo"
-              x="298"
-              y="198"
-              width="26"
-              height="23"
-              xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAXCAYAAAAV1F8QAAAB7UlEQVRIib2WvUtdQRDFfz6IGIOKphEro2BhoQRjsPIDnoUQRIhWoo2Q1kBSKgb8C0QsUthokiKvsVAshMS0AREVIgjaKGKh3IiCKUwMA2dhc/P2vndFPHDh7uzsOTuzsx8lJOMBkAX6gOdAPfBYI06BA+A7sAp8Aa4L8P2Hh8Ab4Ai4KfI7BF4DpcWKdAB7HvkOMAl0ArWen/33AO/k4/x3gWeFRIaBX55Ab4osWHp/aOwV8DLk2K8cm+McUJZCxKEceC+Oa3H+g0bgQg7TtxCIY0pcUSzdLKsjdwciDjlxfnCGpzKcA3WyrXmLuy9bNlZ9WY90SLY1z2aRXAJ/gOaMCsAwDxznmVkDUA20BWb+Cvicx34CLAC2V0dMqFsdSwlpyAaEbrT4ITjOLhNqUmMrYUCDvjhKVEghbMveZEIVapwHnA+8iDYC/SFEsldkVNaGqoDzhrfwUcAnhGrZLzI6bgytCRH5omnQIt89E1pXY6BA+NEtInKc30zooxpj3j7y4aJIK2L7aFSVuWhCm8AKUAnMBKJBKUwjNgs8Aj7ZYZuRcVy7eDB21kWxNUqqMB9T4voJvI133svp7XAv95FDvht2InDD2vFlaUp9wzrc+ZuhmFeQvQteAO3AE6BGfWfeK8iq9ivwOy8L8BdBCpkoxCKs6QAAAABJRU5ErkJggg=="
-            />
-            <image
-              id="Ciculo-2"
-              data-name="Ciculo"
-              x="453"
-              y="194"
-              width="24"
-              height="22"
-              xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAWCAYAAADafVyIAAAB9ElEQVRIiZ2Vvy8sURTHP7uPQiPZ5KG2BQ2RsAkKNK9SaGRLsV6xEv8AtQKlRKPwo/XrFSpb6OiMQqmwGsF7EkQl8li5m+/EyTWzO5xkMnO/59zv955z75yborb1AOPAENAJ/ARegBvgCjgC/gBndXg+WT9wAFQSPiVgIAnxD2AeeBXxE7AB5JVBBmgDuoStK8bFvgHLQGMceZNZtSvDAtCcYFHNin3hI5umqMAtBfxNmq5nA5rrOLZ956Qcj0D3N8hD6xZHRZxVc+lcC/wtzG5uXti9wYrajx2DBUCfOCrirJZqQsAJkIoQWAKyHlYUXpFI6L8Qx6nGE2lgTKSrAn37pZX5FmIPygYJtQObGle5L0WcNQThSu/1LEWUyNqs8WVMRo6bZw1SEQKBEQpiBDJGPBCW0vg5XedUPJgSlGNiiqZEc77TCdzquz1iclkCxAhkVR5nu8Chx3WbNmmN1MgiTmBWq3cx0wYf1TtwAvsazHj7UC+DPrMX0ybOcUzpe98J7Kn95owjSQZ5871j/oMC0CvOvTDAtopchEhSy5lWUfDnbMvxDxj+Bvmw5kY2O9Q3Sgr4Dyx+oV0vak7Ndu2sQX/tm7lw1lTvDp2YVnPhOJ+9cFZqXTjWBk02SR4X6+Z8sq9e+i3C74Bz4FgnJfrSB94BG3+3/MU6EDUAAAAASUVORK5CYII="
-            />
-            <image
-              id="Ciculo-3"
-              data-name="Ciculo"
-              x="332"
-              y="28"
-              width="25"
-              height="22"
-              xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAWCAYAAAA1vze2AAACJklEQVRIiaWWzUuVURDGf95MBEG4qywXpYUVEYHXXdQitIVUYqTk/xCFKyFctnHlBwpZiVEQSNDGICIQt5IuokUhqG1SaSNE+VViDDwHhnPf995XG3jvnDNnZp6Z8zFzKyhNx4BO4BpwETgB1AI/gVXgMzADvAF+lPFVRGeAF8AusJ/h2wLGgFNZAe4Dm3K8B7yTrBk4DlSL2/wB8F56+7K7V8r5EeCZi/o1cC5jYOelH2zH5a+IRqXwJ9qeRil6WR9QAOYj+RSwo/FQDNChBVOYjAy75DAG+ZByVqMO6JY5zwFHHepD4GsUgAG0JmQeMlwGWpz8F/BI40Gg0kCu61YsAsMpzvIJ8tNAhbinDWAAWJFtq4H0SOEJ8DcyWFYW9i0kHaS2bV7jAGBX/7lkPQZy2SnHtKAsCnJQjvI6L6Np8Ss5veIQdUxelpZJm75ABfEV8bqcW6xOcLCRMjZa0g1aioIpOj8DWdP4ZAKIjz7ONG37gl6D+LqBzGlytUwm8XaFeaOyieU3xT/az12l/cXutA7Ov/awLUSPMa/yET9Soypn1xUE3yToTdmCg1K/O6+qYNvpykr7fwLccGWlI14MBdLK9Z1DAnSrt5ifkSQFK80Tbn9fAk0ZnZ8FXjnbp2mlHtWiXheNNaO3akSX1HqNjNvc5Lbum5Y1skxkt8pq2XbG9mt6j93bKIq8FNUBt1UgLwD1QA3wG/gOfAJm9UdiPdER8A9WU7Vx0AgOsAAAAABJRU5ErkJggg=="
-            />
-            <image
-              id="Ciculo-4"
-              data-name="Ciculo"
-              x="256"
-              y="304"
-              width="25"
-              height="22"
-              xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAWCAYAAAA1vze2AAAB0ElEQVRIibWWPS9FQRCGH0eiolBIBCFuT+GqVCT8AB/XT0CiQSRqrUpBUCCUJCRaEn4AjUZ3RUF0Cp8RQUbelc3ePfcewptssjsz+87snDOzW0V5NAKDQB/QCTQBdcA9cAOcA8fAPnBbgasE7cAq8AJ8ZBgvsm/P6mAKeBLxq6KcADqABtk0aD0h/avsbd80kJqhamDdi3obaMkYWIvs3d4N8ZVgSQaW75Gsxw4wov3Gsxwqh6V4BHp+6cChRzwf4v1CDXAl4SwwF3zonOx82ZxHuhOxn9TceGsSYBRoBS6AxUhkeY0Y6oH+iHxFfMZbSFQHhk3gLcVJjAjJzdFdIH8Xn2HInHRrcZBClBNRDAU52I3oHF+3OWnW4jJiWFS0Ns4CnUtVzIHP15ykGDiciSwfSYlLVZqTb5iTay1iLaEYOPRRkP4ohdvxXZuTUy0GIoZ3KXN0upx+1TFPfhjwnSbqPYbxSCvwoy+SHYn4cPzlijEfFFmsGA1rlYrROuiMjOeBtiBF7gRZT9IFLGg+I/5vLP93g0TfY+uPWv1WWqtHl830Dy+tPe/Seq50afn47fXrOnZJ5OVgD4khoFcPCWtBtcCDitgeEic6TfwhAXwCD9+gq2YxhmIAAAAASUVORK5CYII="
-            />
-            <a
-              href="lotificacion-villa-prueba.html?Desarrollo=VILLA PRUEBA&Manzana=M1"
-            >
-              <path
-                id="M1"
-                class="cls-1"
-                d="M388,103l23,11s5.453,5.131,0,12-15,31-15.007,31q-25.518,51.017-51.243,102.2s-3.717,4.693-12.032,5.315C323.973,265.172,190.032,275.006,190,275c0,0-3.809-.052-5-6s-3-24-3-24,1.558-5.384,3.963-8.1c2.69-3.033,139-100.93,139.032-100.9,0,0,7.891-4.91,9-7s20-21,20-21,1.7-5.017,2-6,4-9,4-9,3.181-3.152,7-1,21,11,21,11"
-              />
-            </a>
-            <a
-              href="lotificacion-villa-prueba.html?Desarrollo=VILLA PRUEBA&Manzana=M2"
-            >
-              <path
-                id="M2"
-                class="cls-1"
-                d="M364,254l63-128s3.521-5.482,8-2,106,51,106,51,4.045,0.994,3,9-11,57-11,57,0.483,5.824-8,7-155,14-155,14S359.144,263.888,364,254Z"
-              />
-            </a>
-            <a href="lotificacion-villa-prueba.html">
-              <path
-                id="M3"
-                class="cls-1"
-                d="M525,262L290,286,75,303s-7.966.716-8-12S57,188,57,188L8,195,32,358l287-19,210-23Z"
-              />
-            </a>
-            <a href="lotificacion-villa-prueba.html">
-              <path
-                id="M4"
-                class="cls-1"
-                d="M592,300l28-167L383,19,340,8a30.065,30.065,0,0,0-11,0,24.732,24.732,0,0,0-13,8c-3.41,3.857-9,16-9,16l-7,34L149,180l-92,8,2,20H75l8,73s-0.781,4.078,7,4,71-6,71-6,4.972,1.473,4-10-3-30-3-30-1.276-7.8,4-10S315,119,315,119l25-26,6-19s4.7-12.717,19-3c15.983,6.544,196,91,196,91s5.223,0.223,2,15-9,52-9,52-1.931,13.918,4,19S592,300,592,300Z"
-              />
-            </a>
-          </svg>
+      <div id="toast2" class="error">
+        <div class="container-1">
+          <i class="fas fa-times-circle"></i>
         </div>
-        <div class="manzana-secc2">
-          <svg
-            id="Lineas"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            width="100%"
-            height="100%"
-            viewBox="0 0 630 377"
-          >
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: rgba(223, 233, 233, 0.863);
-                  stroke: #000;
-                  stroke-width: 1px;
-                  fill-rule: evenodd;
-                }
-                .cls-1:hover {
-                  fill: rgba(238, 208, 40, 0.781);
-                }
-              </style>
-            </defs>
-            <path id="Linea1" class="cls-1" d="M599,368l-8-69" />
-            <path
-              id="Linea2"
-              class="cls-1"
-              d="M570,368v-8l-7-48-23-45s-0.511-6.334-15-5c2.82,33.081,5,54,5,54l-14,51"
-            />
-            <image
-              id="Ciculo"
-              x="298"
-              y="198"
-              width="26"
-              height="23"
-              xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAXCAYAAAAV1F8QAAAB7UlEQVRIib2WvUtdQRDFfz6IGIOKphEro2BhoQRjsPIDnoUQRIhWoo2Q1kBSKgb8C0QsUthokiKvsVAshMS0AREVIgjaKGKh3IiCKUwMA2dhc/P2vndFPHDh7uzsOTuzsx8lJOMBkAX6gOdAPfBYI06BA+A7sAp8Aa4L8P2Hh8Ab4Ai4KfI7BF4DpcWKdAB7HvkOMAl0ArWen/33AO/k4/x3gWeFRIaBX55Ab4osWHp/aOwV8DLk2K8cm+McUJZCxKEceC+Oa3H+g0bgQg7TtxCIY0pcUSzdLKsjdwciDjlxfnCGpzKcA3WyrXmLuy9bNlZ9WY90SLY1z2aRXAJ/gOaMCsAwDxznmVkDUA20BWb+Cvicx34CLAC2V0dMqFsdSwlpyAaEbrT4ITjOLhNqUmMrYUCDvjhKVEghbMveZEIVapwHnA+8iDYC/SFEsldkVNaGqoDzhrfwUcAnhGrZLzI6bgytCRH5omnQIt89E1pXY6BA+NEtInKc30zooxpj3j7y4aJIK2L7aFSVuWhCm8AKUAnMBKJBKUwjNgs8Aj7ZYZuRcVy7eDB21kWxNUqqMB9T4voJvI133svp7XAv95FDvht2InDD2vFlaUp9wzrc+ZuhmFeQvQteAO3AE6BGfWfeK8iq9ivwOy8L8BdBCpkoxCKs6QAAAABJRU5ErkJggg=="
-            />
-            <image
-              id="Ciculo-2"
-              data-name="Ciculo"
-              x="453"
-              y="194"
-              width="24"
-              height="22"
-              xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAWCAYAAADafVyIAAAB9ElEQVRIiZ2Vvy8sURTHP7uPQiPZ5KG2BQ2RsAkKNK9SaGRLsV6xEv8AtQKlRKPwo/XrFSpb6OiMQqmwGsF7EkQl8li5m+/EyTWzO5xkMnO/59zv955z75yborb1AOPAENAJ/ARegBvgCjgC/gBndXg+WT9wAFQSPiVgIAnxD2AeeBXxE7AB5JVBBmgDuoStK8bFvgHLQGMceZNZtSvDAtCcYFHNin3hI5umqMAtBfxNmq5nA5rrOLZ956Qcj0D3N8hD6xZHRZxVc+lcC/wtzG5uXti9wYrajx2DBUCfOCrirJZqQsAJkIoQWAKyHlYUXpFI6L8Qx6nGE2lgTKSrAn37pZX5FmIPygYJtQObGle5L0WcNQThSu/1LEWUyNqs8WVMRo6bZw1SEQKBEQpiBDJGPBCW0vg5XedUPJgSlGNiiqZEc77TCdzquz1iclkCxAhkVR5nu8Chx3WbNmmN1MgiTmBWq3cx0wYf1TtwAvsazHj7UC+DPrMX0ybOcUzpe98J7Kn95owjSQZ5871j/oMC0CvOvTDAtopchEhSy5lWUfDnbMvxDxj+Bvmw5kY2O9Q3Sgr4Dyx+oV0vak7Ndu2sQX/tm7lw1lTvDp2YVnPhOJ+9cFZqXTjWBk02SR4X6+Z8sq9e+i3C74Bz4FgnJfrSB94BG3+3/MU6EDUAAAAASUVORK5CYII="
-            />
-            <image
-              id="Ciculo-3"
-              data-name="Ciculo"
-              x="332"
-              y="28"
-              width="25"
-              height="22"
-              xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAWCAYAAAA1vze2AAACJklEQVRIiaWWzUuVURDGf95MBEG4qywXpYUVEYHXXdQitIVUYqTk/xCFKyFctnHlBwpZiVEQSNDGICIQt5IuokUhqG1SaSNE+VViDDwHhnPf995XG3jvnDNnZp6Z8zFzKyhNx4BO4BpwETgB1AI/gVXgMzADvAF+lPFVRGeAF8AusJ/h2wLGgFNZAe4Dm3K8B7yTrBk4DlSL2/wB8F56+7K7V8r5EeCZi/o1cC5jYOelH2zH5a+IRqXwJ9qeRil6WR9QAOYj+RSwo/FQDNChBVOYjAy75DAG+ZByVqMO6JY5zwFHHepD4GsUgAG0JmQeMlwGWpz8F/BI40Gg0kCu61YsAsMpzvIJ8tNAhbinDWAAWJFtq4H0SOEJ8DcyWFYW9i0kHaS2bV7jAGBX/7lkPQZy2SnHtKAsCnJQjvI6L6Np8Ss5veIQdUxelpZJm75ABfEV8bqcW6xOcLCRMjZa0g1aioIpOj8DWdP4ZAKIjz7ONG37gl6D+LqBzGlytUwm8XaFeaOyieU3xT/az12l/cXutA7Ov/awLUSPMa/yET9Soypn1xUE3yToTdmCg1K/O6+qYNvpykr7fwLccGWlI14MBdLK9Z1DAnSrt5ifkSQFK80Tbn9fAk0ZnZ8FXjnbp2mlHtWiXheNNaO3akSX1HqNjNvc5Lbum5Y1skxkt8pq2XbG9mt6j93bKIq8FNUBt1UgLwD1QA3wG/gOfAJm9UdiPdER8A9WU7Vx0AgOsAAAAABJRU5ErkJggg=="
-            />
-            <image
-              id="Ciculo-4"
-              data-name="Ciculo"
-              x="256"
-              y="304"
-              width="25"
-              height="22"
-              xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAWCAYAAAA1vze2AAAB0ElEQVRIibWWPS9FQRCGH0eiolBIBCFuT+GqVCT8AB/XT0CiQSRqrUpBUCCUJCRaEn4AjUZ3RUF0Cp8RQUbelc3ePfcewptssjsz+87snDOzW0V5NAKDQB/QCTQBdcA9cAOcA8fAPnBbgasE7cAq8AJ8ZBgvsm/P6mAKeBLxq6KcADqABtk0aD0h/avsbd80kJqhamDdi3obaMkYWIvs3d4N8ZVgSQaW75Gsxw4wov3Gsxwqh6V4BHp+6cChRzwf4v1CDXAl4SwwF3zonOx82ZxHuhOxn9TceGsSYBRoBS6AxUhkeY0Y6oH+iHxFfMZbSFQHhk3gLcVJjAjJzdFdIH8Xn2HInHRrcZBClBNRDAU52I3oHF+3OWnW4jJiWFS0Ns4CnUtVzIHP15ykGDiciSwfSYlLVZqTb5iTay1iLaEYOPRRkP4ohdvxXZuTUy0GIoZ3KXN0upx+1TFPfhjwnSbqPYbxSCvwoy+SHYn4cPzlijEfFFmsGA1rlYrROuiMjOeBtiBF7gRZT9IFLGg+I/5vLP93g0TfY+uPWv1WWqtHl830Dy+tPe/Seq50afn47fXrOnZJ5OVgD4khoFcPCWtBtcCDitgeEic6TfwhAXwCD9+gq2YxhmIAAAAASUVORK5CYII="
-            />
-            <path
-              id="M1"
-              class="cls-1"
-              d="M388,103l23,11s5.453,5.131,0,12-15,31-15.007,31q-25.518,51.017-51.243,102.2s-3.717,4.693-12.032,5.315C323.973,265.172,190.032,275.006,190,275c0,0-3.809-.052-5-6s-3-24-3-24,1.558-5.384,3.963-8.1c2.69-3.033,139-100.93,139.032-100.9,0,0,7.891-4.91,9-7s20-21,20-21,1.7-5.017,2-6,4-9,4-9,3.181-3.152,7-1,21,11,21,11"
-            />
-            <path
-              id="M2"
-              class="cls-1"
-              d="M364,254l63-128s3.521-5.482,8-2,106,51,106,51,4.045,0.994,3,9-11,57-11,57,0.483,5.824-8,7-155,14-155,14S359.144,263.888,364,254Z"
-            />
-            <path
-              id="M3"
-              class="cls-1"
-              d="M525,262L290,286,75,303s-7.966.716-8-12S57,188,57,188L8,195,32,358l287-19,210-23Z"
-            />
-            <path
-              id="M4"
-              class="cls-1"
-              d="M592,300l28-167L383,19,340,8a30.065,30.065,0,0,0-11,0,24.732,24.732,0,0,0-13,8c-3.41,3.857-9,16-9,16l-7,34L149,180l-92,8,2,20H75l8,73s-0.781,4.078,7,4,71-6,71-6,4.972,1.473,4-10-3-30-3-30-1.276-7.8,4-10S315,119,315,119l25-26,6-19s4.7-12.717,19-3c15.983,6.544,196,91,196,91s5.223,0.223,2,15-9,52-9,52-1.931,13.918,4,19S592,300,592,300Z"
-            />
-          </svg>
+        <div class="container-2">
+          <p>Apartado Sin Exito</p>
+          <p>Apartado Realizado Sin Exito.</p>
         </div>
-        <div class="manzana-secc3">
-          <svg
-            id="Lineas"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            width="100%"
-            height="100%"
-            viewBox="0 0 630 377"
-          >
-            <defs>
-              <style>
-                .cls-1 {
-                  fill: rgba(223, 233, 233, 0.863);
-                  stroke: #000;
-                  stroke-width: 1px;
-                  fill-rule: evenodd;
-                }
-                .cls-1:hover {
-                  fill: rgba(238, 208, 40, 0.781);
-                }
-              </style>
-            </defs>
-            <path id="Linea1" class="cls-1" d="M599,368l-8-69" />
-            <path
-              id="Linea2"
-              class="cls-1"
-              d="M570,368v-8l-7-48-23-45s-0.511-6.334-15-5c2.82,33.081,5,54,5,54l-14,51"
-            />
-            <image
-              id="Ciculo"
-              x="298"
-              y="198"
-              width="26"
-              height="23"
-              xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAXCAYAAAAV1F8QAAAB7UlEQVRIib2WvUtdQRDFfz6IGIOKphEro2BhoQRjsPIDnoUQRIhWoo2Q1kBSKgb8C0QsUthokiKvsVAshMS0AREVIgjaKGKh3IiCKUwMA2dhc/P2vndFPHDh7uzsOTuzsx8lJOMBkAX6gOdAPfBYI06BA+A7sAp8Aa4L8P2Hh8Ab4Ai4KfI7BF4DpcWKdAB7HvkOMAl0ArWen/33AO/k4/x3gWeFRIaBX55Ab4osWHp/aOwV8DLk2K8cm+McUJZCxKEceC+Oa3H+g0bgQg7TtxCIY0pcUSzdLKsjdwciDjlxfnCGpzKcA3WyrXmLuy9bNlZ9WY90SLY1z2aRXAJ/gOaMCsAwDxznmVkDUA20BWb+Cvicx34CLAC2V0dMqFsdSwlpyAaEbrT4ITjOLhNqUmMrYUCDvjhKVEghbMveZEIVapwHnA+8iDYC/SFEsldkVNaGqoDzhrfwUcAnhGrZLzI6bgytCRH5omnQIt89E1pXY6BA+NEtInKc30zooxpj3j7y4aJIK2L7aFSVuWhCm8AKUAnMBKJBKUwjNgs8Aj7ZYZuRcVy7eDB21kWxNUqqMB9T4voJvI133svp7XAv95FDvht2InDD2vFlaUp9wzrc+ZuhmFeQvQteAO3AE6BGfWfeK8iq9ivwOy8L8BdBCpkoxCKs6QAAAABJRU5ErkJggg=="
-            />
-            <image
-              id="Ciculo-2"
-              data-name="Ciculo"
-              x="453"
-              y="194"
-              width="24"
-              height="22"
-              xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAWCAYAAADafVyIAAAB9ElEQVRIiZ2Vvy8sURTHP7uPQiPZ5KG2BQ2RsAkKNK9SaGRLsV6xEv8AtQKlRKPwo/XrFSpb6OiMQqmwGsF7EkQl8li5m+/EyTWzO5xkMnO/59zv955z75yborb1AOPAENAJ/ARegBvgCjgC/gBndXg+WT9wAFQSPiVgIAnxD2AeeBXxE7AB5JVBBmgDuoStK8bFvgHLQGMceZNZtSvDAtCcYFHNin3hI5umqMAtBfxNmq5nA5rrOLZ956Qcj0D3N8hD6xZHRZxVc+lcC/wtzG5uXti9wYrajx2DBUCfOCrirJZqQsAJkIoQWAKyHlYUXpFI6L8Qx6nGE2lgTKSrAn37pZX5FmIPygYJtQObGle5L0WcNQThSu/1LEWUyNqs8WVMRo6bZw1SEQKBEQpiBDJGPBCW0vg5XedUPJgSlGNiiqZEc77TCdzquz1iclkCxAhkVR5nu8Chx3WbNmmN1MgiTmBWq3cx0wYf1TtwAvsazHj7UC+DPrMX0ybOcUzpe98J7Kn95owjSQZ5871j/oMC0CvOvTDAtopchEhSy5lWUfDnbMvxDxj+Bvmw5kY2O9Q3Sgr4Dyx+oV0vak7Ndu2sQX/tm7lw1lTvDp2YVnPhOJ+9cFZqXTjWBk02SR4X6+Z8sq9e+i3C74Bz4FgnJfrSB94BG3+3/MU6EDUAAAAASUVORK5CYII="
-            />
-            <image
-              id="Ciculo-3"
-              data-name="Ciculo"
-              x="332"
-              y="28"
-              width="25"
-              height="22"
-              xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAWCAYAAAA1vze2AAACJklEQVRIiaWWzUuVURDGf95MBEG4qywXpYUVEYHXXdQitIVUYqTk/xCFKyFctnHlBwpZiVEQSNDGICIQt5IuokUhqG1SaSNE+VViDDwHhnPf995XG3jvnDNnZp6Z8zFzKyhNx4BO4BpwETgB1AI/gVXgMzADvAF+lPFVRGeAF8AusJ/h2wLGgFNZAe4Dm3K8B7yTrBk4DlSL2/wB8F56+7K7V8r5EeCZi/o1cC5jYOelH2zH5a+IRqXwJ9qeRil6WR9QAOYj+RSwo/FQDNChBVOYjAy75DAG+ZByVqMO6JY5zwFHHepD4GsUgAG0JmQeMlwGWpz8F/BI40Gg0kCu61YsAsMpzvIJ8tNAhbinDWAAWJFtq4H0SOEJ8DcyWFYW9i0kHaS2bV7jAGBX/7lkPQZy2SnHtKAsCnJQjvI6L6Np8Ss5veIQdUxelpZJm75ABfEV8bqcW6xOcLCRMjZa0g1aioIpOj8DWdP4ZAKIjz7ONG37gl6D+LqBzGlytUwm8XaFeaOyieU3xT/az12l/cXutA7Ov/awLUSPMa/yET9Soypn1xUE3yToTdmCg1K/O6+qYNvpykr7fwLccGWlI14MBdLK9Z1DAnSrt5ifkSQFK80Tbn9fAk0ZnZ8FXjnbp2mlHtWiXheNNaO3akSX1HqNjNvc5Lbum5Y1skxkt8pq2XbG9mt6j93bKIq8FNUBt1UgLwD1QA3wG/gOfAJm9UdiPdER8A9WU7Vx0AgOsAAAAABJRU5ErkJggg=="
-            />
-            <image
-              id="Ciculo-4"
-              data-name="Ciculo"
-              x="256"
-              y="304"
-              width="25"
-              height="22"
-              xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAWCAYAAAA1vze2AAAB0ElEQVRIibWWPS9FQRCGH0eiolBIBCFuT+GqVCT8AB/XT0CiQSRqrUpBUCCUJCRaEn4AjUZ3RUF0Cp8RQUbelc3ePfcewptssjsz+87snDOzW0V5NAKDQB/QCTQBdcA9cAOcA8fAPnBbgasE7cAq8AJ8ZBgvsm/P6mAKeBLxq6KcADqABtk0aD0h/avsbd80kJqhamDdi3obaMkYWIvs3d4N8ZVgSQaW75Gsxw4wov3Gsxwqh6V4BHp+6cChRzwf4v1CDXAl4SwwF3zonOx82ZxHuhOxn9TceGsSYBRoBS6AxUhkeY0Y6oH+iHxFfMZbSFQHhk3gLcVJjAjJzdFdIH8Xn2HInHRrcZBClBNRDAU52I3oHF+3OWnW4jJiWFS0Ns4CnUtVzIHP15ykGDiciSwfSYlLVZqTb5iTay1iLaEYOPRRkP4ohdvxXZuTUy0GIoZ3KXN0upx+1TFPfhjwnSbqPYbxSCvwoy+SHYn4cPzlijEfFFmsGA1rlYrROuiMjOeBtiBF7gRZT9IFLGg+I/5vLP93g0TfY+uPWv1WWqtHl830Dy+tPe/Seq50afn47fXrOnZJ5OVgD4khoFcPCWtBtcCDitgeEic6TfwhAXwCD9+gq2YxhmIAAAAASUVORK5CYII="
-            />
-            <path
-              id="M1"
-              class="cls-1"
-              d="M388,103l23,11s5.453,5.131,0,12-15,31-15.007,31q-25.518,51.017-51.243,102.2s-3.717,4.693-12.032,5.315C323.973,265.172,190.032,275.006,190,275c0,0-3.809-.052-5-6s-3-24-3-24,1.558-5.384,3.963-8.1c2.69-3.033,139-100.93,139.032-100.9,0,0,7.891-4.91,9-7s20-21,20-21,1.7-5.017,2-6,4-9,4-9,3.181-3.152,7-1,21,11,21,11"
-            />
-            <path
-              id="M2"
-              class="cls-1"
-              d="M364,254l63-128s3.521-5.482,8-2,106,51,106,51,4.045,0.994,3,9-11,57-11,57,0.483,5.824-8,7-155,14-155,14S359.144,263.888,364,254Z"
-            />
-            <path
-              id="M3"
-              class="cls-1"
-              d="M525,262L290,286,75,303s-7.966.716-8-12S57,188,57,188L8,195,32,358l287-19,210-23Z"
-            />
-            <path
-              id="M4"
-              class="cls-1"
-              d="M592,300l28-167L383,19,340,8a30.065,30.065,0,0,0-11,0,24.732,24.732,0,0,0-13,8c-3.41,3.857-9,16-9,16l-7,34L149,180l-92,8,2,20H75l8,73s-0.781,4.078,7,4,71-6,71-6,4.972,1.473,4-10-3-30-3-30-1.276-7.8,4-10S315,119,315,119l25-26,6-19s4.7-12.717,19-3c15.983,6.544,196,91,196,91s5.223,0.223,2,15-9,52-9,52-1.931,13.918,4,19S592,300,592,300Z"
-            />
-          </svg>
-        </div>
+        <button id="close-sin-exito">&times;</button>
       </div>
     </div>
+    <!-- Fin xD -->
+    <!-- LOGIN -->
+    <div class="popup-overlay-login"></div>
+    <div class="popup-login">
+      <div class="button-box">
+        <div id="popup-login-close" class="popup-close-login">×</div>
+        <div id="btn"></div>
+        <button type="button" class="toggle-btn" onclick="inicio()">
+          Iniciar Sesión
+        </button>
+        <button type="button" class="toggle-btn" onclick="registro()">
+          Registrar
+        </button>
+      </div>
+      <form id="login" class="input-group">
+        <input
+          type="email"
+          class="input-field"
+          placeholder="Correo electrónico"
+          required
+        />
+        <input
+          type="password"
+          class="input-field"
+          placeholder="Contraseña"
+          required
+        />
+        <input type="checkbox" class="checkbox" /><span
+          >Recordar Contraseña</span
+        >
+        <button type="submit" class="submit-btn">Iniciar Sesión</button>
+      </form>
+      <form id="registro" class="input-group">
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Nombre(s)"
+          required
+        />
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Apellidos"
+          required
+        />
+        <input type="tel" class="input-field" placeholder="Telefono" required />
+        <input
+          type="email"
+          class="input-field"
+          placeholder="Correo Electrónico"
+          required
+        />
+        <input
+          type="password"
+          class="input-field"
+          placeholder="Contraseña"
+          required
+        />
+        <input
+          type="password"
+          class="input-field"
+          placeholder="Confirmar Contraseña"
+          required
+        />
+        <input type="checkbox" id="check-registro" class="checkbox" /><span
+          >Acepto los terminos y condiciones</span
+        >
+        <button type="submit" class="submit-btn">Registrar</button>
+      </form>
+    </div>
+    <!-- </div> -->
+
     <!-- Flecha navegacion arriba -->
     <span class="arriba">
       <svg
@@ -476,7 +359,13 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/alertas.js" type="module"></script>
     <script src="./js/navegacion.js"></script>
     <script src="./js/loader.js"></script>
+    <script src="./js/mapas.js" type="module"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/commerce.js"></script>
+    <script src="./js/disponibilidad.js"></script>
   </body>
 </html>

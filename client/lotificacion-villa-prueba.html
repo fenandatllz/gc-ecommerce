@@ -6,25 +6,50 @@
     <title>Lotificacion</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/load.css">
+    <link rel="stylesheet" href="./css/login.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
 </head>
 <body>
-
     <div class="loader_bg">
         <div class="loader"></div>
     </div>
-
     <nav class="menu">
         <a class="navbar-logo" href="index.html">
             <img src="https://download-accl.zoho.com/v1/docs/prv/i8756b24e8c232e0c4decb5911f28b49469b0?_t=1630356068833" >
         </a>
     </nav>
-
     <!-- <div class="center">
         <button onclick="openLoginForm()">Enviar</button>
     </div> -->
+    <div class="popup-overlay"></div>
+    <div class="popup-login">
+    <div class="form-box" >
+      <div class="popup-close" onclick="closeLoginForm()">×</div>
+      <div class="button-box">
+          <div id="btn"></div>
+          <button type="button" class="toggle-btn" onclick="login()">Iniciar Sesión</button>
+          <button type="button" class="toggle-btn" onclick="registro()">Registrar</button>
+      </div>
+      <form  id="login" class="input-group">
+          <input type="email" class="input-field" placeholder="Correo electrónico" required>
+          <input type="password" class="input-field" placeholder="Contraseña" required>
+          <input type="checkbox" class="checkbox"><span>Recordar Contraseña</span>
+          <button type="submit" class="submit-btn">Iniciar Sesión</button>
+      </form>
+      <form id="registro" class="input-group">
+          <input type="text" class="input-field" placeholder="Nombre(s)" required>
+          <input type="text" class="input-field" placeholder="Apellidos" required>
+          <input type="tel" class="input-field" placeholder="Telefono" required>
+          <input type="email" class="input-field" placeholder="Correo Electrónico" required>
+          <input type="password" class="input-field" placeholder="Contraseña" required>
+          <input type="checkbox" class="checkbox"><span>Acepta los terminos y condiciones</span>
+          <button type="submit" class="submit-btn">Registrar</button>
+      </form>
+  </div>
+  </div>
+
     <div class="popup-overlay"></div>
     <div class="popup">
         <div class="popup-close" onclick="closeLoginForm()">×</div>
@@ -34,28 +59,22 @@
                     <div class="division-modal"></div>
                 </div>
                 <div class="element">
-                    <input type="text" id="nombre-cliente" placeholder="Nombre">
+                    <input type="text" id="nombre-cliente" placeholder="Nombre Cliente">
                 </div>
-                <div class="element">
-                  <input type="text" id="apellidos-cliente" placeholder="Apellidos">
-              </div>
                 <div class="element">
                     <input type="text" id="correo-cliente" placeholder="Correo electrónico">
                 </div>
                 <div class="element"> 
                     <select name="monto-pago" id="monto-pago">
                         <option value="0" disabled selected> Seleccione Monto de Apartado </option>
-                        <option value="50.00">$ 50.00 DLLS</option>
-                        <option value="100.00">$ 100.00 DLLS</option>
-                        <option value="150.00">$ 150.00 DLLS</option>
-                        <option value="200.00">$ 200.00 DLLS</option>
+                        <option value="1">$ 50.00 DLLS</option>
+                        <option value="2">$ 100.00 DLLS</option>
+                        <option value="3">$ 150.00 DLLS</option>
+                        <option value="4">$ 200.00 DLLS</option>
                     </select>
-                </div>
-                    <div class="item element">
-                      <span id="item_seleccionado"></span>
-                    </div>              
+                </div>              
                     <div class="element">                          
-                        <button id="btn-enviar" class="enviar">Enviar</button>
+                        <button id="btn-enviar" onclick="showToast()" class="enviar">Enviar</button>
                     </div>
                     <div class="element">
                         <button id="btn-cancelar" onclick="showAlerta()" class="cancelar">Cancelar</button>
@@ -109,21 +128,21 @@
                   </style>
                 </defs>
                 
-                <path data-lote id="M1-L1" class="cls-1" onclick="openLoginForm()" d="M217,214l-32,24s-3.027,1.867-3,7,3,26,3,26a5.927,5.927,0,0,0,6,4c4.6-.34,33-3,33-3Z"/>
-                <path data-lote id="M1-L2" class="cls-1" onclick="openLoginForm()" d="M224,272l40-3-3-38-40,13Z"/>
-                <path data-lote id="M1-L3" class="cls-1" onclick="openLoginForm()" d="M261,231l3,38,27-2-4-44Z"/>
-                <path data-lote id="M1-L4" class="cls-1" onclick="openLoginForm()" d="M287,223l4,44,24-1-4-51Z"/>
-                <path data-lote id="M1-L5" class="cls-1" onclick="openLoginForm()" d="M315,210l-4,5,4,50,21-1s7.269-.691,10-6,11-22,11-22Z"/>
-                <path data-lote id="M1-L6" class="cls-1" onclick="openLoginForm()" d="M315,211l41,25,12-24-37-22Z"/>
-                <path data-lote id="M1-L7" class="cls-1" onclick="openLoginForm()" d="M331,190l37,22,13-27-33-20Z"/>
-                <path data-lote id="M1-L8" class="cls-1" onclick="openLoginForm()" d="M348,165l33,20,16-31-30-17Z"/>
-                <path data-lote id="M1-L9" class="cls-1" onclick="openLoginForm()" d="M371,139l26,15,15-31s3.123-5.771-2-9-23-11-23-11Z"/>
-                <path data-lote id="M1-L10" class="cls-1" onclick="openLoginForm()" d="M379,120l8-17L366,92s-4.569-2.758-6,3-6,13-6,13Z"/>
-                <path data-lote id="M1-L11" class="cls-1" onclick="openLoginForm()" d="M379,120l-24-12-14,14,30,17Z"/>
-                <path data-lote id="M1-L12" class="cls-1" onclick="openLoginForm()" d="M337,180l30-43-26-16-12,12-15,12Z"/>
-                <path data-lote id="M1-L13" class="cls-1" onclick="openLoginForm()" d="M270,228l17-5,24-8,27-35-24-35-67,47Z"/>
-                <path data-lote id="M1-L14" class="cls-1" onclick="openLoginForm()" d="M221,244l49-16-23-36-30,22Z"/>
-                <!-- <path data-lote id="M1" class="Manzanas" d="M388,103l23,11s5.453,5.131,0,12-15,31-15.007,31q-25.518,51.017-51.243,102.2s-3.717,4.693-12.031,5.315C323.973,265.172,190.032,275.006,190,275c0,0-3.809-.052-5-6s-3-24-3-24,1.558-5.384,3.963-8.1c2.69-3.033,139-100.93,139.032-100.9,0,0,7.891-4.91,9-7s20-21,20-21,1.7-5.017,2-6,4-9,4-9,3.181-3.152,7-1,21,11,21,11"/> -->
+                <path id="M1-L1" class="cls-1" onclick="openLoginForm()" d="M217,214l-32,24s-3.027,1.867-3,7,3,26,3,26a5.927,5.927,0,0,0,6,4c4.6-.34,33-3,33-3Z"/>
+                <path id="M1-L2" class="cls-1" onclick="openLoginForm()" d="M224,272l40-3-3-38-40,13Z"/>
+                <path id="M1-L3" class="cls-1" onclick="openLoginForm()" d="M261,231l3,38,27-2-4-44Z"/>
+                <path id="M1-L4" class="cls-1" onclick="openLoginForm()" d="M287,223l4,44,24-1-4-51Z"/>
+                <path id="M1-L5" class="cls-1" onclick="openLoginForm()" d="M315,210l-4,5,4,50,21-1s7.269-.691,10-6,11-22,11-22Z"/>
+                <path id="M1-L6" class="cls-1" onclick="openLoginForm()" d="M315,211l41,25,12-24-37-22Z"/>
+                <path id="M1-L7" class="cls-1" onclick="openLoginForm()" d="M331,190l37,22,13-27-33-20Z"/>
+                <path id="M1-L8" class="cls-1" onclick="openLoginForm()" d="M348,165l33,20,16-31-30-17Z"/>
+                <path id="M1-L9" class="cls-1" onclick="openLoginForm()" d="M371,139l26,15,15-31s3.123-5.771-2-9-23-11-23-11Z"/>
+                <path id="M1-L10" class="cls-1" onclick="openLoginForm()" d="M379,120l8-17L366,92s-4.569-2.758-6,3-6,13-6,13Z"/>
+                <path id="M1-L11" class="cls-1" onclick="openLoginForm()" d="M379,120l-24-12-14,14,30,17Z"/>
+                <path id="M1-L12" class="cls-1" onclick="openLoginForm()" d="M337,180l30-43-26-16-12,12-15,12Z"/>
+                <path id="M1-L13" class="cls-1" onclick="openLoginForm()" d="M270,228l17-5,24-8,27-35-24-35-67,47Z"/>
+                <path id="M1-L14" class="cls-1" onclick="openLoginForm()" d="M221,244l49-16-23-36-30,22Z"/>
+                <path id="M1" class="Manzanas" d="M388,103l23,11s5.453,5.131,0,12-15,31-15.007,31q-25.518,51.017-51.243,102.2s-3.717,4.693-12.031,5.315C323.973,265.172,190.032,275.006,190,275c0,0-3.809-.052-5-6s-3-24-3-24,1.558-5.384,3.963-8.1c2.69-3.033,139-100.93,139.032-100.9,0,0,7.891-4.91,9-7s20-21,20-21,1.7-5.017,2-6,4-9,4-9,3.181-3.152,7-1,21,11,21,11"/>
                 
             </svg>
 
@@ -292,11 +311,9 @@
         </div>
     </footer>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./js/loader.js"></script>
     <script src="./js/navegacion.js"></script>
     <script src="./js/alertas.js"></script>
-    <script src="./js/disponibilidad.js"></script>
-    <script src="./js/commerce.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>

@@ -66,7 +66,10 @@ router.get('/getDisponibilidad/:desarrollo/:manzana', async (req, res) => {
 
   const config = {
     method: 'get',
-    url: `https://www.zohoapis.com/crm/v2/Products/search?criteria=((Manzana:equals:${req.params.manzana})and(Nombre_Fraccionamiento:equals:${req.params.desarrollo}))`,
+    // url: `https://www.zohoapis.com/crm/v2/Products/search?criteria=((Manzana:equals:${req.params.manzana})and(Nombre_Fraccionamiento:equals:${req.params.desarrollo}))`,
+    url: `https://www.zohoapis.com/crm/v2/Products/search?criteria=((Fraccionamiento:equals:${encodeURI(
+      req.params.desarrollo
+    )})and(Manzana:equals:${req.params.manzana}))`,
     headers: {
       Authorization: `Zoho-oauthtoken ${accessToken}`,
     },
@@ -92,8 +95,7 @@ router.get('/getDisponibilidad/:desarrollo/:manzana', async (req, res) => {
         Estado: lote.Estado,
       }
     })
-    res.status(200).json(crmJSON)
-
+    res.status(200).send({ data: crmJSON, length: crmJSON.length })
     // console.log(resp.data)
   } catch (error) {
     res.status(400).send(error)
