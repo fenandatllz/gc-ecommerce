@@ -107,22 +107,23 @@ const obtenerContactoBooks = async (email) => {
 // Obtener ID de item de Books
 const getItemIdBooks = async () => {
   try {
-    const item = document.getElementById('item_seleccionado').textContent
+    const item = document.getElementById('item_seleccionado')
+    const manzanaLote = item.dataset.manzanaylote
     let searchItem, request_url
-    console.log(item)
-    const element = document.getElementById(item)
+    const element = document.getElementById(manzanaLote)
+    console.log(element)
     if (element.dataset.crm === 'true') {
       searchItem = element.dataset.crm_id
       request_url = `/server/ecommerce/books/getIdProducto/${searchItem}`
     } else {
-      searchItem = `${element.dataset.fraccionamiento} ${element.id}`
+      searchItem = `${item}`
       request_url = `/server/ecommerce/crm/getProductoByName/${searchItem}`
     }
     console.log('searchItem', searchItem)
     const request = await fetch(request_url)
-    // const data = await request.json()
+    const data = await request.json()
     // console.log(data)
-    return await (await request).json()
+    return data
   } catch (error) {
     return error
   }
@@ -153,12 +154,18 @@ function validarCampos(email) {
 //   console.log(formatValue)
 // })
 
-send.addEventListener('click', async () => {
+send.addEventListener('click', async (e) => {
   //Validar correo vacios o no validos
+
+  e.preventDefault()
+
   let email = document.getElementById('correo-cliente').value
   let lname = document.getElementById('apellidos-cliente').value
-  let fname = document.getElementById('nombre-cliente').value
+  let fname = document.getElementById('nombres-cliente').value
+
+  console.log(email, lname, fname)
   // let movil = document.getElementById('movil').value
+
   const item_id = await getItemIdBooks()
 
   if (validarCampos(email) === true) {
