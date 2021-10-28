@@ -118,24 +118,40 @@ router.get('/getInvoices/:customer_name&:item_name', async (req, res) => {
 
 // Crear invoice
 router.post('/createInvoice', async (req, res) => {
-  const accessToken = await catalystToken(req)
+  const apartados = new Map()
+  apartados.set('0', 50.0)
+  apartados.set('1', 50.0)
+  apartados.set('2', 100.0)
+  apartados.set('3', 150.0)
+  apartados.set('4', 200.0)
 
-  // Config Axios
-  const config = {
-    method: 'post',
-    url: `https://books.zoho.com/api/v3/invoices?organization_id=${process.env.ORGANIZATION_BOOKS}`,
-    headers: {
-      Authorization: `Zoho-oauthtoken ${accessToken}`,
-    },
-    data: req.body,
-  }
-
-  // Realizar peticion con Axios
   try {
+    if (apartados.get(req.body.selectValue) === undefined)
+      throw Error('Opcion invalida')
+
+    const valorApartado = apartados.get(req.body.selectValue)
+    const invoice = req.body.invoice
+
+    let item = invoice.line_items[0]
+
+    item.rate = valorApartado
+
+    const accessToken = await catalystToken(req)
+
+    // Config Axios
+    const config = {
+      method: 'post',
+      url: `https://books.zoho.com/api/v3/invoices?organization_id=${process.env.ORGANIZATION_BOOKS}`,
+      headers: {
+        Authorization: `Zoho-oauthtoken ${accessToken}`,
+      },
+      data: invoice,
+    }
+
     const resp = await axios(config)
     res.send(resp.data)
-  } catch (error) {
-    console.log(error)
+  } catch (err) {
+    console.error('Problema: ', err.message)
   }
 })
 

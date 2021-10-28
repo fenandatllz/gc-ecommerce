@@ -76,7 +76,7 @@ const crearFactura = async (idContactoBooks, idItemBooks) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(invoice),
+      body: JSON.stringify({ invoice, selectValue }),
     })
     return await (await enviarFact).json()
   } catch (error) {
@@ -155,19 +155,16 @@ function validarCampos(email) {
 // })
 
 send.addEventListener('click', async (e) => {
-  //Validar correo vacios o no validos
-
   e.preventDefault()
 
   let email = document.getElementById('correo-cliente').value
   let lname = document.getElementById('apellidos-cliente').value
   let fname = document.getElementById('nombres-cliente').value
-
-  console.log(email, lname, fname)
   // let movil = document.getElementById('movil').value
 
   const item_id = await getItemIdBooks()
 
+  //Validar correo vacios o no validos
   if (validarCampos(email) === true) {
     //Comprobar contacto CRM con email
     const resp = await comprobarContacto(email)

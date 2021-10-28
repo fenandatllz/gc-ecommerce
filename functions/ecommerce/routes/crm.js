@@ -59,17 +59,16 @@ router.get('/getContacto/:id', async (req, res) => {
 router.get('/getDisponibilidad/:desarrollo/:manzana', async (req, res) => {
   // obtener access token
   const accessToken = await catalystToken(req)
-  console.log(req.params)
-
+  const numManzana = req.params.manzana.replace(/\D+/, '')
   // const disponibilidad = 'Disponible'
   // url: `https://www.zohoapis.com/crm/v2/Products/search?criteria=((Manzana:equals:${req.params.manzana})and(Nombre_Fraccionamiento:equals:${req.params.desarrollo})and(Estado:equals:${disponibilidad}))`,
 
   const config = {
     method: 'get',
     // url: `https://www.zohoapis.com/crm/v2/Products/search?criteria=((Manzana:equals:${req.params.manzana})and(Nombre_Fraccionamiento:equals:${req.params.desarrollo}))`,
-    url: `https://www.zohoapis.com/crm/v2/Products/search?criteria=((Fraccionamiento:equals:${encodeURI(
+    url: `https://www.zohoapis.com/crm/v2/Products/search?criteria=((Nombre_Fraccionamiento:equals:${encodeURI(
       req.params.desarrollo
-    )})and(Manzana:equals:${req.params.manzana}))`,
+    )})and(Manzana:equals:${numManzana}))`,
     headers: {
       Authorization: `Zoho-oauthtoken ${accessToken}`,
     },
@@ -77,6 +76,7 @@ router.get('/getDisponibilidad/:desarrollo/:manzana', async (req, res) => {
 
   try {
     const resp = await axios(config)
+
     const data = resp.data.data
     const crmJSON = [...data].map((lote) => {
       return {
