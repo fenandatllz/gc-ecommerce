@@ -1,12 +1,14 @@
-// import  * as alertas  from "./alertas.js";
 import { openLoginForm } from './alertas.js'
+import { AbrirLoginForm } from "./login.js";
+
 // const btnGetDesarrollo = document.querySelector('#get-desarrollo');
 // const getDesarrollo = document.querySelector('#nombre-desarrollo');
 // console.log(getDesarrollo.innerHTML);
-
+const correoUsuario = "fernandaciprian31@gmail.com";
+const contra = "123456";
 let posicionY = 0
 let posicionX = 0
-// let posicionModal = 0;
+
 const toolTip = document.getElementById('info-lote')
 let mapa = document.getElementById('mapa-interactivo')
 
@@ -83,7 +85,11 @@ fetch(`./desarrollos/${desarrollo}/plano.svg`)
 
 mapa.addEventListener('click', (e) => {
   if (e.target.matches('[data-manzana]')) {
-    const manzana = e.target.id
+    // const manzana = e.target.id
+    let auxManzana = e.target.id.split('-') 
+    const manzana = auxManzana[0];
+    posicionY = e.pageY;
+    posicionX = e.pageX;
     const svgNombre = e.target.closest('svg').dataset.desarrollo
     const fraccionamiento =
       document.getElementById('nombre-desarrollo').textContent
@@ -102,10 +108,19 @@ mapa.addEventListener('click', (e) => {
   if (e.target.matches('[data-lote]')) {
     console.log(`${desarrollo} ${e.target.id}`)
     console.log(`posicion:  ${posicionModal}`)
-    modal.style.top = posicionModal + 'px'
-    openLoginForm()
-    info.innerHTML = desarrollo + ' ' + e.target.id
-    info.dataset.manzanaylote = e.target.id
+    if(sessionStorage.getItem("correo") == correoUsuario && sessionStorage.getItem("contrase_a") == contra)
+    {
+      modal.style.top = posicionModal + 'px'
+      openLoginForm()
+      info.innerHTML = desarrollo + ' ' + e.target.id
+      info.dataset.manzanaylote = e.target.id
+    }
+    else{
+      modalLogin.style.top = posicionModal + 'px';
+      AbrirLoginForm();
+    }
+   
+    
   }
 })
 
