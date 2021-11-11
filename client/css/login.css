@@ -9,7 +9,6 @@
     background-color: #f3f3f3;
     position:absolute;
 }
-
 .button-box{
     width:280px;
     margin: 35px auto;
@@ -17,7 +16,6 @@
     box-shadow: 0 0 20px 9px #ff61241f;
     border-radius: 30px;
 }
-
 .toggle-btn{
     padding:10px 30px;
     cursor: pointer;
@@ -37,14 +35,12 @@
     border-radius: 30px;
     transition: .5s;
 }
-
 .input-group{
     top:130px;
     position:absolute;
     width:75%;
     transition:.5s;
 }
-
 .input-field{
     width:100%;
     padding:10px 0;
@@ -76,40 +72,59 @@
     margin:30px 10px 30px 0;
 }
 
-.popup-login span{
+.popup-login #text-check{
     color:#000;
     font-size: 12px;
     bottom: 68px;
     position:absolute;
 }
-
+.popup-login #error{
+    position: absolute;
+    bottom: 28%;
+    border: 1px solid #ff0000;
+    margin: 0 3.7rem;
+    width: 75%;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    color: #ff0000;
+    font-size: medium;
+    box-shadow: rgba(255, 0, 0, 0.25) 0px 4px 8px -2px, rgba(255, 0, 0, 0.08) 0px 0px 0px 1px;
+    display: none;
+}
 #login{
     left:50px;
 }
 #registro{
     left:450px;
 }
-
-  .btn-login{
-      color:#DE9F27;
-      font-size:15px;
-      border: 2px solid;
-      border-color: #DE9F27;
-      transition: all 1s ease;
-      border-radius:5px;
-      padding: 0.5em 1.2em;
-      background: rgba(0,0,0,0);
-      cursor: pointer;
-      position: absolute;
-      right:7%;
-      
+.btn-login{
+    color:#DE9F27;
+    font-size: 1.5rem;
+    border: 2px solid #DE9F27;
+    transition: all 1s ease;
+    border-radius:5px;
+    padding: 0.5em 1.2em;
+    background: rgba(0,0,0,0);
+    cursor: pointer;
+    margin: 0 1rem;
   }
-
-  .btn-login:hover{
-      background: #C08500;
-      color: #ffff;
+  .popup-login{
+    position:absolute;
+    top:-150%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(1.15);
+    width: 40%;
+    height: 78%;
+    padding: 10px;
+    background:#f5f5f5;
+    z-index:2;
+    opacity:0;
+    box-shadow:5px 5px 3px rgba(0,0,0,0.2);
+    transition:transform 300ms ease-in-out,opacity 300ms ease-in-out;
+    overflow: hidden;
+    border-radius: 30px;
   }
-
   .popup-overlay-login {
     position:fixed;
     top:0px;
@@ -120,34 +135,26 @@
     background:rgba(0,0,0,0.5);
     display:none;
   }
-  .popup-login{
-    position:absolute;
-    top:-150%;
-    left:50%;
-    transform:translate(-50%,-50%) scale(1.15);
-    width:430px;
-    height:580px;
-    padding: 10px;
-    background:#f5f5f5;
-    z-index:2;
-    opacity:0;
-    box-shadow:5px 5px 3px rgba(0,0,0,0.2);
-    transition:transform 300ms ease-in-out,opacity 300ms ease-in-out;
-    overflow: hidden;
-    border-radius: 30px;
-  }
-  body.MostrarLoginForm .popup-overlay-login {
-    display:block;
-  }
-  body.MostrarLoginForm .popup-login {
-    top:50%;
-    opacity:1;
-    transform:translate(-50%,-50%) scale(1);
-  }
-  .popup-login .popup-close-login {
+  .btn-logout{
+    color:#DE9F27;
+    font-size:15px;
+    border: 2px solid;
+    border-color: #DE9F27;
+    transition: all 1s ease;
+    border-radius:5px;
+    padding: 0.5em 1.2em;
+    background: rgba(0,0,0,0);
+    cursor: pointer;
+    display: none;
+}
+.btn-login:hover{
+    background: #C08500;
+    color: #ffff;
+}
+.popup-login .popup-close-login {
     position:absolute;
     top:-35px;
-    right:-60px;
+    right:-18%;
     width:40px;
     height:40px;
     background:#555;
@@ -158,3 +165,51 @@
     border-radius:50%;
     cursor:pointer;
   }
+
+
+  @media only screen and (min-device-width: 218px) and (max-device-width: 767px){
+        .btn-login {
+            font-size: 10px;
+            width: 160px;
+            height: 30px;
+        }
+        ::placeholder{
+            font-size:10px;
+        }
+        .popup-login{
+            width: 350px;
+            height: 548px;
+        }
+        .popup-login .popup-close-login {
+            right:-10%;
+          }  
+          .btn-logout{
+            font-size:10px;       
+            width:160px;
+            height:30px;
+            
+          }
+        .popup-login #error{
+            bottom: 18%;
+        }   
+    }
+
+    @media(min-width:768px){
+        .popup-login{
+            width:430px;
+            height:580px;
+        }
+        .popup-login .popup-close-login{
+           right:  -60px;
+        }
+    }
+
+  body.MostrarLoginForm .popup-overlay-login {
+    display:block;
+  }
+  body.MostrarLoginForm .popup-login {
+    top:50%;
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+  }
+

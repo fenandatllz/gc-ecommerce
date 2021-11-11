@@ -16,6 +16,36 @@ $(document).ready(function(){
 	});
 
 });
+//DivEnganche
+        function MostrarDiv(checkEnganche) {
+        let dvEnganche = document.getElementById("mostrarEnganche");
+        dvEnganche.style.display = checkEnganche.checked ? "block" : "none";
+    }
+//Botones Zoom
+let zoom = 1;
+let height = 95;
+		
+		$('.zoom').on('click', function(){
+			zoom += 0.1;
+            height += 5;
+			$('.target').css('transform', 'scale(' + zoom + ')');
+            $('.mapa-interactivo').height(height + 'vh');
+		});
+		$('.zoom-init').on('click', function(){
+			zoom = 1;
+			$('.target').css('transform', 'scale(' + zoom + ')');
+		});
+		$('.zoom-out').on('click', function(){
+            if(zoom != 1){
+                zoom -= 0.1;
+                $('.target').css('transform', 'scale(' + zoom + ')');
+            }	
+		});
+        
+// currWidth = 2400;
+// $('.zoom').on('click', function(){
+//     svg.style.width = (currWidth + 100) + "px"
+// })
 
 // Carrusel
 if(document.querySelector('#container-slider')){
