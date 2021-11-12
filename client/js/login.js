@@ -12,8 +12,8 @@ const btnRegistrar = document.getElementById('btn-registrar');// registrar formu
 const nombreUsuario = document.getElementById('nombre-usuario');
 let Msg = document.getElementById('error');
 
-const correoUsuario = "fernandaciprian31@gmail.com";
-const contra = "123456";
+const correoUsuario = "prueba";
+const contra = "123";
 //prueba
 
 //     login.style.display = sesion ? "block" : "none"
