@@ -1,12 +1,14 @@
-// import  * as alertas  from "./alertas.js";
 import { openLoginForm } from './alertas.js'
+import { AbrirLoginForm } from "./login.js";
+
 // const btnGetDesarrollo = document.querySelector('#get-desarrollo');
 // const getDesarrollo = document.querySelector('#nombre-desarrollo');
 // console.log(getDesarrollo.innerHTML);
-
+const correoUsuario = "prueba";
+const contra = "123";
 let posicionY = 0
 let posicionX = 0
-// let posicionModal = 0;
+
 const toolTip = document.getElementById('info-lote')
 let mapa = document.getElementById('mapa-interactivo')
 
@@ -42,33 +44,45 @@ const getDisponiblidad = async (fraccionamiento, manzana) => {
 
 // Iluminar disponibilidad de lotes
 const poblarLotificacion = (disponibilidad) => {
-  // escoger el svg correcto
-  const lotes = Array.from(mapa.querySelectorAll('[data-lote]'))
-  lotes.forEach((lote) => {
-    const lotifacion = lote.id.split('-')[1]
-    const prodExistente = disponibilidad.find((l) => l.Lote == lotifacion)
-    if (prodExistente) {
-      if (prodExistente.Estado != 'Disponible') {
-        lote.style.fill = 'red'
-        lote.removeAttribute('onclick')
-      } else {
-        lote.style.fill = 'green'
-        //   console.log(lote)
-      }
-      lote.dataset.crm_id = prodExistente.id
-      lote.dataset.crm_manzana = prodExistente.Manzana
-      lote.dataset.sku = prodExistente.Manzana_y_Lote
-      lote.dataset.estado = prodExistente.Estado
-      lote.dataset.fraccionamiento = prodExistente.Nombre_Fraccionamiento
-      lote.dataset.crm = true
-    } else {
-      // Pendientes por crear en CRM
-      lote.style.fill = 'LawnGreen'
-      lote.dataset.fraccionamiento = 'VILLA PRUEBA'
+
+  const tempLotes = document.querySelectorAll(".cls-2")
+  const lostes2 = Array.from(tempLotes)
+  const Inexistentes = []
+
+  lostes2.map((lote) => {
+    if(lote.id.includes("L")){
+      lote.style.fill = 'green'
+      lote.dataset.lote = ""
       lote.dataset.crm = false
     }
   })
-  //   console.log(lotes)
+  
+
+  disponibilidad.map((product) =>{
+    // console.log(`M${product.Manzana}-L${product.Lote}`)
+    try{
+      let lote = document.getElementById(`M${product.Manzana}-L${product.Lote}`)
+
+      lote.dataset.crm_id = product.id
+      lote.dataset.crm = true
+      lote.dataset.costototal = product.Unit_Price
+      lote.dataset.dimension = product.Dimension_del_Terreno_M21
+      lote.dataset.costom2 = product.Costo_por_M2
+
+      if(product.Estado != "Disponible"){
+        lote.style.fill = 'red'
+        lote.removeAttribute('onclick')
+        console.log("red")
+      }else if(product.Estado == "Disponible"){
+        lote.style.fill = 'orange'
+        console.log("orange")
+      }
+    }catch(err){
+      console.log(err)
+    }
+  })
+  
+
 }
 
 const desarrollo = document
@@ -83,7 +97,11 @@ fetch(`./desarrollos/${desarrollo}/plano.svg`)
 
 mapa.addEventListener('click', (e) => {
   if (e.target.matches('[data-manzana]')) {
-    const manzana = e.target.id
+    // const manzana = e.target.id
+    let auxManzana = e.target.id.split('-') 
+    const manzana = auxManzana[0];
+    posicionY = e.pageY;
+    posicionX = e.pageX;
     const svgNombre = e.target.closest('svg').dataset.desarrollo
     const fraccionamiento =
       document.getElementById('nombre-desarrollo').textContent
@@ -99,18 +117,28 @@ mapa.addEventListener('click', (e) => {
   const info = document.querySelector('.info-apartado')
   let posicionModal = e.pageY
   const modal = document.getElementById('modal')
+  const modalLogin = document.getElementById("modal-login")
   if (e.target.matches('[data-lote]')) {
     console.log(`${desarrollo} ${e.target.id}`)
     console.log(`posicion:  ${posicionModal}`)
-    modal.style.top = posicionModal + 'px'
-    openLoginForm()
-    info.innerHTML = desarrollo + ' ' + e.target.id
-    info.dataset.manzanaylote = e.target.id
+    if(sessionStorage.getItem("correo") == correoUsuario && sessionStorage.getItem("contrase_a") == contra)
+    {
+      modal.style.top = posicionModal + 'px'
+      openLoginForm()
+      info.innerHTML = desarrollo + ' ' + e.target.id
+      info.dataset.manzanaylote = e.target.id
+    }
+    else{
+      modalLogin.style.top = posicionModal + 'px';
+      AbrirLoginForm();
+    }
+   
+    
   }
 })
 
 mapa.addEventListener('mouseover', (e) => {
-  if (e.target.matches('[data-lote]')) {
+  // if (e.target.matches('[data-lote]')) {
     toolTip.innerHTML = ''
     let lote = document.createElement('p')
     lote.textContent = e.target.id
@@ -127,7 +155,7 @@ mapa.addEventListener('mouseover', (e) => {
     posicionX = e.pageX
     posicionY = e.pageY
     showPopup()
-  }
+  // }
 })
 
 mapa.addEventListener('mouseout', (e) => {

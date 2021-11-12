@@ -27,7 +27,8 @@
           src="https://download-accl.zoho.com/v1/docs/prv/i8756b24e8c232e0c4decb5911f28b49469b0?_t=1630356068833"
         />
       </a>
-      <button class="btn-login">Iniciar Sesión</button>
+      <button id="btn-login" class="btn-login">Iniciar Sesión</button>
+      <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
     </nav>
     <header class="portada">
       <div id="container-slider">
@@ -120,35 +121,32 @@
           <div class="division-modal"></div>
         </div>
         <div class="element">
-          <span id="item_seleccionado" class="info-apartado"></span>
+          <span class="info-apartado"> </span>
         </div>
         <div class="element">
+          <label>¿Desea dar un enganche?</label>
           <input
-            type="text"
-            id="nombres-cliente"
-            placeholder="Nombre(s)"
-            required
+            type="checkbox"
+            id="checkEnganche"
+            onclick="MostrarDiv(this)"
           />
         </div>
-        <div class="element">
-          <input
-            type="text"
-            id="apellidos-cliente"
-            placeholder="Apellidos"
-            required
-          />
+        <div class="element" id="mostrarEnganche" style="display: none">
+          <select name="monto-enganche" id="monto-enganche">
+            <option value="0" disabled selected>
+              Seleccione Monto de Enganche
+            </option>
+            <option value="1">$ 100.00 DLLS</option>
+            <option value="2">$ 200.00 DLLS</option>
+            <option value="3">$ 300.00 DLLS</option>
+            <option value="4">$ 400.00 DLLS</option>
+          </select>
         </div>
         <div class="element">
-          <input
-            type="email"
-            id="correo-cliente"
-            placeholder="Correo electrónico"
-            required
-          />
-        </div>
-        <div class="element">
-          <select name="monto-pago" id="monto-pago" required>
-            <option value="0" disabled>Seleccione Monto de Apartado</option>
+          <select name="monto-pago" id="monto-pago">
+            <option value="0" disabled selected>
+              Seleccione Monto de Apartado
+            </option>
             <option value="1">$ 50.00 DLLS</option>
             <option value="2">$ 100.00 DLLS</option>
             <option value="3">$ 150.00 DLLS</option>
@@ -191,25 +189,27 @@
     <!-- Fin xD -->
     <!-- LOGIN -->
     <div class="popup-overlay-login"></div>
-    <div class="popup-login">
+    <div id="modal-login" class="popup-login">
       <div class="button-box">
         <div id="popup-login-close" class="popup-close-login">×</div>
         <div id="btn"></div>
-        <button type="button" class="toggle-btn" onclick="inicio()">
+        <button id="btn-iniciar" type="button" class="toggle-btn">
           Iniciar Sesión
         </button>
-        <button type="button" class="toggle-btn" onclick="registro()">
+        <button id="btn-registrar" type="button" class="toggle-btn">
           Registrar
         </button>
       </div>
       <form id="login" class="input-group">
         <input
+          id="correo"
           type="email"
           class="input-field"
           placeholder="Correo electrónico"
           required
         />
         <input
+          id="contrase_a"
           type="password"
           class="input-field"
           placeholder="Contraseña"
@@ -218,7 +218,9 @@
         <input type="checkbox" class="checkbox" /><span
           >Recordar Contraseña</span
         >
-        <button type="submit" class="submit-btn">Iniciar Sesión</button>
+        <button type="submit" class="submit-btn" id="iniciar-sesion">
+          Iniciar Sesión
+        </button>
       </form>
       <form id="registro" class="input-group">
         <input
@@ -364,7 +366,6 @@
     <script src="./js/navegacion.js"></script>
     <script src="./js/loader.js"></script>
     <script src="./js/mapas.js" type="module"></script>
-    <script src="./js/login.js"></script>
-    <script src="./js/commerce.js"></script>
+    <script src="./js/login.js" type="module"></script>
   </body>
 </html>
