@@ -66,7 +66,7 @@ router.get('/getDisponibilidad/:desarrollo/:manzana', async (req, res) => {
   const config = {
     method: 'get',
     // url: `https://www.zohoapis.com/crm/v2/Products/search?criteria=((Manzana:equals:${req.params.manzana})and(Nombre_Fraccionamiento:equals:${req.params.desarrollo}))`,
-    url: `https://www.zohoapis.com/crm/v2/Products/search?criteria=((Nombre_Fraccionamiento:equals:${encodeURI(
+    url: `https://www.zohoapis.com/crm/v2/Products/search?criteria=((Nombre_Fraccionamiento:starts_with:${encodeURI(
       req.params.desarrollo
     )})and(Manzana:equals:${numManzana}))`,
     headers: {
