@@ -1,37 +1,24 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="./css/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="hero">
-        <div class="form-box" >
-            <div class="button-box">
-                <div id="btn"></div>
-                <button type="button" class="toggle-btn" onclick="login()">Iniciar Sesión</button>
-                <button type="button" class="toggle-btn" onclick="registro()">Registrar</button>
-            </div>
-            <form  id="login" class="input-group">
-                <input type="email" class="input-field" placeholder="Correo electrónico" required>
-                <input type="password" class="input-field" placeholder="Contraseña" required>
-                <input type="checkbox" class="checkbox"><span>Recordar Contraseña</span>
-                <button type="submit" class="submit-btn">Iniciar Sesión</button>
-            </form>
-            <form id="registro" class="input-group">
-                <input type="text" class="input-field" placeholder="Nombre(s)" required>
-                <input type="text" class="input-field" placeholder="Apellidos" required>
-                <input type="tel" class="input-field" placeholder="Telefono" required>
-                <input type="email" class="input-field" placeholder="Correo Electrónico" required>
-                <input type="password" class="input-field" placeholder="Contraseña" required>
-                <input type="checkbox" class="checkbox"><span>Acepta los terminos y condiciones</span>
-                <button type="submit" class="submit-btn">Registrar</button>
-            </form>
-        </div>
+
+    <div class="button-box">
+        <div id="popup-login-close" class="popup-close-login">×</div>
+        <div id="btn"></div>
+        <button id="btn-iniciar" type="button" class="toggle-btn">Iniciar Sesión</button>
+        <button id="btn-registrar" type="button" class="toggle-btn">Registrar</button>
     </div>
-    <script src="./js/login.js"></script>
-</body>
-</html>
+    <form id="login" class="input-group">
+        <input id="correo" type="email" class="input-field" placeholder="Correo electrónico" required>
+        <input id="contrase_a" type="password" class="input-field" placeholder="Contraseña" required>
+        <input type="checkbox" class="checkbox"><span id="text-check">Recordar Contraseña</span>
+        <button type="button" class="submit-btn" id="iniciar-sesion">Iniciar Sesión</button>
+    </form>
+    <span id="error"></span>
+    <form id="registro" class="input-group">
+        <input type="text" class="input-field" placeholder="Nombre(s)" required>
+        <input type="text" class="input-field" placeholder="Apellidos" required>
+        <input type="tel" class="input-field" placeholder="Telefono" required>
+        <input type="email" class="input-field" placeholder="Correo Electrónico" required>
+        <input type="password" class="input-field" placeholder="Contraseña" required>
+        <input type="password" class="input-field" placeholder="Confirmar Contraseña" required>
+        <input type="checkbox" id="check-registro" class="checkbox"><span>Acepto los terminos y condiciones</span>
+        <button type="submit" class="submit-btn" id="registrar-usuario">Registrar</button>
+    </form>
