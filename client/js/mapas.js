@@ -85,16 +85,6 @@ const poblarLotificacion = (disponibilidad) => {
 
 }
 
-const desarrollo = document
-  .querySelector('#nombre-desarrollo')
-  .innerHTML.toLowerCase()
-  .replace(' ', '-')
-
-mapa.innerHTML = ''
-fetch(`./desarrollos/${desarrollo}/plano.svg`)
-  .then((svg) => svg.text())
-  .then((html) => (mapa.innerHTML = html))
-
 mapa.addEventListener('click', (e) => {
   if (e.target.matches('[data-manzana]')) {
     // const manzana = e.target.id
@@ -165,8 +155,8 @@ mapa.addEventListener('mouseout', (e) => {
 })
 
 function showPopup(evt) {
-  let mapaSvg = mapa.querySelector('#map')
-  let map = mapaSvg.getBoundingClientRect()
+//   let mapaSvg = mapa.querySelector('#map')
+//   let map = mapaSvg.getBoundingClientRect()
   toolTip.style.left = posicionX + 'px'
   toolTip.style.top = posicionY + 'px'
   toolTip.style.display = 'block'

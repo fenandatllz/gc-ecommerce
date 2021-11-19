@@ -1,0 +1,347 @@
+
+    [
+        {
+            "fracionamiento": "Costa Dorada",
+            "logo": "img/cd.png",
+            "img": "https://grupoconcordia.com/wp-content/uploads/2020/05/DJI_0784-1024x683.jpg",
+            "imgs": [
+                "img/Fraccionamientos/COSTA DORADA.JPG",
+                "img/Fraccionamientos/COSTA DORADA2.JPG",
+                "img/Fraccionamientos/CD3.JPG"
+            ],
+            "descripciones": [
+                "Costa Dorada es uno de nuestros desarrollos que cuenta con todos los servicios necesarios para ser habitado. Se ubica en una zona estratégica, con fácil acceso a cualquiera de nuestras ciudades vecinas: Tijuana, Rosarito y San Diego. Justo en la puerta de entrada a la zona dorada del corredor turístico Rosarito – Ensenada.",
+                "Costa Dorada garantiza la más alta plusvalía de la región, ya sea desde el punto de vista comercial, residencial, hotelero o gastronómico."
+            ],
+            "amenidades": [
+                {
+                    "icon": "hotel",
+                    "name": "Hoteles"
+                },
+                {
+                    "icon": "utensils",
+                    "name": "Restaurantes"
+                },
+                {
+                    "icon": "store",
+                    "name": "Comerciales"
+                },
+                {
+                    "icon": "water",
+                    "name": "Vista al mar"
+                },
+                {
+                    "icon": "campground",
+                    "name": "Lotes Residenciales"
+                },
+                {
+                    "icon": "campground",
+                    "name": "Lotes Comerciales"
+                },
+                {
+                    "icon": "store-alt",
+                    "name": "Tiendas de Autoservicio y Departamentales"
+                },
+                {
+                    "icon": "home",
+                    "name": "Modelos de Casas"
+                }
+            ],
+            "servicios": [
+                {
+                    "icon": "lightbulb",
+                    "name": "Alumbrado Público"
+                },
+                {
+                    "icon": "plug",
+                    "name": "Electricidad"
+                },
+                {
+                    "icon": "faucet",
+                    "name": "Red de Agua Potable"
+                },
+                {
+                    "icon": "stroopwafel",
+                    "name": "Red de Drenaje"
+                },
+                {
+                    "icon": "tree",
+                    "name": "Áreas Verdes"
+                },
+                {
+                    "icon": "exclamation-triangle",
+                    "name": "Nomenclatura Vial"
+                },
+                {
+                    "icon": "layer-group",
+                    "name": "Amojonamiento de Lotes"
+                },
+                {
+                    "icon": "city",
+                    "name": "Urbanización"
+                },
+                {
+                    "icon": "road",
+                    "name": "Pavimentación"
+                }
+            ]
+        },
+        {
+            "fracionamiento": "Villa Prueba",
+            "logo": "img/alamar.png",
+            "img": "https://grupoconcordia.com/wp-content/uploads/2020/05/DJI_0784-1024x683.jpg",
+            "imgs": [
+                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-1-1024x570.jpeg",
+                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-2-1-1024x747.jpeg",
+                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-1-1024x570.jpeg"
+            ],
+            "descripciones": [
+                "Costa Dorada es uno de nuestros desarrollos que cuenta con todos los servicios necesarios para ser habitado. Se ubica en una zona estratégica, con fácil acceso a cualquiera de nuestras ciudades vecinas: Tijuana, Rosarito y San Diego. Justo en la puerta de entrada a la zona dorada del corredor turístico Rosarito – Ensenada.",
+                "Costa Dorada garantiza la más alta plusvalía de la región, ya sea desde el punto de vista comercial, residencial, hotelero o gastronómico."
+            ],
+            "amenidades": [
+                {
+                    "icon": "hotel",
+                    "name": "Hoteles"
+                },
+                {
+                    "icon": "utensils",
+                    "name": "Restaurantes"
+                },
+                {
+                    "icon": "store",
+                    "name": "Comerciales"
+                },
+                {
+                    "icon": "water",
+                    "name": "Vista al mar"
+                },
+                {
+                    "icon": "campground",
+                    "name": "Lotes Residenciales"
+                },
+                {
+                    "icon": "campground",
+                    "name": "Lotes Comerciales"
+                },
+                {
+                    "icon": "store-alt",
+                    "name": "Tiendas de Autoservicio y Departamentales"
+                },
+                {
+                    "icon": "home",
+                    "name": "Modelos de Casas"
+                }
+            ],
+            "servicios": [
+                {
+                    "icon": "lightbulb",
+                    "name": "Alumbrado Público"
+                },
+                {
+                    "icon": "plug",
+                    "name": "Electricidad"
+                },
+                {
+                    "icon": "faucet",
+                    "name": "Red de Agua Potable"
+                },
+                {
+                    "icon": "stroopwafel",
+                    "name": "Red de Drenaje"
+                },
+                {
+                    "icon": "tree",
+                    "name": "Áreas Verdes"
+                },
+                {
+                    "icon": "exclamation-triangle",
+                    "name": "Nomenclatura Vial"
+                },
+                {
+                    "icon": "layer-group",
+                    "name": "Amojonamiento de Lotes"
+                },
+                {
+                    "icon": "city",
+                    "name": "Urbanización"
+                },
+                {
+                    "icon": "road",
+                    "name": "Pavimentación"
+                }
+            ]
+        },
+        {
+            "fracionamiento": "Costa Dorada",
+            "logo": "img/alamar.png",
+            "img": "https://grupoconcordia.com/wp-content/uploads/2020/05/DJI_0784-1024x683.jpg",
+            "imgs": [
+                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-1-1024x570.jpeg",
+                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-2-1-1024x747.jpeg",
+                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-1-1024x570.jpeg"
+            ],
+            "descripciones": [
+                "Costa Dorada es uno de nuestros desarrollos que cuenta con todos los servicios necesarios para ser habitado. Se ubica en una zona estratégica, con fácil acceso a cualquiera de nuestras ciudades vecinas: Tijuana, Rosarito y San Diego. Justo en la puerta de entrada a la zona dorada del corredor turístico Rosarito – Ensenada.",
+                "Costa Dorada garantiza la más alta plusvalía de la región, ya sea desde el punto de vista comercial, residencial, hotelero o gastronómico."
+            ],
+            "amenidades": [
+                {
+                    "icon": "hotel",
+                    "name": "Hoteles"
+                },
+                {
+                    "icon": "utensils",
+                    "name": "Restaurantes"
+                },
+                {
+                    "icon": "store",
+                    "name": "Comerciales"
+                },
+                {
+                    "icon": "water",
+                    "name": "Vista al mar"
+                },
+                {
+                    "icon": "campground",
+                    "name": "Lotes Residenciales"
+                },
+                {
+                    "icon": "campground",
+                    "name": "Lotes Comerciales"
+                },
+                {
+                    "icon": "store-alt",
+                    "name": "Tiendas de Autoservicio y Departamentales"
+                },
+                {
+                    "icon": "home",
+                    "name": "Modelos de Casas"
+                }
+            ],
+            "servicios": [
+                {
+                    "icon": "lightbulb",
+                    "name": "Alumbrado Público"
+                },
+                {
+                    "icon": "plug",
+                    "name": "Electricidad"
+                },
+                {
+                    "icon": "faucet",
+                    "name": "Red de Agua Potable"
+                },
+                {
+                    "icon": "stroopwafel",
+                    "name": "Red de Drenaje"
+                },
+                {
+                    "icon": "tree",
+                    "name": "Áreas Verdes"
+                },
+                {
+                    "icon": "exclamation-triangle",
+                    "name": "Nomenclatura Vial"
+                },
+                {
+                    "icon": "layer-group",
+                    "name": "Amojonamiento de Lotes"
+                },
+                {
+                    "icon": "city",
+                    "name": "Urbanización"
+                },
+                {
+                    "icon": "road",
+                    "name": "Pavimentación"
+                }
+            ]
+        },
+        {
+            "fracionamiento": "Costa Dorada",
+            "logo": "img/alamar.png",
+            "img": "https://grupoconcordia.com/wp-content/uploads/2020/05/DJI_0784-1024x683.jpg",
+            "imgs": [
+                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-1-1024x570.jpeg",
+                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-2-1-1024x747.jpeg",
+                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-1-1024x570.jpeg"
+            ],
+            "descripciones": [
+                "Costa Dorada es uno de nuestros desarrollos que cuenta con todos los servicios necesarios para ser habitado. Se ubica en una zona estratégica, con fácil acceso a cualquiera de nuestras ciudades vecinas: Tijuana, Rosarito y San Diego. Justo en la puerta de entrada a la zona dorada del corredor turístico Rosarito – Ensenada.",
+                "Costa Dorada garantiza la más alta plusvalía de la región, ya sea desde el punto de vista comercial, residencial, hotelero o gastronómico."
+            ],
+            "amenidades": [
+                {
+                    "icon": "hotel",
+                    "name": "Hoteles"
+                },
+                {
+                    "icon": "utensils",
+                    "name": "Restaurantes"
+                },
+                {
+                    "icon": "store",
+                    "name": "Comerciales"
+                },
+                {
+                    "icon": "water",
+                    "name": "Vista al mar"
+                },
+                {
+                    "icon": "campground",
+                    "name": "Lotes Residenciales"
+                },
+                {
+                    "icon": "campground",
+                    "name": "Lotes Comerciales"
+                },
+                {
+                    "icon": "store-alt",
+                    "name": "Tiendas de Autoservicio y Departamentales"
+                },
+                {
+                    "icon": "home",
+                    "name": "Modelos de Casas"
+                }
+            ],
+            "servicios": [
+                {
+                    "icon": "lightbulb",
+                    "name": "Alumbrado Público"
+                },
+                {
+                    "icon": "plug",
+                    "name": "Electricidad"
+                },
+                {
+                    "icon": "faucet",
+                    "name": "Red de Agua Potable"
+                },
+                {
+                    "icon": "stroopwafel",
+                    "name": "Red de Drenaje"
+                },
+                {
+                    "icon": "tree",
+                    "name": "Áreas Verdes"
+                },
+                {
+                    "icon": "exclamation-triangle",
+                    "name": "Nomenclatura Vial"
+                },
+                {
+                    "icon": "layer-group",
+                    "name": "Amojonamiento de Lotes"
+                },
+                {
+                    "icon": "city",
+                    "name": "Urbanización"
+                },
+                {
+                    "icon": "road",
+                    "name": "Pavimentación"
+                }
+            ]
+        }
+    ]
