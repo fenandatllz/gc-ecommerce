@@ -1,0 +1,54 @@
+#mapa-interactivo svg{
+  width: 2400;
+  height: 1900;
+}
+
+  #Nombres{
+    background: black;
+  }
+
+  .cls-1 {
+    filter: url(#filter);
+  }
+
+  [data-lote]:hover{
+    fill: #de9f27;
+    cursor: pointer;
+  }
+  [data-manzana]:hover{
+    fill: #de9f27;
+    cursor: pointer;
+  }
+
+  .cls-2 {
+    fill: #000;
+    stroke: #de9f27;
+    stroke-width: 1.96px;
+  }
+  
+  .cls-2, .cls-3, .cls-4, .cls-5 {
+    fill-rule: evenodd;
+  }
+
+  .cls-3 {
+    fill:#de9f27;
+  }
+
+  .cls-4, .cls-6 {
+    fill: #de9f27;
+    stroke: #de9f27;
+    stroke-width: 5px;
+  }
+
+  @media(max-width: 768px){
+    #mapa-interactivo svg{
+      width: 750px;
+      height: 1000px;
+    }
+  }
+  @media (max-width:480px) {
+    #mapa-interactivo svg{
+      width: 550px;
+      height: 600px;
+    }
+  }
