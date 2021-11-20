@@ -54,6 +54,7 @@ const poblarLotificacion = (disponibilidad) => {
       lote.style.fill = 'green'
       lote.dataset.lote = ""
       lote.dataset.crm = false
+      lote.classList = "login"
     }
   })
   
@@ -111,14 +112,16 @@ mapa.addEventListener('click', (e) => {
   if (e.target.matches('[data-lote]')) {
     console.log(`${desarrollo} ${e.target.id}`)
     console.log(`posicion:  ${posicionModal}`)
-    if(sessionStorage.getItem("correo") == correoUsuario && sessionStorage.getItem("contrase_a") == contra)
+    if(sessionStorage.getItem("sesion"))
     {
+      console.log("false")
       modal.style.top = posicionModal + 'px'
       openLoginForm()
       info.innerHTML = desarrollo + ' ' + e.target.id
       info.dataset.manzanaylote = e.target.id
     }
     else{
+      console.log("true")
       modalLogin.style.top = posicionModal + 'px';
       AbrirLoginForm();
     }

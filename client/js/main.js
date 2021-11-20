@@ -1,4 +1,5 @@
 'use strict'
+
 const getJSON = async () => {
     let Desarollos = fetch("./data/details.json")
     return await (await Desarollos).json()
@@ -20,8 +21,5 @@ data.map((i, index) => {
                     <div class="capa"><img src="${i.logo}" alt=""></div>
             </div>
         `
-
-    console.log(i.img)
-
     cards.appendChild(card)
 })

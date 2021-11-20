@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +18,7 @@
 <nav class="menu">
     <a href="#">
         <img class="logo" src="img/logo-nav.png" >
-        <img id="logo" src="img/Logo Grupo Concordia Piramide.png" alt="">
+        <!-- <img id="logo" src="img/Logo Grupo Concordia Piramide.png" alt=""> -->
     </a>
     <h2 id="nombre-usuario"> </h2>
     <button id="btn-login" class="btn-login">Iniciar Sesión</button>  
@@ -32,32 +31,10 @@
 </header>  
 <div id="cards" class="cards"></div>
 
-<!-- LOGIN -->
-<div class="popup-overlay-login"></div>
-<div id="modal-login" class="popup-login">
-  <div class="button-box">
-      <div id="popup-login-close" class="popup-close-login">×</div>
-      <div id="btn"></div>
-      <button id="btn-iniciar" type="button" class="toggle-btn">Iniciar Sesión</button>
-      <button id="btn-registrar" type="button" class="toggle-btn">Registrar</button>
-  </div>
-  <form id="login" class="input-group">
-      <input id="correo" type="email" class="input-field" placeholder="Correo electrónico" required>
-      <input id="contrase_a" type="password" class="input-field" placeholder="Contraseña" required>
-      <input type="checkbox" class="checkbox"><span id="text-check">Recordar Contraseña</span>
-      <button type="button" class="submit-btn" id="iniciar-sesion">Iniciar Sesión</button>
-  </form>
-  <span id="error"></span>
-  <form id="registro" class="input-group">
-      <input type="text" class="input-field" placeholder="Nombre(s)" required>
-      <input type="text" class="input-field" placeholder="Apellidos" required>
-      <input type="tel" class="input-field" placeholder="Telefono" required>
-      <input type="email" class="input-field" placeholder="Correo Electrónico" required>
-      <input type="password" class="input-field" placeholder="Contraseña" required>
-      <input type="password" class="input-field" placeholder="Confirmar Contraseña" required>
-      <input type="checkbox" id="check-registro" class="checkbox"><span>Acepto los terminos y condiciones</span>
-      <button type="submit" class="submit-btn" id="registrar-usuario">Registrar</button>
-  </form>
+<!-- Modal  -->
+<div id="container" class="popup-overlay">
+    <div id="modal" class="popup-login"></div>
+</div>
 </div>
 <!-- </div> -->
 
@@ -101,9 +78,9 @@
 </footer>
 
     <script src="./js/jquery.min.js"></script>
-    <script src="./js/main.js" type="module"></script>
-    <script src="./js/loader.js"></script>
-    <script src="./js/login.js" type="module"></script>
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/loader.js"></script>
+    <script type="module" src="./js/login.js"></script>
 
 </body>
 </html>

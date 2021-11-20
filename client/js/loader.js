@@ -2,6 +2,8 @@ const login = document.querySelector('.btn-login');//iniciar sesion header
 const btnLogout = document.querySelector('.btn-logout');// cerrar sesion header
 const nombreUsuario = document.getElementById('nombre-usuario');
 
+import * as Login  from './login'
+
 const loader = {
     toggleLoader: () =>{
         setTimeout(function(){

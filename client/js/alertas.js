@@ -1,8 +1,56 @@
+// const modalPay = document.getElementById('modal')
+
+// modalPay.innerHTML = `
+// <div id="popup-apartado-close" class="popup-close" >×</div>
+//         <form class="form">
+//             <div class="header">
+//                 Introduzca Datos del Contacto
+//                 <div class="division-modal"></div>
+//             </div>
+//             <div class="element">
+//                 <span class="info-apartado"> </span>
+//             </div>
+//             <div class="element">
+//                 <label>¿Desea dar un enganche?</label>
+//                 <input type="checkbox" id="checkEnganche" onclick="MostrarDiv(this)">
+//             </div>
+//             <div class="element" id="mostrarEnganche" style="display: none;">
+//                 <select name="monto-enganche" id="monto-enganche">
+//                     <option value="0" disabled selected> Seleccione Monto de Enganche </option>
+//                     <option value="1" >$ 100.00 DLLS</option>
+//                     <option value="2" >$ 200.00 DLLS</option>
+//                     <option value="3" >$ 300.00 DLLS</option>
+//                     <option value="4" >$ 400.00 DLLS</option>
+//                 </select>
+//             </div>
+//             <div class="element"> 
+//                 <select name="monto-pago" id="monto-pago" >
+//                     <option value="0" disabled selected> Seleccione Monto de Apartado </option>
+//                     <option value="1" >$ 50.00 DLLS</option>
+//                     <option value="2" >$ 100.00 DLLS</option>
+//                     <option value="3" >$ 150.00 DLLS</option>
+//                     <option value="4" >$ 200.00 DLLS</option>
+//                 </select>
+//             </div>              
+//                 <div class="element">                          
+//                     <button type="submit" id="btn-enviar" class="enviar">Enviar</button>
+//                 </div>
+//                 <div class="element">
+//                     <button type="submit" id="btn-cancelar" class="cancelar">Cancelar</button>
+//                 </div>
+//         </form>
+// `
+
 const closeMonto = document.getElementById('popup-apartado-close');
 const btnEnviar = document.getElementById('btn-enviar');
 const btnCancelarPago = document.getElementById('btn-cancelar');
 const btnCerrarAlerta = document.getElementById('close'); //Cerrar Alerta Pago exitoso
 const btnCerrarAlert = document.getElementById('close-sin-exito');//Cerrar Alerta Pago sin exito
+
+closeMonto.addEventListener('click', ()=>{
+    console.log('clesed monto')
+   closeLoginForm();
+})
 
 // Abrir Formulario Monto-Pago
  export function openLoginForm(){
@@ -16,9 +64,7 @@ const btnCerrarAlert = document.getElementById('close-sin-exito');//Cerrar Alert
             modal.style.top = -150 + '%';
         }
 
- closeMonto.addEventListener('click', ()=>{
-    closeLoginForm();
-})
+ 
 
 // Alerta Pago Exitoso
 btnEnviar.addEventListener('click', ()=>{
