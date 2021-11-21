@@ -1,7 +1,7 @@
 'use strict'
 
-import * as logins from './login.js'
-import loader from './loader.js'
+import Login from './login.js'
+import Loader from './loader.js'
 
 const getJSON = async () => {
     let Desarollos = fetch("./data/details.json")
@@ -26,5 +26,23 @@ data.map((i, index) => {
         `
     cards.appendChild(card)
 })
+let login = document.getElementById('btn-login')
+let logout =document.getElementById('btn-logout')
+if(sessionStorage.getItem("sesion")){
+    Login.innerPay()
+    login.style.display = "none"
+    logout.style.display = "block"
+}else{
+    Login.innerLogin()
+    login.style.display = "block"
+    logout.style.display = "none"
+}
 
-loader.toggleLoader()
+login.addEventListener('click', () => {
+    // console.log(this)
+    Login.viewModal(true)
+})
+
+
+
+Loader.toggleLoader()

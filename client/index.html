@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,82 +7,91 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/load.css">
     <link rel="stylesheet" href="./css/login.css">
-    <link rel="stylesheet" href="./css/all.css"/>
+    <link rel="stylesheet" href="./css/all.css" />
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
     <title>Prueba Mapa</title>
 </head>
+
 <body>
+    <!-- Loader -->
     <div class="loader_bg">
         <div class="loader"></div>
     </div>
-<nav class="menu">
-    <a href="#">
-        <img class="logo" src="img/logo-nav.png" >
-        <!-- <img id="logo" src="img/Logo Grupo Concordia Piramide.png" alt=""> -->
-    </a>
-    <h2 id="nombre-usuario"> </h2>
-    <button id="btn-login" class="btn-login">Iniciar Sesión</button>  
-    <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
-</nav>
-<header>
-    <img class="logo-index" src="img/imagen3.png">
-    <h2>DESARROLLOS</h2>
-    <div class="division"></div>
-</header>  
-<div id="cards" class="cards"></div>
-
-<!-- Modal  -->
-<div id="container" class="popup-overlay">
-    <div id="modal" class="popup-login"></div>
-</div>
-</div>
-<!-- </div> -->
-
-<span class="arriba">
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-circle" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#DE9F27" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <circle cx="12" cy="12" r="9" />
-        <line x1="12" y1="8" x2="8" y2="12" />
-        <line x1="12" y1="8" x2="12" y2="16" />
-        <line x1="16" y1="12" x2="12" y2="8" />
-    </svg>
-</span>
-<footer class="footer tres-columnas">
-    <div class="col-1">
-        <p><i class="fas fa-map-marker-alt"></i>Paseo Centenario 10310-101, Zona Urbana Rio Tijuana.</p>
-        <p><i class="fas fa-phone-alt"></i>(664) 391 1328</p>
-        <a href="">Aviso de privacidad</a>
+    <!-- Menu -->
+    <nav class="menu">
+        <a href="#">
+            <img class="logo" src="img/logo-nav.png">
+            <!-- <img id="logo" src="img/Logo Grupo Concordia Piramide.png" alt=""> -->
+        </a>
+        <h2 id="nombre-usuario"> </h2>
+        <button id="btn-login" class="btn-login">Iniciar Sesión</button>
+        <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
+    </nav>
+    <!-- Logo -->
+    <header>
+        <img class="logo-index" src="img/imagen3.png">
+        <h2>DESARROLLOS</h2>
+        <div class="division"></div>
+    </header>
+    <!-- Cards -->
+    <div id="cards" class="cards"></div>
+    <!-- Navegacion hacia arriba -->
+    <span class="arriba">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-circle" width="40"
+            height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#DE9F27" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <circle cx="12" cy="12" r="9" />
+            <line x1="12" y1="8" x2="8" y2="12" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="16" y1="12" x2="12" y2="8" />
+        </svg>
+    </span>
+    <!-- footer -->
+    <footer class="footer tres-columnas">
+        <div class="col-1">
+            <p><i class="fas fa-map-marker-alt"></i>Paseo Centenario 10310-101, Zona Urbana Rio Tijuana.</p>
+            <p><i class="fas fa-phone-alt"></i>(664) 391 1328</p>
+            <a href="">Aviso de privacidad</a>
+        </div>
+        <div class="col-2">
+            <a href="https://www.facebook.com/grupoconcordiamx" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-brand-facebook" width="24" height="24" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+                </svg></a>
+            <a href="https://www.instagram.com/grupoconcordia/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <rect x="4" y="4" width="16" height="16" rx="4" />
+                    <circle cx="12" cy="12" r="3" />
+                    <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+                </svg></a>
+            <a href="https://www.youtube.com/channel/UCPtc8WHOip-C7gfRXdd2dgw" target="_blank"><svg
+                    xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="24"
+                    height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <rect x="3" y="5" width="18" height="14" rx="4" />
+                    <path d="M10 9l5 3l-5 3z" />
+                </svg></a>
+            <p>Grupo Concordia 2021</p>
+        </div>
+        <div class="col-3">
+            <p><i class="far fa-envelope"></i>info@grupoconcordia.com</p>
+            <p><i class="far fa-clock"></i>Horario de atención:<br>L-V 9:00 a 6:00 pm <br>S 9:00 a 4:00 pm</p>
+        </div>
+    </footer>
+    <!-- Modal  -->
+    <div id="container-modal" class="popup-overla">
+        <div id="modal" class="popup-login"></div>
     </div>
-    <div class="col-2">
-        <a href="https://www.facebook.com/grupoconcordiamx" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
-          </svg></a>
-        <a href="https://www.instagram.com/grupoconcordia/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <rect x="4" y="4" width="16" height="16" rx="4" />
-            <circle cx="12" cy="12" r="3" />
-            <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
-          </svg></a>
-        <a href="https://www.youtube.com/channel/UCPtc8WHOip-C7gfRXdd2dgw" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <rect x="3" y="5" width="18" height="14" rx="4" />
-            <path d="M10 9l5 3l-5 3z" />
-          </svg></a>
-        <p>Grupo Concordia 2021</p>
-    </div>
-    <div class="col-3">
-        <p><i class="far fa-envelope"></i>info@grupoconcordia.com</p>
-        <p><i class="far fa-clock"></i>Horario de atención:<br>L-V 9:00 a 6:00 pm <br>S 9:00 a 4:00 pm</p>
-    </div>
-</footer>
-
+    <!-- scrips -->
     <script src="./js/jquery.min.js"></script>
     <script type="module" src="./js/main.js"></script>
-    <script type="module" src="./js/loader.js"></script>
-    <script type="module" src="./js/login.js"></script>
-
 </body>
-</html>
 
+</html>
