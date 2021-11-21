@@ -1,5 +1,8 @@
 'use strict'
 
+import * as logins from './login.js'
+import loader from './loader.js'
+
 const getJSON = async () => {
     let Desarollos = fetch("./data/details.json")
     return await (await Desarollos).json()
@@ -23,3 +26,5 @@ data.map((i, index) => {
         `
     cards.appendChild(card)
 })
+
+loader.toggleLoader()

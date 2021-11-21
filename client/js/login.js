@@ -84,7 +84,7 @@ const login = {
     }
 }
 
-module.export = login
+export default login
 
 
 

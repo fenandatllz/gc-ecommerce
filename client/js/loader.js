@@ -1,8 +1,10 @@
+'use strict'
+
+import * as logins from './login.js'
+
 const login = document.querySelector('.btn-login');//iniciar sesion header
 const btnLogout = document.querySelector('.btn-logout');// cerrar sesion header
 const nombreUsuario = document.getElementById('nombre-usuario');
-
-import * as Login  from './login'
 
 const loader = {
     toggleLoader: () =>{
@@ -27,10 +29,5 @@ const loader = {
     }
 }
 
-window.onload = () =>{
-    loader.toggleLoader()
-    loader.mostrarBoton()
-} 
-
-// export default loader
+export default loader
 
