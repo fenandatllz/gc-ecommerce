@@ -587,19 +587,16 @@ footer i{
     left:50%;
     transform:translate(-50%,-50%);
   }
-  .popup-overla {
+  .popup-modal {
     position: fixed;
     top: 0vh;
-    
     width:100vw;
     height:100vh;
-    background:rgba(165, 24, 24, 0.5);
-    
-    display: flex;
+    background:rgba(0, 0, 0, 0.5);
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    /* display:none; */
   }
   .popup{
     position:absolute;

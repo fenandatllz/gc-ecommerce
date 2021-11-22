@@ -40,7 +40,10 @@ const auth = {
         });
     },
     signOut: async (req, res) =>{
-        
+        req.session.login = false
+        delete req.session.token
+        console.log(req.session)
+        res.send({ message: "Logout !!", code: 0 })
     },
     signOn: async (req, res) => {
         const app = catalyst.initialize(req)

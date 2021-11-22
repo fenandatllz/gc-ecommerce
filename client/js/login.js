@@ -1,21 +1,26 @@
 // add login
 const modal = document.getElementById('modal')
+const nombreUsuario = document.getElementById('nombre-usuario')
+let loginForms,c
 
 const login = {
-    innerLogin: () => {
-
+    innerLogin(){
+        modal.innerHTML = " "
         modal.innerHTML = `
         <div class="button-box">
-            <div id="popup-login-close" class="popup-close-login">×</div>
-            <div id="btn"></div>
+            <div id="btn" id="btn-active-login"></div>
             <button id="btn-iniciar" type="button" class="toggle-btn">Iniciar Sesión</button>
             <button id="btn-registrar" type="button" class="toggle-btn">Registrar</button>
         </div>
-        <div class="login-forms">
+        <div id="login-forms" class="login-forms-login">
             <form id="login" class="input-group">
                 <input id="correo" type="email" class="input-field" placeholder="Correo electrónico" required>
                 <input id="contrase_a" type="password" class="input-field" placeholder="Contraseña" required>
-                <input type="checkbox" class="checkbox"><span id="text-check">Recordar Contraseña</span>
+                <div class="checkbox">
+                    
+                    <input type="checkbox"/>
+                    <label>Recordar Contraseña</label>
+                </div>
                 <button type="button" class="submit-btn" id="iniciar-sesion">Iniciar Sesión</button>
             </form>
             <form id="registro" class="input-group">
@@ -25,15 +30,43 @@ const login = {
                 <input type="email" class="input-field" placeholder="Correo Electrónico" required>
                 <input type="password" class="input-field" placeholder="Contraseña" required>
                 <input type="password" class="input-field" placeholder="Confirmar Contraseña" required>
-                <input type="checkbox" id="check-registro" class="checkbox"><span>Acepto los terminos y condiciones</span>
+                <input type="checkbox" id="check-registro" class="checkbox"><label>Acepto los terminos y condiciones</label>
                 <button type="submit" class="submit-btn" id="registrar-usuario">Registrar</button>
             </form>
         </div>
         <span id="error"></span>
         `
+        c = document.getElementById('btn')
+        loginForms = document.getElementById('login-forms')
+        // open login
+        let btnLogin = document.getElementById('btn-login')
+
+        btnLogin.addEventListener('click', () => {
+            this.viewModal(true)
+        })
+
+        // inico de sesion 
+        let iniciarSesion = document.getElementById('iniciar-sesion')
+
+        let pay = true
+        iniciarSesion.addEventListener('click', () => {
+            this.login(pay)
+        })
+
+        // evento login/registro
+        let btnIniciar = document.getElementById('btn-iniciar') // iniciar sesion formulario (arriba)
+        let btnRegistrar = document.getElementById('btn-registrar') // registrar formulario
+
+        btnIniciar.addEventListener('click', () => {
+            this.inicio();
+        })
+        btnRegistrar.addEventListener('click', () => {
+            this.registro();
+        })
         return true
     },
     innerPay: () => {
+        modal.innerHTML = " "
         modal.innerHTML = `
         <div class="button-box">
             <div id="popup-login-close" class="popup-close-login">×</div>
@@ -64,12 +97,95 @@ const login = {
     viewModal: (view) => {
         let modal = document.getElementById('container-modal')
         if(view){
-            modal.style.display = "block"
+            modal.style.display = "flex"
         }else{
             modal.style.display = "none"
         }
         
+    },
+    registro: () =>{
+        c.style.left = '140px'
+        loginForms.classList = "login-forms-register"
+    },
+    inicio: () =>{
+        c.style.left = '0px';
+        loginForms.classList = "login-forms-login"
+    },
+    login(pay){
+
+        let email = document.getElementById('correo')
+        let password = document.getElementById('contrase_a')
+
+        let body = {
+            email: email.value,
+            password: password.value
+        }
+    
+        fetch("/server/ecommerce/auth/sign-in",{
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body)
+        })
+        .then(data => data.json())
+        .then(res => {
+            if(res.code != 0) {
+                console.log("No Login !!")
+                email.value = " "
+                password.value = " "
+                Msg.innerText = "Usuario y/o contraseña incorrectos";
+                Msg.style.display = "block";
+                return false
+            }else{
+                this.iniciar(pay)
+                document.getElementById('')
+                return true  
+            }
+        })
+
+    },
+    logout(){
+        const loagout = fetch("/server/ecommerce/auth/sign-out",{
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        console.log(loagout)
+        sessionStorage.removeItem("usuario")
+        sessionStorage.removeItem("correo")
+        sessionStorage.removeItem("sesion")
+        this.innerLogin();
+        this.mostrarBoton()
+    },
+    iniciar(pay){
+        sessionStorage.setItem("usuario", "Fernanda")
+        sessionStorage.setItem("correo", document.getElementById('correo').value)
+        sessionStorage.setItem("sesion", true)
+        this.viewModal();
+        if(pay) this.innerPay();
+        this.mostrarBoton()
+    },
+    mostrarBoton: () =>{
+        let btnLogin = document.getElementById('btn-login')
+        let btnLogout = document.getElementById('btn-logout')
+        if(sessionStorage.getItem("sesion") == null)
+        {
+            console.log(sessionStorage.getItem("sesion"))
+            btnLogout.style.display = "none"
+            btnLogin.style.display = "block"
+            nombreUsuario.innerText = " "
+        }
+
+        if(sessionStorage.getItem("sesion"))
+        {
+            btnLogout.style.display = "block"
+            btnLogin.style.display = "none"
+            nombreUsuario.innerText = "Bienvenido(a): "+ sessionStorage.getItem('usuario')
+        }
     }
+
 }
 
 export default login
