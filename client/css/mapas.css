@@ -1,7 +1,12 @@
+
 #mapa-interactivo svg{
   width: 2400;
   height: 1900;
 }
+
+/* .mapa-interactivo{
+  overflow: hidden;
+} */
 
   #Nombres{
     background: black;

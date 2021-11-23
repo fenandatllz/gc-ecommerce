@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,17 +9,19 @@
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/all.css" />
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom-container@0.5.0"></script>
 
-    <title>Prueba Mapa</title>
+    <title>Detalles Fraccionamiento</title>
 </head>
-<body data-type="false">
+
+<body data-type="true">
     <!-- Loader -->
     <div class="loader_bg">
         <div class="loader"></div>
     </div>
     <!-- Menu -->
     <nav class="menu">
-        <a href="#">
+        <a href="index.html">
             <img class="logo" src="img/logo-nav.png">
             <!-- <img id="logo" src="img/Logo Grupo Concordia Piramide.png" alt=""> -->
         </a>
@@ -26,19 +29,79 @@
         <button id="btn-login" class="btn-login">Iniciar Sesión</button>
         <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
     </nav>
-    <!-- Logo -->
-    <header>
-        <img class="logo-index" src="img/imagen3.png">
-        <h2>DESARROLLOS</h2>
-        <div class="division"></div>
+    <!-- Carrusel -->
+    <header class="portada">
+        <div id="container-slider">
+            <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i
+                    class="fas fa-chevron-circle-left"></i></a>
+            <a href="javascript: fntExecuteSlide('next');" class="arrowNext"><i
+                    class="fas fa-chevron-circle-right"></i></a>
+            <ul class="listslider">
+                <li><a itlist="itList_0" href="#" class="item-select-slid"></a></li>
+                <li><a itlist="itList_1" href="#"></a></li>
+                <li><a itlist="itList_2" href="#"></a></li>
+            </ul>
+            <ul id="slider"> </ul>
+        </div>
     </header>
-    <!-- Cards -->
-    <div id="cards" class="cards"></div>
-    <!-- Navegacion hacia arriba -->
+    <!-- Descripcion -->
+    <main class="contenedor">
+        <div id="descripcion" class="descripcion">
+        </div>
+
+        <div class="servicios-amenidades">
+            <div id="amenidades" class="amenidades">
+                <h2>Amenidades</h2>
+            </div>
+
+            <div id="servicios" class="servicios">
+                <h2>Servicios</h2>
+            </div>
+        </div>
+    </main>
+    <!-- Mapas/SVG's -->
+    <div class="contenedor-mapa">
+
+        <div data-zoom-on-wheel data-pan-on-drag id="mapa-interactivo" class="mapa-interactivo">
+
+        </div>
+
+        <div class="zoom-flex">
+            <a class="btnz zoom"><i class="fas fa-search-plus"></i></a>
+            <a class="btnz zoom-out"><i class="fas fa-search-minus"></i></a>
+            <a class="btnz zoom-init"><i class="fas fa-sync-alt"></i></a>
+        </div>
+    </div>
+    <!--Burbuja -->
+    <div id="info-lote" class="burbuja"> </div>
+    <!-- Alertas -->
+    <div class="wrapper">
+        <div id="toast" class="success">
+            <div class="container-1">
+                <i class="fas fa-check-square"></i>
+            </div>
+            <div class="container-2">
+                <p>Apartado Exitoso</p>
+                <p>Apartado Realizado Con Exito.</p>
+            </div>
+            <button id="close">&times;</button>
+        </div>
+        <div id="toast2" class="error">
+            <div class="container-1">
+                <i class="fas fa-times-circle"></i>
+            </div>
+            <div class="container-2">
+                <p>Apartado Sin Exito</p>
+                <p>Apartado Realizado Sin Exito.</p>
+            </div>
+            <button id="close-sin-exito">&times;</button>
+        </div>
+    </div>
+    <!-- Flecha navegacion arriba -->
     <span class="arriba">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-circle" width="40"
-            height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#DE9F27" fill="none" stroke-linecap="round"
-            stroke-linejoin="round">
+        <svg id="navegacion" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-circle"
+            width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#DE9F27" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <circle cx="12" cy="12" r="9" />
             <line x1="12" y1="8" x2="8" y2="12" />
@@ -87,9 +150,16 @@
     <div id="container-modal" class="popup-modal">
         <div id="modal" class="popup-login"></div>
     </div>
-    <!-- scrips -->
+
     <script src="./js/jquery.min.js"></script>
-    <script type="module" src="./js/main.js"></script>
+    <script src="./js/main.js" type="module"></script>
+    <!-- <script src="./js/details.js" type="module"></script>
+    <script src="./js/navegacion.js"></script>
+    <script src="./js/loader.js"></script>
+    <script src="./js/mapas.js" type="module"></script>
+    <script src="./js/alertas.js" type="module"></script>
+    <script src="./js/login.js" type="module"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom-container@0.5.0"></script>
 </body>
 
 </html>

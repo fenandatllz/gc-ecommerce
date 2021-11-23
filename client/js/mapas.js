@@ -55,6 +55,7 @@ const poblarLotificacion = (disponibilidad) => {
       lote.style.fill = '#012C0B'
       lote.dataset.lote = ""
       lote.dataset.crm = false
+      lote.classList = "login"
     }
   })
   
@@ -85,16 +86,6 @@ const poblarLotificacion = (disponibilidad) => {
   })
 }
 
-const desarrollo = document
-  .querySelector('#nombre-desarrollo')
-  .innerHTML.toLowerCase()
-  .replace(' ', '-')
-
-mapa.innerHTML = ''
-fetch(`./desarrollos/${desarrollo}/plano.svg`)
-  .then((svg) => svg.text())
-  .then((html) => (mapa.innerHTML = html))
-
 mapa.addEventListener('click', (e) => {
   if (e.target.matches('[data-manzana]')) {
     // const manzana = e.target.id
@@ -120,14 +111,16 @@ mapa.addEventListener('click', (e) => {
   if (e.target.matches('[data-lote]')) {
     console.log(`${desarrollo} ${e.target.id}`)
     console.log(`posicion:  ${posicionModal}`)
-    if(sessionStorage.getItem("correo") == correoUsuario && sessionStorage.getItem("contrase_a") == contra)
+    if(sessionStorage.getItem("sesion"))
     {
+      console.log("false")
       modal.style.top = posicionModal + 'px'
       openLoginForm()
       info.innerHTML = e.target.dataset.trato
       info.dataset.manzanaylote = e.target.id
     }
     else{
+      console.log("true")
       modalLogin.style.top = posicionModal + 'px';
       AbrirLoginForm();
     }
@@ -166,6 +159,7 @@ mapa.addEventListener('mouseout', (e) => {
 function showPopup(e) {
   let mapaSvg = mapa.querySelector('#map')
   let map = mapaSvg.getBoundingClientRect()
+
   toolTip.style.left = posicionX + 'px'
   toolTip.style.top = posicionY + 'px'
   toolTip.style.display = 'block'
