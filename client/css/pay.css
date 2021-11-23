@@ -1,0 +1,61 @@
+.pay-form{
+    /* padding: 40% 0px; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pay-header{
+    height: 20%;
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pay-division-modal{
+    width: 30vw;
+    height: .5vh;
+    background-color: #DE9F27;
+}
+
+.pay-enganche-check{
+    height: 10%;
+}
+
+.pay-enganche{
+    height: 5vh;
+    width: 25vw;
+}
+
+.pay-apartado{
+    height: 5vh;
+    width: 25vw;
+}
+
+.pay-btns{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.pay-enviar{
+    background-color: rgb(64, 134, 18);
+    height: 5vh;
+    width: 12vw;
+    border-radius: .5vw;
+
+}
+
+.pay-cancelar{
+    background-color: rgb(134, 18, 18);
+    height: 5vh;
+    width: 12vw;
+    border-radius: .5vw;
+}

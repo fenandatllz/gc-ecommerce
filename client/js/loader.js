@@ -110,12 +110,15 @@ const loader = {
             .then((svg) => svg.text())
             .then((html) => (mapa.innerHTML = html))
 
+        this.mapEvent()
+    },
+    mapEvent(){
         // Eventos Mapa 
         // let posicionY = 0
         // let posicionX = 0
 
         const toolTip = document.getElementById('info-lote')
-        // let mapa = document.getElementById('mapa-interactivo')
+        let mapa = document.getElementById('mapa-interactivo')
 
 
         mapa.addEventListener('click', (e) => {

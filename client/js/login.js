@@ -1,6 +1,12 @@
+'use strict'
+
+import Loader from './loader.js'
+
 // add login
 const modal = document.getElementById('modal')
 const nombreUsuario = document.getElementById('nombre-usuario')
+const body = document.getElementsByTagName("body")
+let type = body[0].dataset.type
 let loginForms,c
 
 const login = {
@@ -66,42 +72,33 @@ const login = {
     innerPay: () => {
         modal.innerHTML = " "
         modal.innerHTML = `
-        <form class="form">
-            <div class="header">
-                Introduzca Datos del Contacto
-                <div class="division-modal"></div>
+        <form class="pay-form">
+            <div class="pay-header">
+                <label>Introduzca Datos del Contacto</label>
+                <div class="pay-division-modal"></div>
             </div>
-            <div class="element">
-                <span class="info-apartado"> </span>
-            </div>
-            <div class="element">
+            <div class="pay-enganche-check">
                 <label>¿Desea dar un enganche?</label>
                 <input type="checkbox" id="checkEnganche" onclick="MostrarDiv(this)">
             </div>
-            <div class="element" id="mostrarEnganche" style="display: none;">
-                <select name="monto-enganche" id="monto-enganche">
-                    <option value="0" disabled selected> Seleccione Monto de Enganche </option>
-                    <option value="1" >$ 100.00 DLLS</option>
-                    <option value="2" >$ 200.00 DLLS</option>
-                    <option value="3" >$ 300.00 DLLS</option>
-                    <option value="4" >$ 400.00 DLLS</option>
-                </select>
+            <select name="monto-enganche" id="monto-enganche" class="pay-enganche">
+                <option value="0" disabled selected> Seleccione Monto de Enganche </option>
+                <option value="1" >$ 100.00 DLLS</option>
+                <option value="2" >$ 200.00 DLLS</option>
+                <option value="3" >$ 300.00 DLLS</option>
+                <option value="4" >$ 400.00 DLLS</option>
+            </select>
+            <select name="monto-pago" id="monto-pago" class="pay-apartado">
+                <option value="0" disabled selected> Seleccione Monto de Apartado </option>
+                <option value="1" >$ 50.00 DLLS</option>
+                <option value="2" >$ 100.00 DLLS</option>
+                <option value="3" >$ 150.00 DLLS</option>
+                <option value="4" >$ 200.00 DLLS</option>
+            </select>               
+            <div class="pay-btns">                    
+                <button type="submit" id="btn-enviar" class="pay-enviar">Enviar</button>
+                <button type="submit" id="btn-cancelar" class="pay-cancelar">Cancelar</button>
             </div>
-            <div class="element"> 
-                <select name="monto-pago" id="monto-pago" >
-                    <option value="0" disabled selected> Seleccione Monto de Apartado </option>
-                    <option value="1" >$ 50.00 DLLS</option>
-                    <option value="2" >$ 100.00 DLLS</option>
-                    <option value="3" >$ 150.00 DLLS</option>
-                    <option value="4" >$ 200.00 DLLS</option>
-                </select>
-            </div>              
-                <div class="element">                          
-                    <button type="submit" id="btn-enviar" class="enviar">Enviar</button>
-                </div>
-                <div class="element">
-                    <button type="submit" id="btn-cancelar" class="cancelar">Cancelar</button>
-                </div>
         </form>
         `
         return true
@@ -113,7 +110,6 @@ const login = {
         }else{
             modal.style.display = "none"
         }
-        
     },
     registro: () =>{
         c.style.left = '140px'
@@ -124,7 +120,7 @@ const login = {
         loginForms.classList = "login-forms-login"
     },
     login(pay){
-
+        console.log("Login: "+pay)
         let email = document.getElementById('correo')
         let password = document.getElementById('contrase_a')
 
@@ -168,7 +164,7 @@ const login = {
         sessionStorage.removeItem("usuario")
         sessionStorage.removeItem("correo")
         sessionStorage.removeItem("sesion")
-        this.innerLogin();
+        this.innerLogin(type);
         this.mostrarBoton()
     },
     iniciar(pay){
