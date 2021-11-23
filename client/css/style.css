@@ -379,8 +379,10 @@ footer i{
 .mapa-interactivo{
     width: auto;
     height: 95vh;
-    overflow-x: auto;
-    /* overflow-y: y;  */
+    scroll-snap-type: y mandatory;
+    scroll-snap-type: x mandatory;
+    overflow-x: x;
+    overflow-y: y;
     border-radius: 11px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     background-color: #000;
