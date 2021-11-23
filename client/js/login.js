@@ -4,7 +4,7 @@ const nombreUsuario = document.getElementById('nombre-usuario')
 let loginForms,c
 
 const login = {
-    innerLogin(){
+    innerLogin(pay){
         modal.innerHTML = " "
         modal.innerHTML = `
         <div class="button-box">
@@ -47,8 +47,6 @@ const login = {
 
         // inico de sesion 
         let iniciarSesion = document.getElementById('iniciar-sesion')
-
-        let pay = true
         iniciarSesion.addEventListener('click', () => {
             this.login(pay)
         })
@@ -172,7 +170,6 @@ const login = {
         let btnLogout = document.getElementById('btn-logout')
         if(sessionStorage.getItem("sesion") == null)
         {
-            console.log(sessionStorage.getItem("sesion"))
             btnLogout.style.display = "none"
             btnLogin.style.display = "block"
             nombreUsuario.innerText = " "
@@ -185,7 +182,6 @@ const login = {
             nombreUsuario.innerText = "Bienvenido(a): "+ sessionStorage.getItem('usuario')
         }
     }
-
 }
 
 export default login
