@@ -8,6 +8,7 @@ const login = {
         modal.innerHTML = " "
         modal.innerHTML = `
         <div class="button-box">
+        <div id="popup-login-close" class="popup-close-login">×</div>
             <div id="btn" id="btn-active-login"></div>
             <button id="btn-iniciar" type="button" class="toggle-btn">Iniciar Sesión</button>
             <button id="btn-registrar" type="button" class="toggle-btn">Registrar</button>
