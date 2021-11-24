@@ -1,182 +1,77 @@
-import { openLoginForm } from './alertas.js'
-import { AbrirLoginForm } from "./login.js";
+'use strict'
 
-// const btnGetDesarrollo = document.querySelector('#get-desarrollo');
-// const getDesarrollo = document.querySelector('#nombre-desarrollo');
-// console.log(getDesarrollo.innerHTML);
-const correoUsuario = "prueba";
-const contra = "123";
-let posicionY = 0
-let posicionX = 0
+let containerMapa = document.getElementById('mapa-interactivo')
 
-const toolTip = document.getElementById('info-lote')
-let mapa = document.getElementById('mapa-interactivo')
+const mapa = {
+  loadManzana: async (desarrollo, manzana) => {
+    fetch(`./desarrollos/${desarrollo}/Manzanas/${manzana}.svg`)
+      .then((svg) => svg.text())
+      .then((html) => (containerMapa.innerHTML = html))
+  },
+  // Obtener disponibilidad
+  async getDisponiblidad(fraccionamiento, manzana){
+    const request = await fetch(
+      `/server/ecommerce/crm/getDisponibilidad/${fraccionamiento}/${manzana}`
+    )
+    //   const data = await request.json()
 
-const loadManzana = async (desarrollo, manzana) => {
-  fetch(`./desarrollos/${desarrollo}/Manzanas/${manzana}.svg`)
-    .then((svg) => svg.text())
-    .then((html) => (mapa.innerHTML = html))
-}
+    const data = await request.json()
+    console.log(data)
+    this.poblarLotificacion( await data.data)
+  },
+  poblarLotificacion(disponibilidad){
 
-// btnGetDesarrollo.addEventListener('click', (e) => {
-//   const desarrollo = document
-//     .querySelector('#desarrollo')
-//     .value.toLowerCase()
-//     .replace(' ', '-')
-
-//   mapa.innerHTML = ''
-//   fetch(`./desarrollos/${desarrollo}/plano.svg`)
-//     .then((svg) => svg.text())
-//     .then((html) => (mapa.innerHTML = html))
-// })
-
-// Obtener disponibilidad
-const getDisponiblidad = async (fraccionamiento, manzana) => {
-  const request = await fetch(
-    `/server/ecommerce/crm/getDisponibilidad/${fraccionamiento}/${manzana}`
-  )
-  //   const data = await request.json()
-
-  const data = await request.json()
-  console.log(data)
-  poblarLotificacion(data.data)
-
-}
-
-// Iluminar disponibilidad de lotes
-const poblarLotificacion = (disponibilidad) => {
-
-  const tempLotes = document.querySelectorAll(".cls-2")
-  const lotes2 = Array.from(tempLotes)
-  // const Inexistentes = []
-
-  lotes2.map((lote) => {
-    if(lote.id.includes("L")){
-      lote.style.fill = '#012C0B'
-      lote.dataset.lote = ""
-      lote.dataset.crm = false
-      lote.classList = "login"
-    }
-  })
+    const tempLotes = document.querySelectorAll(".cls-2")
+    const lostes2 = Array.from(tempLotes)
+    const Inexistentes = []
   
-
-  disponibilidad.map((product) =>{
-    // console.log(`M${product.Manzana}-L${product.Lote}`)
-    try{
-      let lote = document.getElementById(`M${product.Manzana}-L${product.Lote}`)
-
-      lote.dataset.crm_id = product.id
-      lote.dataset.crm = true
-      lote.dataset.costototal = product.Unit_Price
-      lote.dataset.dimension = product.Dimension_del_Terreno_M21
-      lote.dataset.costom2 = product.Costo_por_M2
-      lote.dataset.trato = product.Product_Name
-
-      if(product.Estado != "Disponible"){
-        lote.style.fill = '#9D0B0B'
-        lote.removeAttribute('onclick')
-        // console.log("red")
-      }else if(product.Estado == "Disponible"){
-        lote.style.fill = '#01400f'
-        // console.log("orange")
+    lostes2.map((lote) => {
+      if (lote.id.includes("L")) {
+        lote.style.fill = 'green'
+        lote.dataset.lote = ""
+        lote.dataset.crm = false
+        lote.classList = "login"
       }
-    }catch(err){
-      console.log(err)
-    }
-  })
-}
-
-mapa.addEventListener('click', (e) => {
-  if (e.target.matches('[data-manzana]')) {
-    // const manzana = e.target.id
-    let auxManzana = e.target.id.split('-') 
-    const manzana = auxManzana[0];
-    posicionY = e.pageY;
-    posicionX = e.pageX;
-    const svgNombre = e.target.closest('svg').dataset.desarrollo
-    const fraccionamiento =
-      document.getElementById('nombre-desarrollo').textContent
-    console.log(fraccionamiento, manzana)
-    loadManzana(svgNombre, manzana)
-    getDisponiblidad(fraccionamiento, manzana)
-  }
-})
-
-mapa.addEventListener('click', (e) => {
-  const desarrollo = document.querySelector('#nombre-desarrollo').innerHTML
-  const info = document.querySelector('.info-apartado')
-  let posicionModal = e.pageY
-  const modal = document.getElementById('modal')
-  const modalLogin = document.getElementById("modal-login")
-  if (e.target.matches('[data-lote]')) {
-    console.log(`${desarrollo} ${e.target.id}`)
-    console.log(`posicion:  ${posicionModal}`)
-    if(sessionStorage.getItem("sesion"))
-    {
-      console.log("false")
-      modal.style.top = posicionModal + 'px'
-      openLoginForm()
-      info.innerHTML = e.target.dataset.trato
-      info.dataset.manzanaylote = e.target.id
-    }
-    else{
-      console.log("true")
-      modalLogin.style.top = posicionModal + 'px';
-      AbrirLoginForm();
-    }
-  }
-})
-
-mapa.addEventListener('mouseover', (e) => {
-  if (e.target.matches('[data-lote]')){
-    toolTip.innerHTML = ''
-    let lote = document.createElement('p')
-    lote.textContent = e.target.dataset.trato;
-    toolTip.appendChild(lote);
-    let dimension = document.createElement('p')
-    dimension.textContent = 'Dimension: ' + e.target.dataset.dimension + ' m2';
-    toolTip.appendChild(dimension);
-    let costoMetro = document.createElement('p')
-    costoMetro.textContent = 'Costo M2: $ ' + e.target.dataset.costom2;
-    toolTip.appendChild(costoMetro);
-    let total = document.createElement('p');
-    total.textContent = 'Costo total: $ ' + e.target.dataset.costototal;
-    toolTip.appendChild(total);
-    posicionX = e.pageX;
-    posicionY = e.pageY;
-    console.log(e.target.id);
-    showPopup()
-   
-   }
-})
-
-mapa.addEventListener('mouseout', (e) => {
-  if (e.target.matches('[data-lote]')) {
-    hidePopup()
-  }
-})
-
-function showPopup(e) {
-  let mapaSvg = mapa.querySelector('#map')
-  let map = mapaSvg.getBoundingClientRect()
-
-  toolTip.style.left = posicionX + 'px'
-  toolTip.style.top = posicionY + 'px'
-  toolTip.style.display = 'block'
-}
-
-function hidePopup(evt) {
-  toolTip.style.display = 'none'
-}
-
-/*
-  fetch(`./desarrollos/${desarrollo}/plano.svg`)
-    .then((svg) => {
-      if (!svg.ok) {
-        throw Error('No esta disponible por el momento')
-      }
-      svg.text()
     })
-    .then((html) => (mapa.innerHTML = html))
-    .catch((err) => alert(err))
-*/
+  
+  
+    disponibilidad.map((product) => {
+      console.log(`M${product.Manzana}-L${product.Lote}`)
+      // console.log(`M${product.Manzana}-L${product.Lote}`)
+      try {
+        let lote = document.getElementById(`M${product.Manzana}-L${product.Lote}`)
+  
+        lote.dataset.crm_id = product.id
+        lote.dataset.crm = true
+        lote.dataset.costototal = product.Unit_Price
+        lote.dataset.dimension = product.Dimension_del_Terreno_M21
+        lote.dataset.costom2 = product.Costo_por_M2
+  
+        if (product.Estado != "Disponible") {
+          lote.style.fill = 'red'
+          lote.removeAttribute('onclick')
+          console.log("red")
+        } else if (product.Estado == "Disponible") {
+          lote.style.fill = 'orange'
+          console.log("orange")
+        }
+      } catch (err) {
+        console.log(err)
+      }
+    })
+  
+  
+  },
+  // showPopup(evt) {
+  //   //   let mapaSvg = mapa.querySelector('#map')
+  //   //   let map = mapaSvg.getBoundingClientRect()
+  //   toolTip.style.left = posicionX + 'px'
+  //   toolTip.style.top = posicionY + 'px'
+  //   toolTip.style.display = 'block'
+  // },
+  // hidePopup(evt) {
+  //   toolTip.style.display = 'none'
+  // }
+}
+
+export default mapa
