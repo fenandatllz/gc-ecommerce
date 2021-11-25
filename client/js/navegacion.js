@@ -62,7 +62,7 @@ $('.zoom-out').on('click', function () {
 //             fntExecuteSlide(arrItem[1]);
 //             return false;
 //         });
-//     });
+//     }); 
 // }
 
 const nav = {

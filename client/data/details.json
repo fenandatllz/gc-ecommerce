@@ -2,10 +2,10 @@
     [
         {
             "fracionamiento": "Costa Dorada",
-            "logo": "img/cd.png",
-            "img": "https://grupoconcordia.com/wp-content/uploads/2020/05/WhatsApp-Image-2020-01-06-at-11.54.10-AM-2.jpeg",
+            "logo": "img/Fraccionamientos/Costa-Dorada/CD Logo.png",
+            "img": "img/Fraccionamientos/Costa-Dorada/RENDER 03 DESDE EL MAR.jpg",
             "imgs": [
-                "img/Fraccionamientos/COSTA DORADA.JPG",
+                "img/Fraccionamientos/Costa-Dorada/DUPLEX FACHADA.jpg",
                 "img/Fraccionamientos/COSTA DORADA2.JPG",
                 "img/Fraccionamientos/CD3.JPG"
             ],
@@ -174,16 +174,108 @@
         },
         {
             "fracionamiento": "SAHARA RESIDENCIAL",
-            "logo": "img/sahara.png",
+            "logo": "img/Fraccionamientos/Sahara/Sahara Logo.png",
             "img": "https://grupoconcordia.com/wp-content/uploads/2018/09/WhatsApp-Image-2020-08-24-at-1.11.15-PM.jpeg",
             "imgs": [
-                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-1-1024x570.jpeg",
-                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-2-1-1024x747.jpeg",
-                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-1-1024x570.jpeg"
+                "img/Fraccionamientos/Sahara/Sahara.jpg",
+                "img/Fraccionamientos/Sahara/Sahara 2.JPG",
+                "img/Fraccionamientos/Sahara/Sahara 3.JPG",
+                "img/Fraccionamientos/Sahara/Sahara 4.jpg",
+                "img/Fraccionamientos/Sahara/Sahara 5.JPG"
             ],
             "descripciones": [
-                "Costa Dorada es uno de nuestros desarrollos que cuenta con todos los servicios necesarios para ser habitado. Se ubica en una zona estratégica, con fácil acceso a cualquiera de nuestras ciudades vecinas: Tijuana, Rosarito y San Diego. Justo en la puerta de entrada a la zona dorada del corredor turístico Rosarito – Ensenada.",
-                "Costa Dorada garantiza la más alta plusvalía de la región, ya sea desde el punto de vista comercial, residencial, hotelero o gastronómico."
+                "Te presentamos Sahara Residential Beach Front; si alguna vez haz anhelado tener el mar como tu patio trasero, ¡Entonces es para ti!",
+                "Este exclusivo desarrollo te brinda la oportunidad de invertir en una propiedad con alta plusvalía, lo cual asegurará tu bienestar y el de tus seres queridos mientras gozas de tener tu pedacito de México.",
+                "Contará con amenidades como casa club, alberca, gimnasio, andadores y acceso exclusivo al mar que seguro elevarán tu estilo de vida y te brindarán el confort que tanto anhelas."
+            ],
+            "amenidades": [
+                {
+                    "icon": "hotel",
+                    "name": "Hoteles"
+                },
+                {
+                    "icon": "utensils",
+                    "name": "Restaurantes"
+                },
+                {
+                    "icon": "store",
+                    "name": "Comerciales"
+                },
+                {
+                    "icon": "water",
+                    "name": "Vista al mar"
+                },
+                {
+                    "icon": "campground",
+                    "name": "Lotes Residenciales"
+                },
+                {
+                    "icon": "campground",
+                    "name": "Lotes Comerciales"
+                },
+                {
+                    "icon": "store-alt",
+                    "name": "Tiendas de Autoservicio y Departamentales"
+                },
+                {
+                    "icon": "home",
+                    "name": "Modelos de Casas"
+                }
+            ],
+            "servicios": [
+                {
+                    "icon": "lightbulb",
+                    "name": "Alumbrado Público"
+                },
+                {
+                    "icon": "plug",
+                    "name": "Electricidad"
+                },
+                {
+                    "icon": "faucet",
+                    "name": "Red de Agua Potable"
+                },
+                {
+                    "icon": "stroopwafel",
+                    "name": "Red de Drenaje"
+                },
+                {
+                    "icon": "tree",
+                    "name": "Áreas Verdes"
+                },
+                {
+                    "icon": "exclamation-triangle",
+                    "name": "Nomenclatura Vial"
+                },
+                {
+                    "icon": "layer-group",
+                    "name": "Amojonamiento de Lotes"
+                },
+                {
+                    "icon": "city",
+                    "name": "Urbanización"
+                },
+                {
+                    "icon": "road",
+                    "name": "Pavimentación"
+                }
+            ]
+        },
+        {
+            "fracionamiento": "VILLA TOSCANA",
+            "logo": "img/Fraccionamientos/Toscana/Toscana Logo.png",
+            "img": "img/Fraccionamientos/Toscana/Toscana 3.JPG",
+            "imgs": [
+                "img/Fraccionamientos/Toscana/Toscana.JPG",
+                "img/Fraccionamientos/Toscana/Toscana 2.JPG",
+                "img/Fraccionamientos/Toscana/Toscana 3.JPG",
+                "img/Fraccionamientos/Toscana/Casa Club.jpg",
+                "img/Fraccionamientos/Toscana/Casa Club DG.jpg"
+            ],
+            "descripciones": [
+                "Concepto residencial exclusivo que ofrece un estilo de vida único: Villa Toscana Residencial es la perfecta combinación entre las exigencias de la vida moderna y actividades al aire libre que brindarán confort a tu estilo de vida.",
+                "Su ubicación lo posiciona en el mejor entorno turístico de la zona: a 10 minutos caminando hacia una de las playas con mayor importancia de la región, con acceso a las principales carreteras.",
+                "¡Con Villa Toscana Residencial podrás hacer una excelente inversión inmobiliaria, tener tu pedacito de México y construir la casa que siempre soñaste!."
             ],
             "amenidades": [
                 {
