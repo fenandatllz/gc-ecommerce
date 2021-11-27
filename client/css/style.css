@@ -1,4 +1,4 @@
-/* General */
+    /* General */
 html {
     box-sizing: border-box;
     font-size: 62.5%; 
@@ -60,17 +60,10 @@ header .img-logo{
     background-color: #DE9F27;
     margin-bottom: 13px;
 }
-.division-modal{
-    margin-top: 10px;
-    margin-left: 45px;
-    width: 76%;
-    height: 5px;
-    background-color: #DE9F27;
-}
 
 .contenedor {
     width: 80%;
-    margin: 0 auto;
+    margin: 30px auto;
 }
 .nombre-desarrollo{
     width: 100%;
@@ -375,18 +368,17 @@ footer i{
 .contenedor-mapa{
     width: 95vw;
     margin: auto;
+    
 }
 .mapa-interactivo{
     width: auto;
     height: 95vh;
+    overflow-x: auto;
     scroll-snap-type: y mandatory;
-    scroll-snap-type: x mandatory;
-    overflow-x: x;
-    overflow-y: y;
     border-radius: 11px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    background-color: #000;
     margin-top: 15px;
+    background-color: #000;
 }
 .zoom-flex{
     height: 70px;
@@ -442,146 +434,37 @@ footer i{
 	right:20px;
 }
 /* Carrusel Header*/  
-#container-slider
-{
-    display: flex;
+.slider {
     width: 100%;
-    height: 100%;
-    margin: 0;
+    margin: auto;
+    overflow: hidden;
+}
+  .slider ul {
+    /* display: flex; */
     padding: 0;
-}
-#slider {
-    position: relative;
-    display: flex;
     width: 100%;
-    height: 90vh;
-    margin: 0;
-    /* min-height: 400px; */
-}
-#slider li {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
+    animation: cambio 20s infinite alternate linear;
+  }
+  .slider li {
     width: 100%;
-    height: 100%;
-    display: flex;
-    -webkit-transition: opacity 1s;
-    -moz-transition: opacity 1s;
-    -ms-transition: opacity 1s;
-    -o-transition: opacity 1s;
-    transition: opacity 1s;
-    z-index: -1;
-    opacity: 0;
-}
-#container-slider .arrowPrev, #container-slider .arrowNext{
-    font-size: 30pt;
-    color: rgba(204, 204, 204, 0.65);
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    left: 50px;
-    z-index: 2; 
-}
-#container-slider .arrowNext {
-    left: initial;
-    right: 50px !important;
-}
-.content_slider{
-    padding: 15px 30px;
-    color: #FFF;
-    width: 100%;
-    height: 100%;
-}
-
-#slider li .content_slider{
-    background: rgba(0, 0, 0, 0.50);
-    padding: 5px 125px;
-}
-.content_slider{
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.btnSlider{
-    color: #FFF;
-    font-size: 15pt;
-    font-family: 'arial';
-    letter-spacing: 1px;
-    padding: 10px 50px;
-    border: 1px solid #CCC;
-    background: rgba(13, 13, 13, 0.55);
-    border-radius: 31px;
-    text-decoration: none;
-    transition: .5s all;
-}
-.btnSlider:hover{
-    background: #111;
-    border: 1px solid #111;
-}
-.listslider {
-    position: absolute;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    left: 50%;
-    bottom: 5%;
     list-style: none;
-    z-index: 2;
-    transform: translateX(-50%);
-}
-.listslider li {
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    cursor: pointer;
-    margin: 0 5px;
-}
-.listslider li a {
-    background: #CCC;
-    border-radius: 50%;
+  }
+  .slider img {
     width: 100%;
-    height: 100%;
-    display: block;
-}
-.item-select-slid {
-    background: #FFF  !important;
-}
+  }
+  @keyframes cambio {
+    0%   {margin-left: 0;}
+    20%  {margin-left: 0;}
 
-@media screen and (max-width: 200px){
-	#container-slider .arrowPrev, #container-slider .arrowNext{
-		font-size: 20pt;
-	}
-	#container-slider .arrowPrev{
-		left: 15px;
-	}
-	#container-slider .arrowNext{
-		right: 15px !important;
-	}
-	#slider{
-		height: 400px;
-		min-height: 400px;
-	}
-	#slider li .content_slider{
-		padding: 10px 35px;
-	}
-	.btnSlider{
-		padding: 10px 30px;
-    	font-size: 10pt;
-	}
+    25%  {margin-left: -100%;}
+    45%  {margin-left: -100%;}
 
-}
+    50%  {margin-left: -200%;}
+    70%  {margin-left: -200%;}
 
+    75%  {margin-left: -300%;}
+    100% {margin-left: -300%;}
+  }
 /* Modal */
 .center {
     position:absolute;
@@ -595,8 +478,8 @@ footer i{
     width:100vw;
     height:100vh;
     background:rgba(0, 0, 0, 0.5);
-    /* display: none; */
-    display: flex;
+    display: none;
+    /* display: flex; */
     flex-direction: column;
     justify-content: center;
     align-items: center; 
@@ -624,102 +507,7 @@ footer i{
     opacity:1;
     transform:translate(-50%,-50%) scale(1);
   }
-   .popup .popup-close {
-    position:absolute;
-    top:-10px;
-    right:-10px;
-    width:40px;
-    height:40px;
-    background:#555;
-    color:#fff;
-    font-size:30px;
-    font-weight:600;
-    text-align:center;
-    border-radius:50%;
-    cursor:pointer;
-  }
-  .popup .form .header {
-    text-align:center;
-    font-size:20px;
-    font-weight:600;
-    color:#222;
-    margin:20px 0px;
-  }
-  .popup .form .element {
-    padding: 12px 20px;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-  }
-  .info-apartado{
-    font-size: small;
-    font-weight: 700;
-}
-  .popup .form .element label {
-    width:100%;
-    display:flex;
-    font-size:14px;
-    color:#222;
-    margin-bottom:5px;
-  }
-  .popup .form .element input {
-    width:100%;
-    border:1px solid #aaa;
-    background:#eee;
-    border-radius:5px;
-    padding-right: 10%;
-  }
-
-
-  .popup .form .element .enviar {
-    width:100%;
-    color: #4889da; 
-    font-size: 15px;
-    font-weight: 500;
-    padding: 0.5em 1.2em;
-    background: rgba(0,0,0,0);
-    border: 2px solid;
-    border-color: #4889da;
-    transition: all 1s ease;
-    position: relative;
-    border-radius:5px;
-    cursor: pointer;
-  }
-  .popup .form .element .enviar:hover {
-    background: #4889da;
-    color: #fff;
-  }
-
-  .popup .form .element .cancelar {
-    width:100%;
-    color: #ff3838;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 0.5em 1.2em;
-    background: rgba(0,0,0,0);
-    border: 2px solid;
-    border-color: #ff3838;
-    transition: all 1s ease;
-    position: relative;
-    border-radius:5px;
-    cursor: pointer;
-  }
-  .popup .form .element .cancelar:hover {
-    background:#ff3838;
-    color: #fff;
-  }
-  .popup .form .element select{
-    width:100%;
-    padding: 8px 10px;
-    box-sizing:border-box;
-    outline:none;
-    border:1px solid #aaa;
-    background:#eee;
-    border-radius:5px;
-    height: 37px;
-    cursor: pointer;
-  }
- 
+   
 /* Alertas */
 
 #toast, #toast2{

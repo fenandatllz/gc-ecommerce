@@ -14,7 +14,6 @@ const login = {
         modal.innerHTML = " "
         modal.innerHTML = `
         <div class="button-box">
-        <div id="popup-login-close" class="popup-close-login">×</div>
             <div id="btn" id="btn-active-login"></div>
             <button id="btn-iniciar" type="button" class="toggle-btn">Iniciar Sesión</button>
             <button id="btn-registrar" type="button" class="toggle-btn">Registrar</button>
@@ -75,31 +74,40 @@ const login = {
         modal.innerHTML = `
         <form class="pay-form">
             <div class="pay-header">
-                <label>Introduzca Datos del Contacto</label>
+                Introduzca Datos del Contacto
                 <div class="pay-division-modal"></div>
             </div>
-            <div class="pay-enganche-check">
+            <div class="element">
+                <span class="info-apartado"> </span>
+            </div>
+            <div class="element">
                 <label>¿Desea dar un enganche?</label>
                 <input type="checkbox" id="checkEnganche" onclick="MostrarDiv(this)">
             </div>
-            <select name="monto-enganche" id="monto-enganche" class="pay-enganche">
-                <option value="0" disabled selected> Seleccione Monto de Enganche </option>
-                <option value="1" >$ 100.00 DLLS</option>
-                <option value="2" >$ 200.00 DLLS</option>
-                <option value="3" >$ 300.00 DLLS</option>
-                <option value="4" >$ 400.00 DLLS</option>
-            </select>
-            <select name="monto-pago" id="monto-pago" class="pay-apartado">
-                <option value="0" disabled selected> Seleccione Monto de Apartado </option>
-                <option value="1" >$ 50.00 DLLS</option>
-                <option value="2" >$ 100.00 DLLS</option>
-                <option value="3" >$ 150.00 DLLS</option>
-                <option value="4" >$ 200.00 DLLS</option>
-            </select>               
-            <div class="pay-btns">                    
-                <button type="submit" id="btn-enviar" class="pay-enviar">Enviar</button>
-                <button type="submit" id="btn-cancelar" class="pay-cancelar">Cancelar</button>
+            <div class="element" id="mostrarEnganche" style="display: none;">
+                <select name="monto-enganche" id="monto-enganche">
+                    <option value="0" disabled selected> Seleccione Monto de Enganche </option>
+                    <option value="1" >$ 100.00 DLLS</option>
+                    <option value="2" >$ 200.00 DLLS</option>
+                    <option value="3" >$ 300.00 DLLS</option>
+                    <option value="4" >$ 400.00 DLLS</option>
+                </select>
             </div>
+            <div class="element"> 
+                <select name="monto-pago" id="monto-pago" >
+                    <option value="0" disabled selected> Seleccione Monto de Apartado </option>
+                    <option value="1" >$ 50.00 DLLS</option>
+                    <option value="2" >$ 100.00 DLLS</option>
+                    <option value="3" >$ 150.00 DLLS</option>
+                    <option value="4" >$ 200.00 DLLS</option>
+                </select>
+            </div>              
+                <div class="element">                          
+                    <button type="submit" id="btn-enviar" class="enviar">Enviar</button>
+                </div>
+                <div class="element">
+                    <button type="submit" id="btn-cancelar" class="cancelar">Cancelar</button>
+                </div>
         </form>
         `
         return true

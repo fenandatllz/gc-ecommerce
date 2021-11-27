@@ -1,8 +1,8 @@
 
-#mapa-interactivo svg{
-  width: 2400;
-  height: 1900;
-}
+  /* #mapa-interactivo svg{
+    width: 2400;
+    height: 1900;
+  } */
 
 /* .mapa-interactivo{
   overflow: hidden;
@@ -35,9 +35,10 @@
     fill-rule: evenodd;
   }
 
-  .cls-3 {
+  /* Nombre Calles
+   .cls-3 {
     fill:#de9f27;
-  }
+  } */
 
   .cls-4, .cls-6 {
     fill: #de9f27;

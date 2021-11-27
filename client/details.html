@@ -32,18 +32,11 @@
     </nav>
     <!-- Carrusel -->
     <header class="portada">
-        <div id="container-slider">
-            <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i
-                    class="fas fa-chevron-circle-left"></i></a>
-            <a href="javascript: fntExecuteSlide('next');" class="arrowNext"><i
-                    class="fas fa-chevron-circle-right"></i></a>
-            <ul class="listslider">
-                <li><a itlist="itList_0" href="#" class="item-select-slid"></a></li>
-                <li><a itlist="itList_1" href="#"></a></li>
-                <li><a itlist="itList_2" href="#"></a></li>
+        <div class="slider">
+            <ul>
+               <li id="img-carrusel"></li>
             </ul>
-            <ul id="slider"> </ul>
-        </div>
+         </div>
     </header>
     <!-- Descripcion -->
     <main class="contenedor">
@@ -63,8 +56,7 @@
     <!-- Mapas/SVG's -->
     <div class="contenedor-mapa">
 
-        <div data-zoom-on-wheel data-pan-on-drag id="mapa-interactivo" class="mapa-interactivo">
-
+        <div data-pan-on-drag id="mapa-interactivo" class="mapa-interactivo">
         </div>
 
         <div class="zoom-flex">
