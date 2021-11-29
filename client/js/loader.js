@@ -18,6 +18,7 @@ const loader = {
         console.log("type")
         console.log(type)
 
+
         if (type == "true") {
             console.log("loadDetails")
             this.loadDetails(data)
@@ -47,6 +48,7 @@ const loader = {
         const urlParams = new URLSearchParams(valores);
         var index = urlParams.get('index');
         const carrucel = document.getElementById('img-carrusel');
+        const select = document.getElementById('monto-enganche');
 
         // Slider
         const frac = data[index]
@@ -57,12 +59,30 @@ const loader = {
             } else {
                 img.src = `${element}`
             }
-            console.log(carrucel);
             carrucel.appendChild(img)
             carrucel.style.display = "flex";
         })
 
+        const fraccPago = data[index]
+        //foreach para cargar enganches
+        fraccPago.pagoEnganche.forEach((opcion) =>{
+            let html = ""    
+            html += `
+            <option value="0" disabled selected> Seleccione Monto de Enganche </option>
+            <option>${opcion.Enganche[0]}</option>
+            <option>${opcion.Enganche[1]}</option>
+            <option>${opcion.Enganche[2]}</option>
+            `
+            select.innerHTML = html
+    
+         })
+    //foreach para cargar Primer Mensualidad
+    let inputPM = document.getElementById('mensualidad');
 
+    fraccPago.pagoPM.forEach((opcion) =>{
+        inputPM.value = `Pago de primer mensualidad: ${opcion.Mensualidad}`;
+      
+    })
         // agrega detalles 
         const article = document.createElement("article")
         const h1 = document.createElement("h1")

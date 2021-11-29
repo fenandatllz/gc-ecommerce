@@ -80,28 +80,17 @@ const login = {
             <div class="element">
                 <span class="info-apartado"> </span>
             </div>
+            <div class="element" id="input-mensualidad">
+                <input type="text" id="mensualidad" disabled>
+            </div>
             <div class="element">
                 <label>¿Desea dar un enganche?</label>
                 <input type="checkbox" id="checkEnganche" onclick="MostrarDiv(this)">
             </div>
             <div class="element" id="mostrarEnganche" style="display: none;">
                 <select name="monto-enganche" id="monto-enganche">
-                    <option value="0" disabled selected> Seleccione Monto de Enganche </option>
-                    <option value="1" >$ 100.00 DLLS</option>
-                    <option value="2" >$ 200.00 DLLS</option>
-                    <option value="3" >$ 300.00 DLLS</option>
-                    <option value="4" >$ 400.00 DLLS</option>
                 </select>
-            </div>
-            <div class="element"> 
-                <select name="monto-pago" id="monto-pago" >
-                    <option value="0" disabled selected> Seleccione Monto de Apartado </option>
-                    <option value="1" >$ 50.00 DLLS</option>
-                    <option value="2" >$ 100.00 DLLS</option>
-                    <option value="3" >$ 150.00 DLLS</option>
-                    <option value="4" >$ 200.00 DLLS</option>
-                </select>
-            </div>              
+            </div>            
                 <div class="element">                          
                     <button type="submit" id="btn-enviar" class="enviar">Enviar</button>
                 </div>
@@ -200,7 +189,10 @@ const login = {
             btnLogin.style.display = "none"
             nombreUsuario.innerText = "Bienvenido(a): "+ sessionStorage.getItem('usuario')
         }
-    }
+    },
+    // opcionesPago() {
+        
+    // }
 }
 
 export default login

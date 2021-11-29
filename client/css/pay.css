@@ -25,6 +25,9 @@
     font-size: small;
     font-weight: 700;
 }
+#mensualidad{
+  padding: 0.8em 1.2em;
+}
   .pay-form .element label {
     width:100%;
     display:flex;

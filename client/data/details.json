@@ -85,6 +85,20 @@
                     "icon": "road",
                     "name": "Pavimentación"
                 }
+            ],
+            "pagoPM":[
+                {
+                    "Mensualidad": "USD $500"
+                }
+            ],
+            "pagoEnganche":[
+                {
+                    "Enganche":[
+                        "USD $1000",
+                        "USD $1500",
+                        "USD $2000"
+                    ]
+                }
             ]
         },
         {
@@ -170,6 +184,20 @@
                 {
                     "icon": "road",
                     "name": "Pavimentación"
+                }
+            ],
+            "pagoPM":[
+                {
+                    "Mensualidad": "USD $500"
+                }
+            ],
+            "pagoEnganche":[
+                {
+                    "Enganche":[
+                    "USD $1000",
+                    "USD $1500",
+                    "USD $2000"
+                    ]
                 }
             ]
         },
@@ -260,6 +288,20 @@
                     "icon": "road",
                     "name": "Pavimentación"
                 }
+            ],
+            "pagoPM":[
+                {
+                    "Mensualidad": "USD $500"
+                }
+            ],
+            "pagoEnganche":[
+                {
+                    "Enganche":[
+                    "USD $1000",
+                    "USD $1500",
+                    "USD $2000"
+                    ]
+                }
             ]
         },
         {
@@ -349,6 +391,20 @@
                     "icon": "road",
                     "name": "Pavimentación"
                 }
+            ],
+            "pagoPM":[
+                {
+                    "Mensualidad": "USD $500"
+                }
+            ],
+            "pagoEnganche":[
+                {
+                    "Enganche":[
+                        "USD $1000",
+                        "USD $1500",
+                        "USD $2000"
+                    ]
+                }
             ]
         },
         {
@@ -434,6 +490,20 @@
                 {
                     "icon": "road",
                     "name": "Pavimentación"
+                }
+            ],
+            "pagoPM":[
+                {
+                    "Mensualidad": "USD $500"
+                }
+            ],
+            "pagoEnganche":[
+                {
+                    "Enganche":[
+                    "USD $1000",
+                    "USD $4500",
+                    "USD $2000"
+                    ]
                 }
             ]
         }

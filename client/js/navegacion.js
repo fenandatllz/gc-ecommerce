@@ -16,11 +16,15 @@ $(document).ready(function () {
     });
 
 });
+
 //DivEnganche
 function MostrarDiv(checkEnganche) {
     let dvEnganche = document.getElementById("mostrarEnganche");
+    let mensualidad = document.getElementById('mensualidad')
     dvEnganche.style.display = checkEnganche.checked ? "block" : "none";
+    mensualidad.style.display = checkEnganche.checked ? "none" : "block"
 }
+
 //Botones Zoom
 let zoom = 1;
 let height = 95;
