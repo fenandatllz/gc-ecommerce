@@ -36,7 +36,6 @@ const login = {
                 <input type="email" class="input-field" placeholder="Correo Electrónico" required>
                 <input type="password" class="input-field" placeholder="Contraseña" required>
                 <input type="password" class="input-field" placeholder="Confirmar Contraseña" required>
-                <input type="checkbox" id="check-registro" class="checkbox"><label>Acepto los terminos y condiciones</label>
                 <button type="submit" class="submit-btn" id="registrar-usuario">Registrar</button>
             </form>
         </div>
@@ -51,7 +50,7 @@ const login = {
             this.viewModal(true)
         })
 
-        // inico de sesion 
+        // inicio de sesion 
         let iniciarSesion = document.getElementById('iniciar-sesion')
         iniciarSesion.addEventListener('click', () => {
             this.login(pay)
@@ -74,31 +73,29 @@ const login = {
         modal.innerHTML = `
         <form class="pay-form">
             <div class="pay-header">
-                <label>Introduzca Datos del Contacto</label>
+                Introduzca Datos del Contacto
                 <div class="pay-division-modal"></div>
             </div>
-            <div class="pay-enganche-check">
+            <div class="element">
+                <span class="info-apartado"> </span>
+            </div>
+            <div class="element" id="input-mensualidad">
+                <input type="text" id="mensualidad" disabled>
+            </div>
+            <div class="element">
                 <label>¿Desea dar un enganche?</label>
                 <input type="checkbox" id="checkEnganche" onclick="MostrarDiv(this)">
             </div>
-            <select name="monto-enganche" id="monto-enganche" class="pay-enganche">
-                <option value="0" disabled selected> Seleccione Monto de Enganche </option>
-                <option value="1" >$ 100.00 DLLS</option>
-                <option value="2" >$ 200.00 DLLS</option>
-                <option value="3" >$ 300.00 DLLS</option>
-                <option value="4" >$ 400.00 DLLS</option>
-            </select>
-            <select name="monto-pago" id="monto-pago" class="pay-apartado">
-                <option value="0" disabled selected> Seleccione Monto de Apartado </option>
-                <option value="1" >$ 50.00 DLLS</option>
-                <option value="2" >$ 100.00 DLLS</option>
-                <option value="3" >$ 150.00 DLLS</option>
-                <option value="4" >$ 200.00 DLLS</option>
-            </select>               
-            <div class="pay-btns">                    
-                <button type="submit" id="btn-enviar" class="pay-enviar">Enviar</button>
-                <button type="submit" id="btn-cancelar" class="pay-cancelar">Cancelar</button>
-            </div>
+            <div class="element" id="mostrarEnganche" style="display: none;">
+                <select name="monto-enganche" id="monto-enganche">
+                </select>
+            </div>            
+                <div class="element">                          
+                    <button type="submit" id="btn-enviar" class="enviar">Enviar</button>
+                </div>
+                <div class="element">
+                    <button type="submit" id="btn-cancelar" class="cancelar">Cancelar</button>
+                </div>
         </form>
         `
         return true

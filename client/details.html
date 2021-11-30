@@ -24,7 +24,7 @@
     <nav class="menu">
         <a href="index.html">
             <img class="logo" src="img/logo-nav.png">
-            <!-- <img id="logo" src="img/Logo Grupo Concordia Piramide.png" alt=""> -->
+            <img id="logo" src="img/logo-movil.png" alt="">
         </a>
         <h2 id="nombre-usuario"> </h2>
         <button id="btn-login" class="btn-login">Iniciar Sesión</button>
@@ -32,18 +32,11 @@
     </nav>
     <!-- Carrusel -->
     <header class="portada">
-        <div id="container-slider">
-            <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i
-                    class="fas fa-chevron-circle-left"></i></a>
-            <a href="javascript: fntExecuteSlide('next');" class="arrowNext"><i
-                    class="fas fa-chevron-circle-right"></i></a>
-            <ul class="listslider">
-                <li><a itlist="itList_0" href="#" class="item-select-slid"></a></li>
-                <li><a itlist="itList_1" href="#"></a></li>
-                <li><a itlist="itList_2" href="#"></a></li>
+        <div class="slider">
+            <ul>
+               <li id="img-carrusel"></li>
             </ul>
-            <ul id="slider"> </ul>
-        </div>
+         </div>
     </header>
     <!-- Descripcion -->
     <main class="contenedor">
@@ -63,8 +56,7 @@
     <!-- Mapas/SVG's -->
     <div class="contenedor-mapa">
 
-        <div data-zoom-on-wheel data-pan-on-drag id="mapa-interactivo" class="mapa-interactivo">
-
+        <div data-pan-on-drag id="mapa-interactivo" class="mapa-interactivo">
         </div>
 
         <div class="zoom-flex">
@@ -154,6 +146,7 @@
 
     <script src="./js/jquery.min.js"></script>
     <script src="./js/main.js" type="module"></script>
+    <script src="./js/navegacion.js"></script>
     <!-- <script src="./js/details.js" type="module"></script>
     <script src="./js/navegacion.js"></script>
     <script src="./js/loader.js"></script>
@@ -161,6 +154,7 @@
     <script src="./js/alertas.js" type="module"></script>
     <script src="./js/login.js" type="module"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom-container@0.5.0"></script>
+    <!-- <script src="./js/mapas.js" type="module"></script> -->
 </body>
 
 </html>
