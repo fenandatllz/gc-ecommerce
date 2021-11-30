@@ -593,8 +593,8 @@ footer i{
     width:100vw;
     height:100vh;
     background:rgba(0, 0, 0, 0.5);
-    /* display: none; */
-    display: flex;
+    display: none;
+    /* display: flex; */
     flex-direction: column;
     justify-content: center;
     align-items: center; 

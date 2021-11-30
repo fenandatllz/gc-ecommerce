@@ -1,16 +1,17 @@
 'use strict'
 
 import Loader from './loader.js'
+import Commerce from './commerce.js'
 
 // add login
 const modal = document.getElementById('modal')
 const nombreUsuario = document.getElementById('nombre-usuario')
 const body = document.getElementsByTagName("body")
 let type = body[0].dataset.type
-let loginForms,c
+let loginForms, c
 
 const login = {
-    innerLogin(pay){
+    innerLogin(pay) {
         modal.innerHTML = " "
         modal.innerHTML = `
         <div class="button-box">
@@ -67,6 +68,7 @@ const login = {
         btnRegistrar.addEventListener('click', () => {
             this.registro();
         })
+
         return true
     },
     innerPay: () => {
@@ -101,26 +103,90 @@ const login = {
             </div>
         </form>
         `
+        //Obtener boton send
+        const send = document.getElementById('btn-enviar')
+        send.addEventListener('click', async (e) => {
+            e.preventDefault()
+
+            let email = document.getElementById('correo-cliente').value
+            let lname = document.getElementById('apellidos-cliente').value
+            let fname = document.getElementById('nombres-cliente').value
+            // let movil = document.getElementById('movil').value
+
+            const item_id = await Commerce.getItemIdBooks()
+
+            //Validar correo vacios o no validos
+            if (validarCampos(email) === true) {
+                //Comprobar contacto CRM con email
+                const resp = await Commerce.comprobarContacto(email)
+                console.log(resp)
+                if (resp != '') {
+                    //Existe contacto CRM
+                    //Obtener contacto id BOOKS con email
+                    const idContactoBooks = await Commerce.obtenerContactoBooks(email)
+
+                    console.log('item de books: ', item_id)
+                    //Crear factura
+                    const respInvoice = await Commerce.crearFactura(idContactoBooks, item_id)
+                    //Enviar factura
+                    let invoice_id = respInvoice.invoice.invoice_id
+                    const respSendInvoice = await Commerce.enviarFactura(invoice_id)
+                    console.log(respInvoice)
+                    console.log(respSendInvoice)
+                } else {
+                    //No existe contacto CRM
+                    //Crear contacto
+                    //Datos de contacto
+                    const data = {
+                        data: [
+                            {
+                                Last_Name: lname,
+                                First_Name: fname,
+                                Email: email,
+                                // Mobile: movil,
+                            },
+                        ],
+                    }
+                    //Crear contacto
+                    const respCrearContacto = await Commerce.crearContacto(data)
+                    console.log(respCrearContacto.data[0])
+                    //Sincronizar contacto crm -> books
+                    let idContactCRM = respCrearContacto.data[0].details.id
+                    const respSyncContacto = await Commerce.sincronizarContacto(idContactCRM)
+                    console.log(respSyncContacto)
+                    //Crear factura
+                    let idBooks = respSyncContacto.data.customer_id
+                    const respInvoice = await Commerce.crearFactura(idBooks, item_id)
+                    //Enviar factura
+                    let invoice_id = respInvoice.invoice.invoice_id
+                    const respSendInvoice = await Commerce.enviarFactura(invoice_id)
+                    console.log(respInvoice)
+                    console.log(respSendInvoice)
+                }
+            } else {
+                window.alert('Error: La dirección de correo ' + email + ' es incorrecta.')
+            }
+        })
         return true
     },
     viewModal: (view) => {
         let modal = document.getElementById('container-modal')
-        if(view){
+        if (view) {
             modal.style.display = "flex"
-        }else{
+        } else {
             modal.style.display = "none"
         }
     },
-    registro: () =>{
+    registro: () => {
         c.style.left = '140px'
         loginForms.classList = "login-forms-register"
     },
-    inicio: () =>{
+    inicio: () => {
         c.style.left = '0px';
         loginForms.classList = "login-forms-login"
     },
-    login(pay){
-        console.log("Login: "+pay)
+    login(pay) {
+        console.log("Login: " + pay)
         let email = document.getElementById('correo')
         let password = document.getElementById('contrase_a')
 
@@ -128,33 +194,33 @@ const login = {
             email: email.value,
             password: password.value
         }
-    
-        fetch("/server/ecommerce/auth/sign-in",{
+
+        fetch("/server/ecommerce/auth/sign-in", {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(body)
         })
-        .then(data => data.json())
-        .then(res => {
-            if(res.code != 0) {
-                console.log("No Login !!")
-                email.value = " "
-                password.value = " "
-                Msg.innerText = "Usuario y/o contraseña incorrectos";
-                Msg.style.display = "block";
-                return false
-            }else{
-                this.iniciar(pay)
-                document.getElementById('')
-                return true  
-            }
-        })
+            .then(data => data.json())
+            .then(res => {
+                if (res.code != 0) {
+                    console.log("No Login !!")
+                    email.value = " "
+                    password.value = " "
+                    Msg.innerText = "Usuario y/o contraseña incorrectos";
+                    Msg.style.display = "block";
+                    return false
+                } else {
+                    this.iniciar(pay)
+                    document.getElementById('')
+                    return true
+                }
+            })
 
     },
-    logout(){
-        const loagout = fetch("/server/ecommerce/auth/sign-out",{
+    logout() {
+        const loagout = fetch("/server/ecommerce/auth/sign-out", {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -167,29 +233,27 @@ const login = {
         this.innerLogin(type);
         this.mostrarBoton()
     },
-    iniciar(pay){
+    iniciar(pay) {
         sessionStorage.setItem("usuario", "Fernanda")
         sessionStorage.setItem("correo", document.getElementById('correo').value)
         sessionStorage.setItem("sesion", true)
         this.viewModal();
-        if(pay) this.innerPay();
+        if (pay) this.innerPay();
         this.mostrarBoton()
     },
-    mostrarBoton: () =>{
+    mostrarBoton: () => {
         let btnLogin = document.getElementById('btn-login')
         let btnLogout = document.getElementById('btn-logout')
-        if(sessionStorage.getItem("sesion") == null)
-        {
+        if (sessionStorage.getItem("sesion") == null) {
             btnLogout.style.display = "none"
             btnLogin.style.display = "block"
             nombreUsuario.innerText = " "
         }
 
-        if(sessionStorage.getItem("sesion"))
-        {
+        if (sessionStorage.getItem("sesion")) {
             btnLogout.style.display = "block"
             btnLogin.style.display = "none"
-            nombreUsuario.innerText = "Bienvenido(a): "+ sessionStorage.getItem('usuario')
+            nombreUsuario.innerText = "Bienvenido(a): " + sessionStorage.getItem('usuario')
         }
     }
 }

@@ -75,17 +75,3 @@ const mapa = {
 }
 
 export default mapa
-
-
-
-/*
-  fetch(`./desarrollos/${desarrollo}/plano.svg`)
-    .then((svg) => {
-      if (!svg.ok) {
-        throw Error('No esta disponible por el momento')
-      }
-      svg.text()
-    })
-    .then((html) => (mapa.innerHTML = html))
-    .catch((err) => alert(err))
-*/
