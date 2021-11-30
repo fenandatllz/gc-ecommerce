@@ -36,7 +36,6 @@ const login = {
                 <input type="email" class="input-field" placeholder="Correo Electrónico" required>
                 <input type="password" class="input-field" placeholder="Contraseña" required>
                 <input type="password" class="input-field" placeholder="Confirmar Contraseña" required>
-                <input type="checkbox" id="check-registro" class="checkbox"><label>Acepto los terminos y condiciones</label>
                 <button type="submit" class="submit-btn" id="registrar-usuario">Registrar</button>
             </form>
         </div>
@@ -51,7 +50,7 @@ const login = {
             this.viewModal(true)
         })
 
-        // inico de sesion 
+        // inicio de sesion 
         let iniciarSesion = document.getElementById('iniciar-sesion')
         iniciarSesion.addEventListener('click', () => {
             this.login(pay)
@@ -189,10 +188,7 @@ const login = {
             btnLogin.style.display = "none"
             nombreUsuario.innerText = "Bienvenido(a): "+ sessionStorage.getItem('usuario')
         }
-    },
-    // opcionesPago() {
-        
-    // }
+    }
 }
 
 export default login

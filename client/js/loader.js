@@ -48,7 +48,6 @@ const loader = {
         const urlParams = new URLSearchParams(valores);
         var index = urlParams.get('index');
         const carrucel = document.getElementById('img-carrusel');
-        const select = document.getElementById('monto-enganche');
 
         // Slider
         const frac = data[index]
@@ -63,26 +62,6 @@ const loader = {
             carrucel.style.display = "flex";
         })
 
-        const fraccPago = data[index]
-        //foreach para cargar enganches
-        fraccPago.pagoEnganche.forEach((opcion) =>{
-            let html = ""    
-            html += `
-            <option value="0" disabled selected> Seleccione Monto de Enganche </option>
-            <option>${opcion.Enganche[0]}</option>
-            <option>${opcion.Enganche[1]}</option>
-            <option>${opcion.Enganche[2]}</option>
-            `
-            select.innerHTML = html
-    
-         })
-    //foreach para cargar Primer Mensualidad
-    let inputPM = document.getElementById('mensualidad');
-
-    fraccPago.pagoPM.forEach((opcion) =>{
-        inputPM.value = `Pago de primer mensualidad: ${opcion.Mensualidad}`;
-      
-    })
         // agrega detalles 
         const article = document.createElement("article")
         const h1 = document.createElement("h1")
@@ -132,6 +111,36 @@ const loader = {
 
         this.mapEvent()
     },
+    
+    //Fecth Prueba
+     loadOpciones(){
+         const valores = window.location.search;
+         const urlParams = new URLSearchParams(valores);
+         var index = urlParams.get('index');
+         const select = document.getElementById('monto-enganche');
+         let inputPM = document.getElementById('mensualidad');
+         fetch("./data/details.json")
+         .then(res => res.json())
+         .then(data =>{
+             //carga enganches
+             const fraccPago = data[index]
+             fraccPago.pagoEnganche.forEach((opcion) =>{
+                 let html = ""    
+                 html += `
+                 <option value="0" disabled selected> Seleccione Monto de Enganche </option>
+                 <option>${opcion.Enganche[0]}</option>
+                 <option>${opcion.Enganche[1]}</option>
+                 <option>${opcion.Enganche[2]}</option>
+                `
+                select.innerHTML = html
+            })
+            //carga Primer Mensualidad
+            fraccPago.pagoPM.forEach((opcion) =>{
+                inputPM.value = `Pago de primer mensualidad: ${opcion.Mensualidad}`;
+            })
+                
+        })
+    },
     mapEvent(){
         // Eventos Mapa 
         let posicionY = 0
@@ -166,6 +175,7 @@ const loader = {
             // const modalLogin = document.getElementById("modal-login")
             if (e.target.matches('[data-lote]')) {
                 Login.viewModal(true)
+                this.loadOpciones()
             }
         })
 
