@@ -53,15 +53,11 @@ const loader = {
         const frac = data[index]
         frac.imgs.forEach((element, index) => {
             let img = document.createElement('img')
-            if (index == 0) {
-                img.src = `${element}`
-            } else {
-                img.src = `${element}`
-            }
+            img.src = `${element}`
+        
             carrucel.appendChild(img)
             carrucel.style.display = "flex";
-        })
-
+        }) 
         // agrega detalles 
         const article = document.createElement("article")
         const h1 = document.createElement("h1")
@@ -112,7 +108,7 @@ const loader = {
         this.mapEvent()
     },
     
-    //Fecth Prueba
+    //Fecth Pago PM & Enganche
      loadOpciones(){
          const valores = window.location.search;
          const urlParams = new URLSearchParams(valores);
@@ -183,7 +179,7 @@ const loader = {
             if (e.target.matches('[data-lote]')) {
                 toolTip.innerHTML = ''
                 let lote = document.createElement('p')
-                lote.textContent = e.target.id
+                lote.textContent = e.target.dataset.trato
                 toolTip.appendChild(lote)
                 let dimension = document.createElement('p')
                 dimension.textContent = 'Dimension: ' + e.target.dataset.dimension + ' m2'

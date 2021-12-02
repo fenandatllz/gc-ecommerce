@@ -27,8 +27,9 @@ const mapa = {
   
     lostes2.map((lote) => {
       if (lote.id.includes("L")) {
-        lote.style.fill = 'green'
+        lote.style.fill = '#2E4D19'
         lote.style.stroke = '#de9f27'
+        lote.setAttribute("stroke-width", "1.96")
         lote.dataset.lote = ""
         lote.dataset.crm = false
         lote.classList = "login"
@@ -43,18 +44,19 @@ const mapa = {
         let lote = document.getElementById(`M${product.Manzana}-L${product.Lote}`)
   
         lote.dataset.crm_id = product.id
+        lote.dataset.trato = product.Product_Name
         lote.dataset.crm = true
         lote.dataset.costototal = product.Unit_Price
         lote.dataset.dimension = product.Dimension_del_Terreno_M21
         lote.dataset.costom2 = product.Costo_por_M2
   
         if (product.Estado != "Disponible") {
-          lote.style.fill = 'red'
+          lote.style.fill = '#980C16'
           lote.style.stroke = '#de9f27'
           lote.removeAttribute('onclick')
           console.log("red")
         } else if (product.Estado == "Disponible") {
-          lote.style.fill = 'orange'
+          lote.style.fill = '#416E23'
           lote.style.stroke = '#de9f27'
           console.log("orange")
         }

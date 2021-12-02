@@ -299,6 +299,7 @@ article {
     
 }
 .mapa-interactivo{
+    z-index: 2;
     width: auto;
     height: 95vh;
     overflow-x: auto;
@@ -309,20 +310,23 @@ article {
     background-color: #000;
 }
 .zoom-flex{
-    height: 70px;
+    /* height: 70px; */
+    gap: 1rem;
+    justify-content: left;
     display: flex;
-    gap: 2rem;
-    justify-content: right;
+    /* justify-content:stretch; */
+    /* margin-left:30px; */
 }
  .btnz {
     width: 5rem;
     height: 5rem;
     background: #de9f27;
     border: 2px solid #000;
+    position: absolute ;
+    z-index: 1;
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
-    position: relative;
     color: #fff;
     padding: 15px 10px 5px;
      text-align: center;
@@ -332,8 +336,17 @@ article {
     -webkit-user-select: none;
     user-select: none;
     transition: all 0.3s ease;
-    bottom: 670px;
-    margin-right: 40px;
+    bottom:-750px;
+    margin:10px; 
+  } 
+  .zoom{
+    right:170px;
+  }
+  .zoom-init{
+    right:50px;
+  }
+  .zoom-out{
+    right:110px;
   } 
 
   @media(max-width:768px){
@@ -341,6 +354,7 @@ article {
         display:none;
       } 
   }
+
    .btnz i{
       font-size: large;
   } 
@@ -371,17 +385,17 @@ article {
     /* display: flex; */
     padding: 0;
     width: 100%;
-    height: 80%;
+    height: 90%;
     animation: cambio 20s infinite alternate linear;
   }
   .slider li {
     width: 100%;
     list-style: none;
   }
-  .slider img {
-    width: 100%;
-    height: 80%;
+  .slider img{
+      width: 100%;
   }
+  
   @keyframes cambio {
     0%   {margin-left: 0;}
     20%  {margin-left: 0;}
