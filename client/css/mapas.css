@@ -44,3 +44,8 @@
       height: 600px;
     }
   }
+  tspan{
+    /* left:5px; */
+    font-weight: 700;
+    font-size: 25px;
+  }
