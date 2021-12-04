@@ -28,6 +28,7 @@ const mapa = {
     lostes2.map((lote) => {
       if (lote.id.includes("L")) {
         lote.style.fill = 'green'
+        lote.style.stroke = '#de9f27'
         lote.dataset.lote = ""
         lote.dataset.crm = false
         lote.classList = "login"
@@ -49,10 +50,12 @@ const mapa = {
   
         if (product.Estado != "Disponible") {
           lote.style.fill = 'red'
+          lote.style.stroke = '#de9f27'
           lote.removeAttribute('onclick')
           console.log("red")
         } else if (product.Estado == "Disponible") {
           lote.style.fill = 'orange'
+          lote.style.stroke = '#de9f27'
           console.log("orange")
         }
       } catch (err) {
@@ -62,16 +65,16 @@ const mapa = {
   
   
   },
-  // showPopup(evt) {
-  //   //   let mapaSvg = mapa.querySelector('#map')
-  //   //   let map = mapaSvg.getBoundingClientRect()
-  //   toolTip.style.left = posicionX + 'px'
-  //   toolTip.style.top = posicionY + 'px'
-  //   toolTip.style.display = 'block'
-  // },
-  // hidePopup(evt) {
-  //   toolTip.style.display = 'none'
-  // }
+  showPopup(e, x, y) {
+    //   let mapaSvg = mapa.querySelector('#map')
+    //   let map = mapaSvg.getBoundingClientRect()
+    e.style.left = x + 'px'
+    e.style.top = y + 'px'
+    e.style.display = 'block'
+  },
+  hidePopup(e) {
+    e.style.display = 'none'
+  }
 }
 
 export default mapa

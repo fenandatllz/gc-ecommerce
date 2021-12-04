@@ -82,14 +82,14 @@
 }
 
 .input-group{
-    padding: 0px 10%;
-    /* top:130px; */
-    /* position:absolute; */
+    padding: 2% 7%;
+    /* top:130px;
+    position:absolute; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width:75%;
+    width:100%;
     transition:.5s;
 }
 .input-field{
@@ -107,11 +107,11 @@
     color: #999;
 }
 .submit-btn{
-    width:85%;
+    width:100%;
     padding: 10px 30px;
     cursor: pointer;
     display: block;
-    margin:auto;
+    margin: 10%;
     background-color: #DE9F27;
     border:0;
     outline:none;
@@ -120,7 +120,7 @@
 }
 
 .checkbox{
-    margin:30px 10px 30px 0;
+    margin:30px 10px 0 0;
 
 }
 .checkbox label{
@@ -175,8 +175,9 @@
     background: #C08500;
     color: #ffff;
 }
-/* .popup-login .popup-close-login {
+.popup-login .popup-close-login {
     position: absolute;
+    top: -3rem;
     margin: 0px auto;
     width:40px;
     height:40px;
@@ -187,7 +188,7 @@
     text-align:center;
     border-radius:50%;
     cursor:pointer;
-  } */
+  }
 
 
   @media only screen and (min-device-width: 218px) and (max-device-width: 767px){

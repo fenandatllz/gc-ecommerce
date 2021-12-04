@@ -126,7 +126,6 @@ const commerce = {
       return error
     }
   },
-
   //Convertir formato fecha
   convertirFecha(fecha) {
     var dd = String(fecha.getDate()).padStart(2, '0')

@@ -1,9 +1,10 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/load.css">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/all.css" />
@@ -11,6 +12,7 @@
 
     <title>Prueba Mapa</title>
 </head>
+
 <body data-type="false">
     <!-- Loader -->
     <div class="loader_bg">
@@ -20,7 +22,7 @@
     <nav class="menu">
         <a href="#">
             <img class="logo" src="img/logo-nav.png">
-            <!-- <img id="logo" src="img/Logo Grupo Concordia Piramide.png" alt=""> -->
+            <img id="logo" src="img/logo-movil.png" alt="">
         </a>
         <h2 id="nombre-usuario"> </h2>
         <button id="btn-login" class="btn-login">Iniciar Sesión</button>
@@ -33,7 +35,9 @@
         <div class="division"></div>
     </header>
     <!-- Cards -->
-    <div id="cards" class="cards"></div>
+    <main class="contenedor">
+        <div id="cards" class="cards"></div>
+    </main>
     <!-- Navegacion hacia arriba -->
     <span class="arriba">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up-circle" width="40"
@@ -85,7 +89,9 @@
     </footer>
     <!-- Modal  -->
     <div id="container-modal" class="popup-modal">
-        <div id="modal" class="popup-login"></div>
+        <div id="modal" class="popup-login">
+        </div>
+
     </div>
     <!-- scrips -->
     <script src="./js/jquery.min.js"></script>
