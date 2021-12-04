@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const crm = require("../controllers/crm")
 
-
+console.log("Crm router")
 router.use(express.json())
 router.use(express.urlencoded({ extended: true }))
 
