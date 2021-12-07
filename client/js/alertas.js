@@ -47,8 +47,9 @@ const btnCancelarPago = document.getElementById('btn-cancelar');
 const btnCerrarAlerta = document.getElementById('close'); //Cerrar Alerta Pago exitoso
 const btnCerrarAlert = document.getElementById('close-sin-exito');//Cerrar Alerta Pago sin exito
 
+
 closeMonto.addEventListener('click', ()=>{
-    console.log('clesed monto')
+    console.log('closed monto')
    closeLoginForm();
 })
 
@@ -63,8 +64,6 @@ closeMonto.addEventListener('click', ()=>{
             const modal = document.getElementById('modal');
             modal.style.top = -150 + '%';
         }
-
- 
 
 // Alerta Pago Exitoso
 btnEnviar.addEventListener('click', ()=>{
@@ -101,13 +100,16 @@ let alerta = document.getElementById("toast2");
                 function cerrarToast(){
                      alerta.style.transform = "translateX(400px)";
                 }
-//Cerrar Alertas de pago exitoso y pago sin exito
+
+//Cerrar Alertas 
 btnCerrarAlerta.addEventListener('click', ()=>{
         closeToast();
 })
 btnCerrarAlert.addEventListener('click', ()=>{
         cerrarToast();
 })
+
+
 
 // Modal Pago Exitoso
 const btnPago = document.querySelector('#btn-enviar');
@@ -122,6 +124,5 @@ const btnCancelar = document.querySelector('#btn-cancelar');
      document.getElementsByClassName("error");
      closeLoginForm();
     });
-
 
 

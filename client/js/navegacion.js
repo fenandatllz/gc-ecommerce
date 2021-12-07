@@ -25,5 +25,25 @@ function MostrarDiv(checkEnganche) {
     mensualidad.style.display = checkEnganche.checked ? "none" : "block"
 }
 
+// Alerta "No se puede seleccionar lote"
+let z;
+let alertaLote = document.getElementById("toast3");
 
+ function MostrarAlerta(){
+     clearTimeout(z);
+     alertaLote.style.transform = "translateX(0)";
+     z = setTimeout(()=>{
+         alertaLote.style.transform = "translateX(400px)"
+        }, 4000);
+    }
+function cerrarAlerta(){
+     alertaLote.style.transform = "translateX(400px)";
+    }
+
+const btnAlertaLote = document.getElementById('close-lote');//Cerrar Alerta Lote
+btnAlertaLote.addEventListener('click', ()=>{
+    cerrarAlerta();
+})
+
+export {MostrarAlerta};
 

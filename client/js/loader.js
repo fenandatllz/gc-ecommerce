@@ -2,6 +2,7 @@
 
 import Login from './login.js'
 import Mapas from './mapas.js'
+import {MostrarAlerta} from './navegacion.js'
 import {zoomIn} from './mapas.js'
 import {zoomOut} from './mapas.js'
 import {zoomInit} from './mapas.js'
@@ -185,6 +186,8 @@ const loader = {
                     console.log("Mapa: "+ e.target.dataset.disponible)
                     Login.viewModal(true)
                     this.loadOpciones()
+                }else{
+                    MostrarAlerta();
                 }
                 
             }
