@@ -2,6 +2,11 @@
 
 import Login from './login.js'
 import Mapas from './mapas.js'
+import {zoomIn} from './mapas.js'
+import {zoomOut} from './mapas.js'
+import {zoomInit} from './mapas.js'
+
+
 
 const loader = {
     toggleLoader: () => {
@@ -104,8 +109,10 @@ const loader = {
         const loadPlano = await fetch(`./desarrollos/${desarrollo}/plano.svg`)
             .then((svg) => svg.text())
             .then((html) => (mapa.innerHTML = html))
-
         this.mapEvent()
+        zoomIn()
+        zoomOut()
+        zoomInit()
     },
     
     //Fecth Pago PM & Enganche
@@ -155,7 +162,7 @@ const loader = {
                 posicionX = e.pageX;*/
                 const svgNombre = e.target.closest('svg').dataset.desarrollo
                 const fraccionamiento =
-                    document.getElementById('nombre-desarrollo').textContent
+                document.getElementById('nombre-desarrollo').textContent
                 console.log(fraccionamiento, manzana)
                 Mapas.loadManzana(svgNombre, manzana)
                 Mapas.getDisponiblidad(fraccionamiento, manzana)
@@ -163,15 +170,23 @@ const loader = {
             }
         })
 
-        mapa.addEventListener('click', (e) => {
+        
+          mapa.addEventListener('click', (e) => {
             // const desarrollo = document.querySelector('#nombre-desarrollo').innerHTML
             // const info = document.querySelector('.info-apartado')
             // let posicionModal = e.pageY
             // const modal = document.getElementById('modal')
             // const modalLogin = document.getElementById("modal-login")
             if (e.target.matches('[data-lote]')) {
-                Login.viewModal(true)
-                this.loadOpciones()
+                
+                let disponible = e.target.dataset.disponible
+                if( disponible == "true")
+                {
+                    console.log("Mapa: "+ e.target.dataset.disponible)
+                    Login.viewModal(true)
+                    this.loadOpciones()
+                }
+                
             }
         })
 

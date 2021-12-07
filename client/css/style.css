@@ -309,14 +309,7 @@ article {
     margin-top: 15px;
     background-color: #000;
 }
-.zoom-flex{
-    /* height: 70px; */
-    gap: 1rem;
-    justify-content: left;
-    display: flex;
-    /* justify-content:stretch; */
-    /* margin-left:30px; */
-}
+
  .btnz {
     width: 5rem;
     height: 5rem;
@@ -329,14 +322,9 @@ article {
     -webkit-border-radius: 50%;
     color: #fff;
     padding: 15px 10px 5px;
-     text-align: center;
-    -ms-user-select: none;
-    -moz-user-select: -moz-none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+    text-align: center;
     transition: all 0.3s ease;
-    bottom:-750px;
+    bottom:-108%;
     margin:10px; 
   } 
   .zoom{

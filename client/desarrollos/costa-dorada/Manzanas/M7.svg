@@ -1,4 +1,4 @@
-<svg class="target" id="Manzana 7" data-desarrollo="costa-dorada" data-name="Manzana 7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1890" height="1417" viewBox="0 0 1890 1417">
+<svg id="Manzana 7" data-desarrollo="costa-dorada" data-name="Manzana 7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1890" height="1417" viewBox="0 0 1890 1417">
   <defs>
     <style>
     @import url(./css/mapas.css);
@@ -9,49 +9,49 @@
     </filter>
   </defs>
 <g class="cls-1" id="map" pointer-events="all">
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L1" class="cls-2" d="M628.076,144.86l6.784,13.377L609,171.354l-9.5-18.729,18.289-8.154,4.912-1.37,4.033,1.319Z"/>
+    <path id="M7-L1" class="cls-2" d="M628.076,144.86l6.784,13.377L609,171.354l-9.5-18.729,18.289-8.154,4.912-1.37,4.033,1.319Z"/>
     <path id="M7-L2" class="cls-2" d="M634.86,158.237l4.975,9.811-25.864,13.117L609,171.354Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L3" class="cls-2" d="M639.835,168.048l4.976,9.811-25.865,13.116-4.975-9.81Z"/>
+    <path id="M7-L3" class="cls-2" d="M639.835,168.048l4.976,9.811-25.865,13.116-4.975-9.81Z"/>
     <path id="M7-L4" class="cls-2" d="M644.811,177.859l4.522,8.918-25.864,13.117-4.523-8.919Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L5" class="cls-2" d="M649.333,186.777l4.976,9.811L628.444,209.7l-4.975-9.81Z"/>
+    <path id="M7-L5" class="cls-2" d="M649.333,186.777l4.976,9.811L628.444,209.7l-4.975-9.81Z"/>
     <path id="M7-L6" class="cls-2" d="M654.309,196.588l4.975,9.81L633.42,219.515l-4.976-9.811Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L7" class="cls-2" d="M659.284,206.4l4.975,9.811L638.4,229.326l-4.975-9.811Z"/>
+    <path id="M7-L7" class="cls-2" d="M659.284,206.4l4.975,9.811L638.4,229.326l-4.975-9.811Z"/>
     <path id="M7-L8" class="cls-2" d="M664.259,216.209l4.523,8.919-25.864,13.116-4.523-8.918Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L9" class="cls-2" d="M668.782,225.128l4.975,9.81-25.864,13.117-4.975-9.811Z"/>
+    <path id="M7-L9" class="cls-2" d="M668.782,225.128l4.975,9.81-25.864,13.117-4.975-9.811Z"/>
     <path id="M7-L10" class="cls-2" d="M673.757,234.938l4.975,9.811-25.864,13.116-4.975-9.81Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L11" class="cls-2" d="M678.732,244.749l4.976,9.81-25.865,13.117-4.975-9.811Z"/>
+    <path id="M7-L11" class="cls-2" d="M678.732,244.749l4.976,9.81-25.865,13.117-4.975-9.811Z"/>
     <path id="M7-L12" class="cls-2" d="M683.708,254.559l4.523,8.919L662.366,276.6l-4.523-8.919Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L13" class="cls-2" d="M688.231,263.478l4.522,8.919-25.864,13.116-4.523-8.918Z"/>
+    <path id="M7-L13" class="cls-2" d="M688.231,263.478l4.522,8.919-25.864,13.116-4.523-8.918Z"/>
     <path id="M7-L14" class="cls-2" d="M692.753,272.4l4.976,9.81-25.865,13.117-4.975-9.811Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L15" class="cls-2" d="M697.729,282.207l4.975,9.811L676.84,305.134l-4.976-9.81Z"/>
+    <path id="M7-L15" class="cls-2" d="M697.729,282.207l4.975,9.811L676.84,305.134l-4.976-9.81Z"/>
     <path id="M7-L16" class="cls-2" d="M702.7,292.018l4.975,9.811-25.864,13.116-4.975-9.811Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L17" class="cls-2" d="M707.679,301.829l4.523,8.918-25.864,13.117-4.523-8.919Z"/>
+    <path id="M7-L17" class="cls-2" d="M707.679,301.829l4.523,8.918-25.864,13.117-4.523-8.919Z"/>
     <path id="M7-L18" class="cls-2" d="M712.2,310.747l4.975,9.811-25.864,13.116-4.975-9.81Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L19" class="cls-2" d="M717.177,320.558l4.976,9.81-25.865,13.117-4.975-9.811Z"/>
+    <path id="M7-L19" class="cls-2" d="M717.177,320.558l4.976,9.81-25.865,13.117-4.975-9.811Z"/>
     <path id="M7-L20" class="cls-2" d="M722.153,330.368l4.975,9.811L701.263,353.3l-4.975-9.81Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L21" class="cls-2" d="M727.128,340.179l4.975,9.811-25.864,13.116-4.976-9.811Z"/>
+    <path id="M7-L21" class="cls-2" d="M727.128,340.179l4.975,9.811-25.864,13.116-4.976-9.811Z"/>
     <path id="M7-L22" class="cls-2" d="M732.1,349.99l4.071,8.026-0.88,2.689-0.439,1.344-23.189,11.759-5.427-10.7Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L23" class="cls-2" d="M711.666,373.808l-24.972,12.665-1.344-.44-1.345-.44-1.344-.439-4.07-8.027,27.648-14.021Z"/>
+    <path id="M7-L23" class="cls-2" d="M711.666,373.808l-24.972,12.665-1.344-.44-1.345-.44-1.344-.439-4.07-8.027,27.648-14.021Z"/>
     <path id="M7-L24" class="cls-2" d="M706.239,363.106l-4.976-9.811L673.59,367.329l4.975,9.811Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L25" class="cls-2" d="M701.263,353.3l-4.975-9.81-27.673,14.034,4.975,9.81Z"/>
+    <path id="M7-L25" class="cls-2" d="M701.263,353.3l-4.975-9.81-27.673,14.034,4.975,9.81Z"/>
     <path id="M7-L26" class="cls-2" d="M696.288,343.485l-4.975-9.811L663.64,347.708l4.975,9.811Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L27" class="cls-2" d="M691.313,333.674l-4.975-9.81L658.664,337.9l4.976,9.81Z"/>
+    <path id="M7-L27" class="cls-2" d="M691.313,333.674l-4.975-9.81L658.664,337.9l4.976,9.81Z"/>
     <path id="M7-L28" class="cls-2" d="M686.338,323.864l-4.523-8.919-27.674,14.034,4.523,8.919Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L29" class="cls-2" d="M681.815,314.945l-4.975-9.811-27.674,14.034,4.975,9.811Z"/>
+    <path id="M7-L29" class="cls-2" d="M681.815,314.945l-4.975-9.811-27.674,14.034,4.975,9.811Z"/>
     <path id="M7-L30" class="cls-2" d="M676.84,305.134l-4.976-9.81-27.673,14.034,4.975,9.81Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L31" class="cls-2" d="M671.864,295.324l-4.975-9.811-27.673,14.034,4.975,9.811Z"/>
+    <path id="M7-L31" class="cls-2" d="M671.864,295.324l-4.975-9.811-27.673,14.034,4.975,9.811Z"/>
     <path id="M7-L32" class="cls-2" d="M666.889,285.513l-4.523-8.918-27.673,14.034,4.523,8.918Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L33" class="cls-2" d="M662.366,276.6l-4.523-8.919L630.17,281.71l4.523,8.919Z"/>
+    <path id="M7-L33" class="cls-2" d="M662.366,276.6l-4.523-8.919L630.17,281.71l4.523,8.919Z"/>
     <path id="M7-L34" class="cls-2" d="M657.843,267.676l-4.975-9.811L625.2,271.9l4.975,9.811Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L35" class="cls-2" d="M652.868,257.865l-4.975-9.81-27.674,14.034,4.976,9.81Z"/>
+    <path id="M7-L35" class="cls-2" d="M652.868,257.865l-4.975-9.81-27.674,14.034,4.976,9.81Z"/>
     <path id="M7-L36" class="cls-2" d="M647.893,248.055l-4.975-9.811-27.674,14.034,4.975,9.811Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L37" class="cls-2" d="M642.918,238.244l-4.523-8.918L610.721,243.36l4.523,8.918Z"/>
+    <path id="M7-L37" class="cls-2" d="M642.918,238.244l-4.523-8.918L610.721,243.36l4.523,8.918Z"/>
     <path id="M7-L38" class="cls-2" d="M638.4,229.326l-4.975-9.811-27.674,14.034,4.975,9.811Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L39" class="cls-2" d="M633.42,219.515l-4.976-9.811-27.673,14.034,4.975,9.811Z"/>
+    <path id="M7-L39" class="cls-2" d="M633.42,219.515l-4.976-9.811-27.673,14.034,4.975,9.811Z"/>
     <path id="M7-L40" class="cls-2" d="M628.444,209.7l-4.975-9.81L595.8,213.928l4.975,9.81Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L41" class="cls-2" d="M623.469,199.894l-4.523-8.919-27.673,14.034,4.523,8.919Z"/>
+    <path id="M7-L41" class="cls-2" d="M623.469,199.894l-4.523-8.919-27.673,14.034,4.523,8.919Z"/>
     <path id="M7-L42" class="cls-2" d="M618.946,190.975l-4.975-9.81L586.3,195.2l4.975,9.81Z"/>
-    <path data-lote data-costototal='10000' data-dimension='100' data-costom2='100' id="M7-L43" class="cls-2" d="M613.971,181.165L609,171.354l-27.674,14.034L586.3,195.2Z"/>
+    <path id="M7-L43" class="cls-2" d="M613.971,181.165L609,171.354l-27.674,14.034L586.3,195.2Z"/>
     <path id="M7-L44" class="cls-2" d="M609,171.354l-9.5-18.729-15.175,5.453-0.892.452-9.81,4.975-1.345,4.046,9.046,17.837Z"/>
   </g>
   <g class="cls-1">

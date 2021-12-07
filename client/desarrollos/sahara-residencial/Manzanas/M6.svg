@@ -1,4 +1,4 @@
-<svg class="target" id="Manzana 6" data-desarrollo="sahara-residencial" data-name="Manzana 6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 3300 5100">
+<svg id="Manzana 6" data-desarrollo="sahara-residencial" data-name="Manzana 6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 3300 5100">
   <defs>
     <style>
       @import url(./css/mapas.css);

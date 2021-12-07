@@ -1,13 +1,55 @@
 'use strict'
-
 let containerMapa = document.getElementById('mapa-interactivo')
+//Botones Zoom
+let zoom = 1
 
+export function zoomIn (){
+  const btnZoom = document.getElementById('zoom')
+  btnZoom.addEventListener('click',() =>{
+    zoom += 0.1;
+    const target = document.querySelector('[id*="Manzana"]')
+    console.log("target: " +target)
+    target.style.transform = 'scale(' + zoom + ')'
+    
+  })
+ }
+
+ export function zoomOut (){
+   const btnZoomOut = document.getElementById('zoom-out')
+   btnZoomOut.addEventListener('click', () =>{
+    if (zoom != 1){
+      zoom -= 0.1
+      const target = document.querySelector('[id*="Manzana"]')
+      target.style.transform = 'scale(' + zoom + ')'
+    }
+   })
+ }
+
+ export function zoomInit (){
+  const btnZoomInit = document.getElementById('zoom-init')
+  btnZoomInit.addEventListener('click', () =>{
+    zoom = 1
+    const target = document.querySelector('[id*="Manzana"]')
+    target.style.transform = 'scale(' + zoom + ')'
+   
+  })
+}
+ 
 const mapa = {
+
   loadManzana: async (desarrollo, manzana) => {
     fetch(`./desarrollos/${desarrollo}/Manzanas/${manzana}.svg`)
       .then((svg) => svg.text())
-      .then((html) => (containerMapa.innerHTML = html))
+      .then((html) => {
+        containerMapa.innerHTML = html
+        const target = document.querySelector('[id*="Manzana"]');
+        target.style.transform = 'scale(' + zoom + ')'
+        zoomIn()
+        zoomOut()
+        zoomInit()
+      } )    
   },
+
   // Obtener disponibilidad
   async getDisponiblidad(fraccionamiento, manzana){
     const request = await fetch(
@@ -33,11 +75,12 @@ const mapa = {
         lote.dataset.lote = ""
         lote.dataset.crm = false
         lote.classList = "login"
+        lote.dataset.disponible = true
       }
     })
   
   
-    disponibilidad.map((product) => {
+   disponibilidad.map((product) => {
       console.log(`M${product.Manzana}-L${product.Lote}`)
       // console.log(`M${product.Manzana}-L${product.Lote}`)
       try {
@@ -53,19 +96,18 @@ const mapa = {
         if (product.Estado != "Disponible") {
           lote.style.fill = '#980C16'
           lote.style.stroke = '#de9f27'
-          lote.removeAttribute('onclick')
-          console.log("red")
+          console.log("red");
+          lote.dataset.disponible = false
         } else if (product.Estado == "Disponible") {
           lote.style.fill = '#416E23'
           lote.style.stroke = '#de9f27'
           console.log("orange")
+          lote.dataset.disponible = true
         }
       } catch (err) {
         console.log(err)
       }
     })
-  
-  
   },
   showPopup(e, x, y) {
     //   let mapaSvg = mapa.querySelector('#map')
@@ -77,6 +119,9 @@ const mapa = {
   hidePopup(e) {
     e.style.display = 'none'
   }
+
 }
+
+
 
 export default mapa
