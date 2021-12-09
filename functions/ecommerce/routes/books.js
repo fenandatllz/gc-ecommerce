@@ -1,8 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const { booksC } = require("../controllers")
-
+const { booksC } = require('../controllers')
 
 router.use(express.json())
 router.use(express.urlencoded({ extended: true }))
@@ -20,7 +19,7 @@ router.get('/getInvoiceById/:id', booksC.getInvoiceById)
 router.get('/getInvoices/:customer_name&:item_name', booksC.getInvoices)
 
 // Crear invoice
-router.post('/createInvoice', booksC.createInvoice)
+// router.post('/createInvoice', booksC.createInvoice)
 
 // Enviar Factura
 router.get('/sendInvoice/:id', booksC.sendInvoice)
@@ -36,5 +35,7 @@ router.get('/getContacto/:id', booksC.getContacto)
 
 //Sincronizar contacto books
 router.get('/syncContactoBooks/:id', booksC.syncContactoBooks)
+
+router.post('/createFactura', booksC.createFactura)
 
 module.exports = router
