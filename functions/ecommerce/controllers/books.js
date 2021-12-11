@@ -1,7 +1,104 @@
 const axios = require('axios')
+const jwt = require('jsonwebtoken')
+const catalyst = require('zcatalyst-sdk-node')
 const catalystToken = require('../catalysToken')
 
-const { crmC } = require('./')
+// const { crmC, catalystC } = require('./')
+
+const functions = require('../functions/token')
+
+const ctly = {
+  async getIdItem(item, accessToken) {
+    // obtener access token
+    // const accessToken = await catalystToken(req)
+
+    //Config Axios
+    const idProductoBooks = item
+
+    const config = {
+      method: 'get',
+      url: `https://books.zoho.com/api/v3/items?zcrm_product_id=${idProductoBooks}&organization_id=${process.env.ORGANIZATION_BOOKS}`,
+      headers: {
+        Authorization: `Zoho-oauthtoken ${accessToken}`,
+      },
+    }
+
+    // Realizar peticion con Axios
+    try {
+      const resp = await axios(config)
+      return resp.data.items[0].item_id
+    } catch (error) {
+      return error
+    }
+  },
+  async createProductBooks(name, sku, rate, accessToken) {
+
+    const data = { name, rate, sku }
+
+    const config = {
+      method: 'post',
+      url: `https://books.zoho.com/api/v3/contacts/items?organization_id=${process.env.ORGANIZATION_BOOKS}`,
+      headers: {
+        "Authorization": `Zoho-oauthtoken ${accessToken}`,
+        "Content-Type": "application/json;charset=UTF-8"
+      },
+      data: JSON.stringify(data)
+    }
+
+    // Realizar peticion con Axios
+    try {
+      // const resp = await axios(config)
+      // return resp.data
+      return config
+    } catch (error) {
+      return error
+    }
+  },
+  async createProductCRM(name, sku, rate, accessToken) {
+
+    const data = { name, rate, sku }
+
+    const config = {
+      method: 'post',
+      url: `https://books.zoho.com/api/v3/contacts/items?organization_id=${process.env.ORGANIZATION_BOOKS}`,
+      headers: {
+        "Authorization": `Zoho-oauthtoken ${accessToken}`,
+        "Content-Type": "application/json;charset=UTF-8"
+      },
+      data: JSON.stringify(data)
+    }
+
+    // Realizar peticion con Axios
+    try {
+      // const resp = await axios(config)
+      // return resp.data
+      return config
+    } catch (error) {
+      return error
+    }
+  },
+  geContactByEmail: async (email, accessToken) => {
+
+    const config = {
+      method: 'get',
+      url: `https://books.zoho.com/api/v3/contacts?email=${email}&organization_id=${process.env.ORGANIZATION_BOOKS}`,
+      headers: {
+        Authorization: `Zoho-oauthtoken ${accessToken}`,
+      },
+    }
+
+    // Realizar peticion con Axios
+    try {
+      const resp = await axios(config)
+      // console.log(resp.data.contacts[0].contact_id)
+      return resp.data.contacts[0].contact_id
+      // console.log(resp.data)
+    } catch (error) {
+      return error
+    }
+  },
+}
+
 
 const books = {
   // Obtener ID item books con ID del producto CRM
@@ -195,30 +292,6 @@ const books = {
       console.log(error)
     }
   },
-  // Obtener ID de producto utilizando el ID de producto en CRM
-  getIdItem: async (req, res) => {
-    // obtener access token
-    const accessToken = await catalystToken(req)
-
-    //Config Axios
-    const idProductoBooks = req.params.id
-
-    const config = {
-      method: 'get',
-      url: `https://books.zoho.com/api/v3/items?zcrm_product_id=${idProductoBooks}&organization_id=${process.env.ORGANIZATION_BOOKS}`,
-      headers: {
-        Authorization: `Zoho-oauthtoken ${accessToken}`,
-      },
-    }
-
-    // Realizar peticion con Axios
-    try {
-      const resp = await axios(config)
-      res.send(resp.data.items[0].item_id)
-    } catch (error) {
-      console.log(error)
-    }
-  },
   // Obtener contacto por id
   getContacto: async (req, res) => {
     // obtener access token
@@ -291,18 +364,18 @@ const books = {
       res.status(400).send(error)
     }
   },
-  // fer
-  async createProduct(name, req, res) {
+  // Obtener ID de producto utilizando el ID de producto en CRM
+  // new script 
+  async getIdItem(req, res) {
+    // obtener access token
     const accessToken = await catalystToken(req)
 
     //Config Axios
-    const data = {
-      //
-    }
+    const idProductoBooks = req.body.item
 
     const config = {
       method: 'get',
-      url: `https://books.zoho.com/api/v3/contacts/items?name=${name}?organization_id=${process.env.ORGANIZATION_BOOKS}`,
+      url: `https://books.zoho.com/api/v3/items?zcrm_product_id=${idProductoBooks}&organization_id=${process.env.ORGANIZATION_BOOKS}`,
       headers: {
         Authorization: `Zoho-oauthtoken ${accessToken}`,
       },
@@ -311,86 +384,153 @@ const books = {
     // Realizar peticion con Axios
     try {
       const resp = await axios(config)
-      res.send(resp.data)
+      return resp.data.items[0].item_id
     } catch (error) {
-      console.log(error)
+      return error
+    }
+  },
+  async createProduct(name, sku, rate, accessToken) {
+
+    const data = { name, rate, sku }
+
+    const config = {
+      method: 'post',
+      url: `https://books.zoho.com/api/v3/contacts/items?organization_id=${process.env.ORGANIZATION_BOOKS}`,
+      headers: {
+        "Authorization": `Zoho-oauthtoken ${accessToken}`,
+        "Content-Type": "application/json;charset=UTF-8"
+      },
+      data: JSON.stringify(data)
+    }
+
+    // Realizar peticion con Axios
+    try {
+      // const resp = await axios(config)
+      // return resp.data
+      return config
+    } catch (error) {
+      return error
     }
   },
   createFactura: async (req, res) => {
-    console.log('Creando Factura...')
-    const { item, position, esEnganche, select } = req.body
+    if (req.session.login) {
+      console.log('Creando Factura...')
 
-    const FRACCIONAMIENTOS = [
-      {
-        fracionamiento: 'Costa Dorada',
-        code: 'CD',
-        pagoPM: 500,
-        pagoEnganche: [1000, 1500, 2000],
-        esSecciones: true,
-        secciones: [
+      const { item, position, esEnganche, select } = req.body
+
+      const accessToken = await catalystToken(req)
+      const app = catalyst.initialize(req)
+
+      let contact_books_id, item_books_id
+
+      let query = `SELECT * FROM fraccionamientos`
+
+      let zcql = app.zcql()
+      let queryResult = await zcql.executeZCQLQuery(query)
+      console.log('------------------------------------------------')
+      console.log(item)
+      console.log(queryResult.length)
+      console.log('------------------------------------------------')
+      if (queryResult.length === 0) {
+
+      } else {
+        const data = queryResult[position].fraccionamientos
+        if (item.includes('-')) {
+          let nombre_fracionamiento, Fraccionamiento, item_name, sku
+          let rate = 200000
+          let name_array = item.split('')
+          let manzana = parseInt(name_array[1])
+
+          if (data.esSecciones) {
+
+            let secciones_array = JSON.parse(data.secciones)
+            secciones_array.map((e) => {
+              if (manzana >= e.init && manzana <= e.end) {
+                item_name = data.code + ' ' + e.name + ' ' + item
+                sku = name_array[0] + "" + name_array[1] + "" + e.symbol + "" + name_array[3] + "" + name_array[4]
+                Fraccionamiento = e.id
+                if(e.name){
+                  nombre_fracionamiento = data.Fraccionamiento + " " +e.name
+                }else{
+                  nombre_fracionamiento = data.Fraccionamiento
+                }
+                
+              }
+            })
+
+          }
+
+          console.log('------------------------------------------------')
+          console.log(nombre_fracionamiento)
+
+          // item_crm_id = await ctly.createProductCRM(item_name, sku, rate, nombre_fracionamiento, Fraccionamiento, accessToken)
+          item_books_id = await ctly.createProductBooks(item_name, sku, rate, accessToken)
+          
+        } else {
+          item_books_id = await ctly.getIdItem(item, accessToken)
+        }
+      }
+
+      console.log(item_books_id)
+
+      const decoded = jwt.verify(req.session.token, process.env.JWT_SECRET)
+      console.log(decoded)
+
+      let query_user = `SELECT * FROM users WHERE users.ROWID = '${decoded.idUser}'`;
+
+      let user = await zcql.executeZCQLQuery(query_user);
+      if (user[0]) {
+        let email = user[0].users.email
+        if (email) {
+          contact_books_id = await ctly.geContactByEmail(email, accessToken)
+        }
+        
+      }else{
+        contact_books_id = await ctly.createContact(fist_name, last_name, email, phone, accessToken)
+      }
+      // get contact
+
+      console.log(item_books_id)
+      console.log(contact_books_id)
+
+
+
+      // data = [{ "id": 46545646545645, "name": "ORO", "symbol": "'", "init": 1, "end": 26 }, { "id": 46545646545645, "name": "PERLA", "symbol": "}", "init": 27, "end": 78 }, { "id": 46545646545645, "name": "ELITE", "symbol": ":", "init": 79, "end": 120 }]
+
+      /*
+  
+      // Consular que Tipo de Politica envio el usuario
+      const tipoDePolitica = esEnganche ? 'Enganche' : 'Primer Mensualidad'
+      const rateInvoice = esEnganche
+        ? data[position].pagoEnganche[select]
+        : data[position].pagoPM
+  
+      const invoice = {
+        customer_id: idContactoBooks,
+        reference_number: 'Pago de Pagina Web',
+        date: today,
+        due_date: fecha_vencimiento,
+        custom_fields: [
           {
-            id: 46545646545645,
-            name: 'ORO',
-            init: 1,
-            end: 26,
-          },
-          {
-            id: 46545646545645,
-            name: 'PERLA',
-            init: 27,
-            end: 78,
-          },
-          {
-            id: 46545646545645,
-            name: 'ELITE',
-            init: 79,
-            end: 120,
+            label: 'Commerce',
+            value: idContactoBooks,
           },
         ],
-      },
-    ]
-
-    //  fer
-    if (item.includes('-')) {
-      let name = ' '
-      let name_array = item.split()
-      let manzana = name_array[1]
-      if (FRACCIONAMIENTOS.esSecciones) {
-        FRACCIONAMIENTOS.secciones.foreach((e) => {
-          if (manzana >= e.init && manzana <= e.emd)
-            name = FRACCIONAMIENTOS.code + ' ' + e.name + ' ' + item
-        })
+        line_items: [
+          {
+            item_id: idItemBooks,
+            description: `Pago por Concepto de ${tipoDePolitica}`,
+            quantity: 1,
+            rate: rateInvoice,
+          },
+        ],
       }
-      this.createProduct(item_name, req, res)
+      res.end()*/
+      res.send({ code: 0, message: 'Valid user !!' })
+    } else {
+      console.log('Invalid user  !!')
+      res.send({ code: 10, message: 'Invalid user  !!' })
     }
-
-    // Consular que Tipo de Politica envio el usuario
-    const tipoDePolitica = esEnganche ? 'Enganche' : 'Primer Mensualidad'
-    const rateInvoice = esEnganche
-      ? FRACCIONAMIENTOS[position].pagoEnganche[select]
-      : FRACCIONAMIENTOS[position].pagoPM
-
-    const invoice = {
-      customer_id: idContactoBooks,
-      reference_number: 'Pago de Pagina Web',
-      date: today,
-      due_date: fecha_vencimiento,
-      custom_fields: [
-        {
-          label: 'Commerce',
-          value: idContactoBooks,
-        },
-      ],
-      line_items: [
-        {
-          item_id: idItemBooks,
-          description: `Pago por Concepto de ${tipoDePolitica}`,
-          quantity: 1,
-          rate: rateInvoice,
-        },
-      ],
-    }
-    res.end()
   },
 }
 

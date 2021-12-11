@@ -39,6 +39,21 @@ const catalyst = {
       }
     })
   },
+  getTable: async (app) => {
+
+    let query = `SELECT * FROM fraccionamientos`
+    console.log(query)
+
+    let zcql = app.zcql()
+    let zcqlPromise = zcql.executeZCQLQuery(query)
+    zcqlPromise.then(async (queryResult) => {
+      if (queryResult.length === 0) {
+        return {code: 1, message: "Error al traer tabla", data: {}}
+      } else {
+        return {code: 0, message: "Exitoso !!", data: queryResult}
+      }
+    })
+  }
 }
 
 module.exports = catalyst
