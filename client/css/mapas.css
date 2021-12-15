@@ -3,23 +3,32 @@
   }
   
   .cls-2 {
-    fill: #000;
-    stroke: #de9f27;
-    stroke-width: 1.96px;
+    fill: #1a1a1a;
+    stroke:#de9f27;
+    stroke-width: 1px;
   }
 
   .cls-2, .cls-3, .cls-4, .cls-5 {
     fill-rule: evenodd;
   }
-
+.cls-5{
+  fill:#000;
+}
   .cls-3 {
     fill: #010101;
   }
 
   .cls-4, .cls-6 {
-    fill: #de9f27;
-    stroke: #de9f27;
-    stroke-width: 0.88px;
+    fill: #e8bc68;
+    stroke: #e8bc68;
+    stroke-width: 6px;
+  }
+
+  .prueba{
+    display: flex;
+  }
+  .prueba:hover {
+    display: none;
   }
 
   [data-lote]:hover{
@@ -45,7 +54,6 @@
     }
   }
   tspan{
-    /* left:5px; */
     font-weight: 700;
     font-size: 25px;
   }

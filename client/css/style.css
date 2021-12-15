@@ -295,11 +295,11 @@ article {
 /* Mapa */
 .contenedor-mapa{
     width: 95vw;
-    margin: auto;
-    
+    margin: auto;  
 }
+
 .mapa-interactivo{
-    z-index: 2;
+    z-index: 1;
     width: auto;
     height: 95vh;
     overflow-x: auto;
@@ -307,16 +307,21 @@ article {
     border-radius: 11px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     margin-top: 15px;
-    background-color: #000;
+    background-color: #043125;
 }
 
+/* .contenedor-mapa svg{
+    color: orange;
+    width: 310px;
+    height: 316px;
+} */
  .btnz {
     width: 5rem;
     height: 5rem;
     background: #de9f27;
     border: 2px solid #000;
     position: absolute ;
-    z-index: 1;
+    z-index: 2;
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -324,8 +329,8 @@ article {
     padding: 15px 10px 5px;
     text-align: center;
     transition: all 0.3s ease;
-    bottom:-108%;
-    margin:10px; 
+    bottom:-740px;
+    /* margin:20px;  */
   } 
   .zoom{
     right:170px;
@@ -352,7 +357,79 @@ article {
     border-color: #de9f27;
     cursor: pointer;
   }
+/* Viñetas Disponibilidad */
+.disponibilidad-mapa{
+    width:150px;
+    height: 70px;
+    position: absolute;
+    bottom: -103%;
+    z-index: 1;
+    padding-top: 9px;
+    background-color: #DFE0DF;
+    left:3.5%;
+    border-radius: 15px;
+}
+.disponibilidad-mapa i{
+    font-size:15px; 
+}
+.no-disponible,.disponible {
+    margin-top: 5px;
+    margin-left: 15px;
+    font-size:15px;
+}
 
+.no-disponible{
+    color:#2e2e2e;
+}
+.disponible{
+    color:#de9f27;
+}
+#norte{
+   width: 150px;
+   height: 250px;
+   position: absolute;
+   top: 195%; 
+   left:1290px;
+}
+#norte #Capa_3{
+    width: 850px;
+    height:850px;
+}
+@media (max-width:480px){
+    #norte{
+        width: 80px;
+        height: 70px;
+        top: 203%; 
+        left:300px;
+     }
+     #norte #Capa_3{
+        width: 600px;
+        height:600px;
+    }
+    .disponibilidad-mapa li{
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width:481px)and (max-width:769px){
+    #norte{
+        width: 100px;
+        height: 150px;
+        position: absolute;
+        top: 172%; 
+        left:630px;
+        padding-top: 0;
+     }
+     #norte #capa_3{
+        width: 750px;
+        height:750px;
+        align-items:center ;
+        padding-top:0;
+    }
+    .disponibilidad-mapa{
+        bottom: -82%;
+    }
+}
 
 /* Flecha navegacion */
 .arriba{

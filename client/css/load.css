@@ -1,3 +1,4 @@
+/* Loader Principal */
 .loader_bg{
   position: fixed;
   z-index: 999999;
@@ -40,5 +41,48 @@
   100%{
       transform: scale(1);
       opacity: 0;
+  }
+}
+/* Loader Disponibilidad Mapa */
+.preloader-bg{
+  display:none;
+  width:auto;
+  height: 95vh;
+  z-index: 2;
+  background-color: #1a1a1a;
+  /* position: absolute;
+  top: 150%; */
+}
+.preloader{
+  display: inline-block;
+  /* top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; */
+  top: 230%;
+  left: 45vw;
+  display: flex;
+  z-index: 3;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+}
+.preloader::after {
+  display: block;
+  content: "";
+  width: 80px;
+  height: 80px;
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #de9f27;
+  border-radius: 100%;
+  will-change: transform;
+  animation: spin 1s infinite linear
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

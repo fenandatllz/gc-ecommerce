@@ -210,12 +210,14 @@ const loader = {
                 toolTip.appendChild(total)
                 posicionX = e.pageX
                 posicionY = e.pageY
+                e.target.dataset.disponible == "true" ? e.target.style.fill = '#e5b252' : e.target.style.fill = '#585858'
                 Mapas.showPopup(toolTip, posicionX, posicionY)
             }
         })
 
         mapa.addEventListener('mouseout', (e) => {
             if (e.target.matches('[data-lote]')) {
+                e.target.dataset.disponible == "true" ? e.target.style.fill = '#de9f27' : e.target.style.fill = '#2e2e2e'                
                 Mapas.hidePopup(toolTip)
             }
         })

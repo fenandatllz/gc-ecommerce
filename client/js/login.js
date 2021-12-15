@@ -2,6 +2,8 @@
 
 import Loader from './loader.js'
 
+
+
 // add login
 const modal = document.getElementById('modal')
 const nombreUsuario = document.getElementById('nombre-usuario')
@@ -84,7 +86,7 @@ const login = {
             </div>
             <div class="element">
                 <label>¿Desea dar un enganche?</label>
-                <input type="checkbox" id="checkEnganche" onclick="MostrarDiv(this)">
+                <input type="checkbox" id="checkEnganche">
             </div>
             <div class="element" id="mostrarEnganche" style="display: none;">
                 <select name="monto-enganche" id="monto-enganche">
@@ -98,7 +100,20 @@ const login = {
                 </div>
         </form>
         `
+        const checkEn = document.getElementById('checkEnganche')
+        checkEn.addEventListener('click', (e) =>{
+            login.MostrarDiv(e.target)
+        })
         return true
+    },
+    MostrarDiv(checkEnganche) {
+        // const checkPrueba = document.getElementById('checkEnganche');
+        console.log(checkEnganche)
+        let dvEnganche = document.getElementById("mostrarEnganche");
+        let mensualidad = document.getElementById('mensualidad')
+    
+        dvEnganche.style.display = checkEnganche.checked ? "block" : "none";
+        mensualidad.style.display = checkEnganche.checked ? "none" : "block"
     },
     viewModal: (view) => {
         let modal = document.getElementById('container-modal')
@@ -170,7 +185,10 @@ const login = {
         sessionStorage.setItem("sesion", true)
         this.viewModal();
         if(pay) this.innerPay();
+        // MostrarDiv()
         this.mostrarBoton()
+        
+        
     },
     mostrarBoton: () =>{
         let btnLogin = document.getElementById('btn-login')
@@ -189,6 +207,7 @@ const login = {
             nombreUsuario.innerText = "Bienvenido(a): "+ sessionStorage.getItem('usuario')
         }
     }
+
 }
 
 export default login
