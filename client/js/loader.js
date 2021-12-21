@@ -58,10 +58,11 @@ const loader = {
         // Slider
         const frac = data[index]
         frac.imgs.forEach((element, index) => {
+            let li = document.createElement("li")
             let img = document.createElement('img')
             img.src = `${element}`
-        
-            carrucel.appendChild(img)
+            carrucel.appendChild(li);
+            li.appendChild(img);
             carrucel.style.display = "flex";
         }) 
         // agrega detalles 
@@ -186,6 +187,7 @@ const loader = {
                     console.log("Mapa: "+ e.target.dataset.disponible)
                     Login.viewModal(true)
                     this.loadOpciones()
+                    Login.mostrarInfoLote(e)
                 }else{
                     MostrarAlerta();
                 }
@@ -194,7 +196,7 @@ const loader = {
         })
 
         mapa.addEventListener('mouseover', (e) => {
-            if (e.target.matches('[data-lote]')) {
+            if (e.target.matches('[data-lote]') && e.target.dataset.disponible == 'true') {
                 toolTip.innerHTML = ''
                 let lote = document.createElement('p')
                 lote.textContent = e.target.dataset.trato
@@ -210,14 +212,15 @@ const loader = {
                 toolTip.appendChild(total)
                 posicionX = e.pageX
                 posicionY = e.pageY
-                e.target.dataset.disponible == "true" ? e.target.style.fill = '#e5b252' : e.target.style.fill = '#585858'
+                e.target.style.fill = '#e5b252'
+                e.target.style.cursor = 'pointer'
                 Mapas.showPopup(toolTip, posicionX, posicionY)
             }
         })
 
         mapa.addEventListener('mouseout', (e) => {
-            if (e.target.matches('[data-lote]')) {
-                e.target.dataset.disponible == "true" ? e.target.style.fill = '#de9f27' : e.target.style.fill = '#2e2e2e'                
+            if (e.target.matches('[data-lote]') && e.target.dataset.disponible == 'true') {
+                e.target.style.fill = '#de9f27'              
                 Mapas.hidePopup(toolTip)
             }
         })

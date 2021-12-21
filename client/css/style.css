@@ -3,6 +3,10 @@ html {
     box-sizing: border-box;
     font-size: 62.5%; 
 }
+.descripcion{
+    font-size: large;
+    text-align: justify;
+}
 
 *, *:before, *:after {
     box-sizing: inherit;
@@ -64,8 +68,12 @@ header .img-logo{
     background-color: #000;
     text-align: center;
     font-size: medium;
-    font-weight: 700;
-    
+    font-weight: 700;   
+}
+@media(max-width:480px){
+    .descripcion{
+        font-size:10px;
+    }
 }
 /* Footer */
 .footer{
@@ -203,20 +211,13 @@ footer i{
     text-decoration: none;
 }
 
-
-/* Desarrollos */
-article {
-        flex: 2;
-        font-size: large;
-        text-align: justify;
-    }
 .servicios-amenidades{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     font-family:Inter;
     font-size: medium;
     margin-top: 30px;
-    margin-bottom: 30px;
+    /* margin-bottom: 80px; */
 }
 
 .servicios-amenidades h2{
@@ -235,6 +236,7 @@ article {
     }
     .servicios{
         padding-left: 100px;
+        margin-bottom: 15px;
     }
     .servicios-amenidades p{
         font-size: 17px;
@@ -268,6 +270,7 @@ article {
     }
     .servicios{
         padding-left: 30px;
+        margin-bottom: 15px;
     }
     .amenidades{
         width:170px;
@@ -294,12 +297,14 @@ article {
 
 /* Mapa */
 .contenedor-mapa{
+    display: flex;
+    flex-direction: column;
     width: 95vw;
+    padding: 15px;
     margin: auto;  
 }
 
 .mapa-interactivo{
-    z-index: 1;
     width: auto;
     height: 95vh;
     overflow-x: auto;
@@ -310,65 +315,79 @@ article {
     background-color: #043125;
 }
 
-/* .contenedor-mapa svg{
-    color: orange;
-    width: 310px;
-    height: 316px;
-} */
- .btnz {
-    width: 5rem;
-    height: 5rem;
-    background: #de9f27;
-    border: 2px solid #000;
-    position: absolute ;
-    z-index: 2;
-    border-radius: 50%;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
+.btnz {
+    position: relative;
+   background: #de9f27; 
+    z-index: 1; 
+   border-radius: 50%;
+   -moz-border-radius: 50%;
+   -webkit-border-radius: 50%; 
+   padding: 15px; 
+   height: 6vh;
+   text-align: center; 
+   transition: all 0.3s ease; 
+   margin:5px;
+  }  
+  .zoom-flex{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+.btnz i{
+    font-size: large; 
     color: #fff;
-    padding: 15px 10px 5px;
-    text-align: center;
-    transition: all 0.3s ease;
-    bottom:-740px;
-    /* margin:20px;  */
-  } 
-  .zoom{
-    right:170px;
-  }
-  .zoom-init{
-    right:50px;
-  }
-  .zoom-out{
-    right:110px;
-  } 
+}
 
-  @media(max-width:768px){
-    .btnz {
-        display:none;
+
+  /* @media(max-width:768px){
+    .btnz i{
+        font-size: small;
       } 
-  }
+  } */
 
-   .btnz i{
-      font-size: large;
-  } 
+   
   .btnz:hover {
     background: #f3f3f3;
-    color: #de9f27;
     border-color: #de9f27;
     cursor: pointer;
   }
+
+/* Div detalles mapa */
+.detalles-mapa{
+    /* width: 95vw; */
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+    top: 18vh;
+    align-items: center;
+    margin: 0% 2% ;
+}
 /* Viñetas Disponibilidad */
 .disponibilidad-mapa{
-    width:150px;
-    height: 70px;
-    position: absolute;
-    bottom: -103%;
-    z-index: 1;
-    padding-top: 9px;
+    width: 220px;
+    z-index: 3;
+    padding: 15px 15px;
     background-color: #DFE0DF;
-    left:3.5%;
     border-radius: 15px;
+    margin-left:20px;
+    position: relative;
 }
+/* @media only screen and (min-width:375px) and (max-width:678px){
+    .disponibilidad-mapa{
+        bottom: -60%;
+        margin-left:10px;
+        font-size: 8px;
+    } 
+} */
+/* Aqui va min-width:678px */
+/* @media(min-width:481px) and (min-width:650px){
+    .disponibilidad-mapa{
+        bottom: -800px;
+        margin-left:10px;
+    }
+} */
+
 .disponibilidad-mapa i{
     font-size:15px; 
 }
@@ -376,60 +395,14 @@ article {
     margin-top: 5px;
     margin-left: 15px;
     font-size:15px;
-}
-
-.no-disponible{
+} 
+ .no-disponible{
     color:#2e2e2e;
 }
 .disponible{
     color:#de9f27;
-}
-#norte{
-   width: 150px;
-   height: 250px;
-   position: absolute;
-   top: 195%; 
-   left:1290px;
-}
-#norte #Capa_3{
-    width: 850px;
-    height:850px;
-}
-@media (max-width:480px){
-    #norte{
-        width: 80px;
-        height: 70px;
-        top: 203%; 
-        left:300px;
-     }
-     #norte #Capa_3{
-        width: 600px;
-        height:600px;
-    }
-    .disponibilidad-mapa li{
-        font-size: 10px;
-    }
-}
+} 
 
-@media screen and (min-width:481px)and (max-width:769px){
-    #norte{
-        width: 100px;
-        height: 150px;
-        position: absolute;
-        top: 172%; 
-        left:630px;
-        padding-top: 0;
-     }
-     #norte #capa_3{
-        width: 750px;
-        height:750px;
-        align-items:center ;
-        padding-top:0;
-    }
-    .disponibilidad-mapa{
-        bottom: -82%;
-    }
-}
 
 /* Flecha navegacion */
 .arriba{
@@ -447,18 +420,19 @@ article {
     overflow: hidden;
 }
   .slider ul {
-    /* display: flex; */
+    display: flex;
     padding: 0;
-    width: 100%;
-    height: 90%;
+    width: 400%;
+    height: 90vh;
     animation: cambio 20s infinite alternate linear;
   }
   .slider li {
-    width: 100%;
+    width: 98.9vw;
     list-style: none;
   }
   .slider img{
-      width: 100%;
+      width: 100vw;
+      height: 100vh;
   }
   
   @keyframes cambio {
@@ -491,6 +465,7 @@ article {
     flex-direction: column;
     justify-content: center;
     align-items: center; 
+    z-index: 99;
   }
   .popup{
     position:absolute;
@@ -515,7 +490,20 @@ article {
     opacity:1;
     transform:translate(-50%,-50%) scale(1);
   }
-   
+  #info-apartado{
+    flex-direction: column-reverse;
+    margin-left:9%;
+    width: 80%;
+    font-size: small;
+    font-weight: normal;
+    flex-direction: column;
+    padding:10px;
+    border-radius: 10px ;
+    border-left: 6px solid #47494E;
+    margin-bottom: 15px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+  
 /* Alertas */
 
 #toast, #toast2, #toast3{

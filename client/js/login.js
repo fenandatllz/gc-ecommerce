@@ -78,8 +78,8 @@ const login = {
                 Introduzca Datos del Contacto
                 <div class="pay-division-modal"></div>
             </div>
-            <div class="element">
-                <span class="info-apartado"> </span>
+            <div class="element" id="info-apartado">
+    
             </div>
             <div class="element" id="input-mensualidad">
                 <input type="text" id="mensualidad" disabled>
@@ -114,6 +114,22 @@ const login = {
     
         dvEnganche.style.display = checkEnganche.checked ? "block" : "none";
         mensualidad.style.display = checkEnganche.checked ? "none" : "block"
+    },
+    mostrarInfoLote : (e) =>{
+        const info = document.getElementById('info-apartado')
+        info.innerHTML= '';
+        const trato = document.createElement('P');
+        const dimension = document.createElement('P');
+        const costo = document.createElement('P');
+        const total = document.createElement('P');
+        trato.textContent = "Producto: " + e.target.dataset.trato;
+        info.appendChild(trato);
+        dimension.textContent = "Dimensión m2: " + e.target.dataset.dimension;
+        info.appendChild(dimension);
+        costo.textContent = 'Costo M2 : $' + e.target.dataset.costom2;
+        info.appendChild(costo);
+        total.textContent = 'Total: $' + e.target.dataset.costototal;
+        info.appendChild(total);
     },
     viewModal: (view) => {
         let modal = document.getElementById('container-modal')
@@ -185,10 +201,7 @@ const login = {
         sessionStorage.setItem("sesion", true)
         this.viewModal();
         if(pay) this.innerPay();
-        // MostrarDiv()
         this.mostrarBoton()
-        
-        
     },
     mostrarBoton: () =>{
         let btnLogin = document.getElementById('btn-login')

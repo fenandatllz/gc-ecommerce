@@ -8,7 +8,7 @@
     color:#222;
     margin:20px 0px;
   }
-  .pay-form .element {
+  .pay-form .element:not(#info-apartado) {
     padding: 12px 20px;
     display: flex;
     justify-content:center;
@@ -21,10 +21,15 @@
     height: 5px;
     background-color: #DE9F27;
 }
-  .info-apartado{
+/* @media (max-width:480px){
+  .pay-division-modal{
+    display:none;
+  }
+} */
+  /* .info-apartado{
     font-size: small;
     font-weight: 700;
-}
+} */
 #mensualidad{
   padding: 0.8em 1.2em;
 }
