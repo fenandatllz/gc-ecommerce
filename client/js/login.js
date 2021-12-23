@@ -79,7 +79,10 @@ const login = {
                 <div class="pay-division-modal"></div>
             </div>
             <div class="element" id="info-apartado">
-    
+                <div class="info-title">INFORMACIÓN DE PRODUCTO</div>
+                <div id="info-product" class="info-product">
+            
+                </div>
             </div>
             <div class="element" id="input-mensualidad">
                 <input type="text" id="mensualidad" disabled>
@@ -116,8 +119,7 @@ const login = {
         mensualidad.style.display = checkEnganche.checked ? "none" : "block"
     },
     mostrarInfoLote : (e) =>{
-        const info = document.getElementById('info-apartado')
-        info.innerHTML= '';
+        const info = document.getElementById('info-product')
         const trato = document.createElement('P');
         const dimension = document.createElement('P');
         const costo = document.createElement('P');

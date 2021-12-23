@@ -36,12 +36,32 @@
     width:100%;
     height:100%;
   }
-  /* Brujula Mapas */
-  .detalles-mapa svg{
+  .brujula{
     display: flex;
-    width:100px;
-    height: 150px;
-    margin-left:83%;
-    position: absolute;
-    bottom: -132%;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px;
+    position: relative;
+    top: calc(30vh - 75px);
+    left: calc(3vw - 75px);
   }
+  .brujula svg{
+    width: 10%;
+  }
+
+  @media(max-width:480px){
+    .brujula{
+      top: calc(15vh - 75px);
+    }
+  }
+
+  @media screen and (min-width:481px) and (max-width:768px){
+    .brujula{
+      top: calc(24vh - 75px);
+      left: calc(7vw - 75px);
+    }
+    .brujula svg{
+      width:20%;
+    }
+  }
+  

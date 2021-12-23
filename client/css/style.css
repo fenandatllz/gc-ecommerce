@@ -58,7 +58,8 @@ header .img-logo{
 }
 .contenedor {
     width: 80%;
-    margin: 30px auto;
+    margin: auto;
+    margin-top: 50px;
 }
 .nombre-desarrollo{
     width: 100%;
@@ -310,6 +311,7 @@ footer i{
     border-radius: 11px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     background-color: #043125;
+    margin-top: -150px;
 }
 
 .btnz {
@@ -345,11 +347,22 @@ footer i{
     display: flex;
     justify-content: space-between;
     position:relative;
-    top: 15vh;
+    top: calc(28vh - 75px);
     align-items: center;
     margin: 0% 2% ;
     z-index: 1;
 }
+@media(max-width:480px){
+    .detalles-mapa{
+        top: calc(16vh - 75px);
+      }
+}
+@media screen and (min-width:481px) and (max-width:768px){
+    .detalles-mapa{
+        top: calc(22vh - 75px);
+      }
+}
+
 /* Viñetas Disponibilidad */
 .disponibilidad-mapa{
     background-color: #DFE0DF;
@@ -384,7 +397,7 @@ footer i{
     width: 100%;
     margin: auto;
     overflow: hidden;
-}
+  }
   .slider ul {
     display: flex;
     padding: 0;
@@ -393,28 +406,29 @@ footer i{
     animation: cambio 20s infinite alternate linear;
   }
   .slider li {
-    width: 98.9vw;
+    width: 100vw;
     list-style: none;
   }
-  .slider img{
-      width: 100vw;
-      height: 100vh;
+  .slider img {
+    width: 100vw;
+    height: 90vh;
+    image-rendering: pixelated;
   }
   
   @keyframes cambio {
     0%   {margin-left: 0;}
     20%  {margin-left: 0;}
 
-    25%  {margin-left: -100%;}
-    45%  {margin-left: -100%;}
+    25%  {margin-left: -100vw;}
+    45%  {margin-left: -100vw;}
 
-    50%  {margin-left: -200%;}
-    70%  {margin-left: -200%;}
+    50%  {margin-left: -200vw;}
+    70%  {margin-left: -200vw;}
 
-    75%  {margin-left: -300%;}
-    100% {margin-left: -300%;}
+    75%  {margin-left: -300vw;}
+    100% {margin-left: -300vw;}
   }
-/* Modal */
+/* Modal */     abre el server pls
 .center {
     position:absolute;
     top:50%;
@@ -457,17 +471,26 @@ footer i{
     transform:translate(-50%,-50%) scale(1);
   }
   #info-apartado{
-    flex-direction: column-reverse;
+    display: flex;
+    flex-direction: column;
     margin-left:9%;
     width: 80%;
     font-size: small;
     font-weight: normal;
-    flex-direction: column;
-    padding:10px;
-    border-radius: 10px ;
-    border-left: 6px solid #47494E;
+    border-radius: 10px;
     margin-bottom: 15px;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+.info-title{
+    background-color: #2d2d2d;
+    color: #f5f5f5;
+    font-weight: 600;
+    padding: 8px;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
+}
+.info-product{
+    padding: 15px 20px;
 }
   
 /* Alertas */
