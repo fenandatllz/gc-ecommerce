@@ -103,12 +103,13 @@
         },
         {
             "fracionamiento": "Cielo Residencial",
-            "logo": "img/cielo.png",
-            "img": "https://grupoconcordia.com/wp-content/uploads/2018/09/DJI_0079-1024x767.jpg",
+            "logo": "img/fraccionamientos/Cielo/cielo.png",
+            "img": "img/fraccionamientos/Cielo/WhatsApp-Image-2021-02-11-at-12.42.01-PM-1-1024x682.jpeg",
             "imgs": [
-                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-1-1024x570.jpeg",
-                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-2-1-1024x747.jpeg",
-                "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-1-1024x570.jpeg"
+                "img/fraccionamientos/Cielo/DJI_0079-1024x767.jpg",
+                "img/fraccionamientos/Cielo/WhatsApp-Image-2020-01-16-at-12.01.19-PM-1024x781.jpeg",
+                "img/fraccionamientos/Cielo/DJI_0116-1024x767.jpg",
+                "img/fraccionamientos/Cielo/DJI_0143-1024x767.jpg"
             ],
             "descripciones": [
                 "Costa Dorada es uno de nuestros desarrollos que cuenta con todos los servicios necesarios para ser habitado. Se ubica en una zona estratégica, con fácil acceso a cualquiera de nuestras ciudades vecinas: Tijuana, Rosarito y San Diego. Justo en la puerta de entrada a la zona dorada del corredor turístico Rosarito – Ensenada.",
@@ -307,13 +308,12 @@
         {
             "fracionamiento": "VILLA TOSCANA",
             "logo": "img/Fraccionamientos/Toscana/Toscana Logo.png",
-            "img": "img/Fraccionamientos/Toscana/Toscana 3.JPG",
+            "img": "img/Fraccionamientos/Toscana/Casa Club DG.jpg",
             "imgs": [
                 "img/Fraccionamientos/Toscana/Toscana.JPG",
-                "img/Fraccionamientos/Toscana/Toscana 2.JPG",
-                "img/Fraccionamientos/Toscana/Toscana 3.JPG",
                 "img/Fraccionamientos/Toscana/Casa Club.jpg",
-                "img/Fraccionamientos/Toscana/Casa Club DG.jpg"
+                "img/Fraccionamientos/Toscana/Toscana 2.JPG",
+                "img/Fraccionamientos/Toscana/Toscana 3.JPG"
             ],
             "descripciones": [
                 "Concepto residencial exclusivo que ofrece un estilo de vida único: Villa Toscana Residencial es la perfecta combinación entre las exigencias de la vida moderna y actividades al aire libre que brindarán confort a tu estilo de vida.",
@@ -409,7 +409,7 @@
         },
         {
             "fracionamiento": "Villa Prueba",
-            "logo": "img/alamar.png",
+            "logo": "img/fraccionamientos/Alamar/Alamar Logo.png",
             "img": "https://grupoconcordia.com/wp-content/uploads/2020/05/DJI_0784-1024x683.jpg",
             "imgs": [
                 "https://grupoconcordia.com/wp-content/uploads/2021/07/Rancho-la-Puerta-1-1024x570.jpeg",
