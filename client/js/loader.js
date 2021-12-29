@@ -2,6 +2,10 @@
 
 import Login from './login.js'
 import Mapas from './mapas.js'
+import Zoho from './zoho.js'
+
+
+let fracc = []
 
 const loader = {
   toggleLoader: () => {
@@ -60,6 +64,7 @@ const loader = {
 
     // Slider
     const frac = data[index].fraccionamientos
+    fracc = frac
     const imgs = JSON.parse(frac.imgs)
     console.log(imgs)
     imgs.forEach((element, index) => {
@@ -117,9 +122,15 @@ const loader = {
 
     mapa.innerHTML = ''
     const loadPlano = await fetch(`./desarrollos/${desarrollo}/plano.svg`)
-      .then((svg) => svg.text())
-      .then((html) => (mapa.innerHTML = html))
+    // const loadPlano = await fetch('https://grupoconcordia.com/paginawebimg/plano.svg')
 
+    console.log(loadPlano)
+
+    let temp_svg = await loadPlano.text()
+    console.log( temp_svg )
+    mapa.innerHTML = temp_svg
+
+    Mapas.bloquearManzana(fracc)
     this.mapEvent()
   },
   //Fecth Prueba
@@ -166,7 +177,7 @@ const loader = {
     const toolTip = document.getElementById('info-lote')
     let mapa = document.getElementById('mapa-interactivo')
 
-    mapa.addEventListener('click', (e) => {
+    mapa.addEventListener('click', async (e) => {
       if (e.target.matches('[data-manzana]')) {
         // const manzana = e.target.id
         let auxManzana = e.target.id.split('-')
@@ -177,7 +188,8 @@ const loader = {
         const fraccionamiento =
           document.getElementById('nombre-desarrollo').textContent
         console.log(fraccionamiento, manzana)
-        Mapas.loadManzana(svgNombre, manzana)
+        await Mapas.loadManzana(svgNombre, manzana, fracc)
+        // Mapas.bloquearManzana(fracc)
         Mapas.getDisponiblidad(fraccionamiento, manzana)
         // console.log()
       }

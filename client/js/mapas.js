@@ -1,12 +1,17 @@
 'use strict'
 
 let containerMapa = document.getElementById('mapa-interactivo')
+// const Name_frac = document.getElementById('nombre-desarrollo').textContent
+// const fracc = await Zoho.getFraccionamiento( Name_frac )
 
 const mapa = {
-  loadManzana: async (desarrollo, manzana) => {
+  loadManzana: async (desarrollo, manzana, fracc) => {
     fetch(`./desarrollos/${desarrollo}/Manzanas/${manzana}.svg`)
       .then((svg) => svg.text())
-      .then((html) => (containerMapa.innerHTML = html))
+      .then((html) => {
+        containerMapa.innerHTML = html
+        mapa.bloquearManzana(fracc)
+      })
   },
   // Obtener disponibilidad
   async getDisponiblidad(fraccionamiento, manzana){
@@ -37,10 +42,16 @@ const mapa = {
   
   
     disponibilidad.map((product) => {
-      console.log(`M${product.Manzana}-L${product.Lote}`)
-      // console.log(`M${product.Manzana}-L${product.Lote}`)
       try {
-        let lote = document.getElementById(`M${product.Manzana}-L${product.Lote}`)
+        let lote = ''
+        if( product.Lote_Letra == null){
+          console.log(`M${product.Manzana}-L${product.Lote}`)
+          lote = document.getElementById(`M${product.Manzana}-L${product.Lote}`)
+        }else{
+          console.log(`M${product.Manzana}-L${product.Lote + product.Lote_Letra}`)
+          lote = document.getElementById(`M${product.Manzana}-L${product.Lote + product.Lote_Letra}`)
+        }
+        
   
         lote.dataset.crm_id = product.id
         lote.dataset.crm = true
@@ -74,7 +85,24 @@ const mapa = {
   },
   hidePopup(e) {
     e.style.display = 'none'
-  }
+  },
+  async bloquearManzana(fracc){
+    const Manzanas = document.querySelectorAll('[data-manzana]')
+
+    // const request = await Zoho.getFraccionamiento( Name_frac )
+    let secciones = JSON.parse ( fracc.secciones )
+    
+    Manzanas.forEach(async (m) => {
+      let Manzana = m.dataset.manzana.replace('M', '');
+      const seccion = secciones.find((e) => Manzana >= e.init && Manzana <= e.end)
+      if(seccion === undefined) this.bloquear(m) 
+    })
+  },
+  bloquear(e){
+    delete e.dataset.manzana
+    delete e.classList
+    e.classList.add('disabled')
+  },
 }
 
 export default mapa

@@ -53,6 +53,24 @@ const catalyst = {
         return {code: 0, message: "Exitoso !!", data: queryResult}
       }
     })
+  },
+  getFraccionamiento: async(req, res) => {
+    const app = catalystSDK.initialize(req)
+    // console.log(req)
+    // res.json({req})
+
+    let query = `SELECT * FROM fraccionamientos WHERE fraccionamientos.Fraccionamiento = '${req.params.fraccionamiento}'`
+    console.log(query)
+
+    let zcql = app.zcql()
+    let zcqlPromise = zcql.executeZCQLQuery(query)
+    zcqlPromise.then(async (queryResult) => {
+      if (queryResult.length === 0) {
+        res.send({ message: 'No se encontro el Fraccionamiento' })
+      } else {
+        res.send(queryResult)
+      }
+    })
   }
 }
 

@@ -113,7 +113,7 @@ const login = {
       const producto = document.getElementById(item)
       const estaCRM = producto.dataset.crm
       if (estaCRM == 'true') {
-        productID = producto.dataset.crm_id
+        productID = item
       } else {
         productID = item
       }

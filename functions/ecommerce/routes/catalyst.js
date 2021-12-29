@@ -10,4 +10,6 @@ router.get('/getCartas', catalystC.getCartas)
 
 router.get('/getDetails', catalystC.getDetails)
 
+router.get('/getFraccionamiento/:fraccionamiento', catalystC.getFraccionamiento)
+
 module.exports = router

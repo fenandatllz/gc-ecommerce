@@ -146,3 +146,102 @@ const commerce = {
 }
 
 export default commerce
+
+
+/*
+
+const data2 = [
+      //oro
+      { "id": "2234337000054406057", "name": "ORO", "symbol": "'", "init": 4, "end": 22, "Lotes": {"init": 1, "end": 19} }, 
+      { "id": "2234337000054406057", "name": "ORO", "symbol": "'", "init": 23, "end": 35, "Lotes": {"init": 1, "end": 26} },
+      { "id": "2234337000054406057", "name": "ORO", "symbol": "'", "init": 36, "end": 37, "Lotes": null }, 
+      { "id": "2234337000054406057", "name": "ORO", "symbol": "'", "init": 129, "end": 133, "Lotes": null }, 
+      { "id": "2234337000054406057", "name": "ORO", "symbol": "'", "init": 139, "end": 144, "Lotes": null },
+      // perla 
+      { "id": "2234337000054406063", "name": "PERLA", "symbol": "}", "init": 22, "end": 22, "Lotes": {"init": 20, "end": 44} }, 
+      { "id": "2234337000054406063", "name": "PERLA", "symbol": "}", "init": 35, "end": 35, "Lotes": {"init": 27, "end": 53} },
+      { "id": "2234337000054406063", "name": "PERLA", "symbol": "}", "init": 41, "end": 52, "Lotes": null },
+      { "id": "2234337000054406063", "name": "PERLA", "symbol": "}", "init": 60, "end": 100, "Lotes": null },
+      { "id": "2234337000054406063", "name": "PERLA", "symbol": "}", "init": 127, "end": 128, "Lotes": null },
+      { "id": "2234337000054406063", "name": "PERLA", "symbol": "}", "init": 134, "end": 138, "Lotes": null },
+      { "id": "2234337000054406063", "name": "PERLA", "symbol": "}", "init": 150, "end": 162, "Lotes": null },
+      { "id": "2234337000054406063", "name": "PERLA", "symbol": "}", "init": 164, "end": 170, "Lotes": null },
+      { "id": "2234337000054406063", "name": "PERLA", "symbol": "}", "init": 172, "end": 186, "Lotes": null },
+      { "id": "2234337000054406063", "name": "PERLA", "symbol": "}", "init": 188, "end": 188, "Lotes": null },
+      { "id": "2234337000054406063", "name": "PERLA", "symbol": "}", "init": 192, "end": 194, "Lotes": null },
+      //ELITE
+      { "id": "2234337000054406069", "name": "ELITE", "symbol": ":", "init": 101, "end": 105, "Lotes": null },
+      { "id": "2234337000054406069", "name": "ELITE", "symbol": ":", "init": 107, "end": 109, "Lotes": null },
+      { "id": "2234337000054406069", "name": "ELITE", "symbol": ":", "init": 111, "end": 112, "Lotes": null },
+      { "id": "2234337000054406069", "name": "ELITE", "symbol": ":", "init": 196, "end": 199, "Lotes": null }
+      
+    ]
+
+    
+let item = "M102-L40"
+    
+let nombre_fracionamiento, Fraccionamiento, item_name, sku
+let rate = 200000
+// let name_array = item.split('')
+let name_array2 = item.split('-')
+let tempManzana = name_array2[0].replace('M', '');
+let tempLote = name_array2[1].replace('L', '');
+
+let manzana = parseInt(tempManzana)
+
+if (true) {
+
+  let secciones_array = data2
+  secciones_array.forEach ((e) => {
+    console.log( " Lotes ")
+    console.log( e.Lotes)
+    console.log(" Manzana: " + manzana + " init: " + e.init + " end: " + e.end )
+    if (manzana >= e.init && manzana <= e.end) {
+    	if(e.Lotes != null){
+      console.log( " Lote: " + tempLote + " init: " + e.Lotes.init + " end: " + e.Lotes.end)
+    		if (tempLote >= e.Lotes.init && tempLote <= e.Lotes.end){
+        
+          console.log("Lotes: true")
+          // 
+          item_name = ' CD ' + e.name + ' ' + item
+          console.log('item_name')
+          console.log(item_name)
+          sku = name_array2[0] + "" + e.symbol + "" + name_array2[1] 
+          console.log("sku")
+          console.log(sku)
+          Fraccionamiento = e.id.toString()
+          if(e.name){
+            nombre_fracionamiento = "Costa Dorada " +e.name
+          }else{
+            nombre_fracionamiento = "Costa Dorada"
+          }
+          console.log('nombre_fracionamiento')
+          console.log(nombre_fracionamiento)
+        }
+      }else {
+        console.log("Lotes: false")
+        item_name = 'CD ' + e.name + ' ' + item
+        console.log('item_name')
+        console.log(item_name)
+        sku = name_array2[0] + "" + e.symbol + "" + name_array2[1] 
+        console.log("sku")
+        console.log(sku)
+        Fraccionamiento = e.id.toString()
+        if(e.name){
+          nombre_fracionamiento = "Costa Dorada " +e.name
+        }else{
+          nombre_fracionamiento = "Costa Dorada "
+        }
+        console.log('nombre_fracionamiento')
+        console.log(nombre_fracionamiento)
+
+    	}
+    } 
+  })
+  console.log('-----------------------------------------------')
+  console.log("item_name: "+ item_name)
+  console.log('-----------------------------------------------')
+
+}
+
+*/

@@ -51,6 +51,8 @@ const auth = {
         // console.log(req)
         // res.json({req})
         const name = req.body.name
+        const first_name = req.body.first_name
+        const last_name = req.body.last_name
         const email = req.body.email
         const password = req.body.password
         const phone = req.body.phone
@@ -69,10 +71,12 @@ const auth = {
 
                 let rowData =
                 {
-                    name: name,
+                    name,
+                    first_name,
+                    last_name,
                     password: passwordHash,
-                    phone: phone,
-                    email: email
+                    phone,
+                    email
                 }
 
                 //Use the table meta object to insert the row which returns a promise

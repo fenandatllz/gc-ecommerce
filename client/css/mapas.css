@@ -44,3 +44,9 @@
       height: 600px;
     }
   }
+
+  .disabled{
+    fill: rgb(173, 25, 25);
+    stroke: #de2727;
+    stroke-width: 1.96px;
+  }
