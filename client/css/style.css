@@ -56,11 +56,18 @@ header .img-logo{
     background-color: #DE9F27;
     margin-bottom: 15px;
 }
+.division-mapa{
+    width: 27%;
+    height: 5px;
+    background-color: #DE9F27;
+    margin-bottom: 15px;
+}
 .contenedor {
     width: 80%;
     margin: auto;
     margin-top: 50px;
 }
+
 .nombre-desarrollo{
     width: 100%;
     height: 40px;
@@ -296,6 +303,52 @@ footer i{
     color: #DE9F27;
 }
 
+
+/* Galeria */
+
+h1{
+    font-size: 30px;
+    font-weight: bold;
+}
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    justify-content: center;
+    /* width:90%; */
+    margin: 30px auto;
+}
+
+@media (max-width:480px){
+    .gallery{
+        grid-template-columns: repeat(2, 1fr);
+        margin:40px auto;
+    } 
+    .gallery a{
+        height:100px;
+        width:150px;
+    }
+    .division-mapa{
+        margin-bottom:60px;
+    }
+}
+
+.gallery a{
+    margin:20px;
+    border-radius: 5px;
+    overflow:hidden;
+    box-shadow: 0 3px 5px rgba(179,171,171,0.75); 
+}
+
+.gallery a img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+.gallery a img:hover{
+    filter: grayscale(80%);
+}
+
+
 /* Mapa */
 .contenedor-mapa{
     display: flex;
@@ -311,8 +364,9 @@ footer i{
     border-radius: 11px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     background-color: #043125;
-    margin-top: -150px;
+    margin-top: -190px;
 }
+
 
 .btnz {
    background: #de9f27;
@@ -428,7 +482,7 @@ footer i{
     75%  {margin-left: -300vw;}
     100% {margin-left: -300vw;}
   }
-/* Modal */     abre el server pls
+/* Modal */     
 .center {
     position:absolute;
     top:50%;

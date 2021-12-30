@@ -101,6 +101,20 @@ const loader = {
 
         })
 
+        // Galeria 
+        const galeria = document.querySelector('.gallery');
+
+        frac.imgs.forEach(element => {
+           let enlaceImagen = document.createElement('A');
+           enlaceImagen.setAttribute("href", `${element}`);
+           galeria.appendChild(enlaceImagen);
+
+           let imagen = document.createElement('img');
+           imagen.src = `${element}`;
+           enlaceImagen.appendChild(imagen);
+
+            lightGallery(document.querySelector('.gallery'));
+        });
 
         // agrega mapa 
         let mapa = document.getElementById('mapa-interactivo')
@@ -145,7 +159,7 @@ const loader = {
             })
                 
         })
-    },
+    }, 
     mapEvent(){
         // Eventos Mapa 
         let posicionY = 0
