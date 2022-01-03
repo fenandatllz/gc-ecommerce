@@ -30,6 +30,7 @@ const login = {
                     <label>Recordar Contraseña</label>
                 </div>
                 <button type="button" class="submit-btn" id="iniciar-sesion">Iniciar Sesión</button>
+                <span id="error"></span>
             </form>
             <form id="registro" class="input-group">
                 <input type="text" class="input-field" placeholder="Nombre(s)" required>
@@ -41,7 +42,7 @@ const login = {
                 <button type="submit" class="submit-btn" id="registrar-usuario">Registrar</button>
             </form>
         </div>
-        <span id="error"></span>
+        
         `
         c = document.getElementById('btn')
         loginForms = document.getElementById('login-forms')
@@ -73,7 +74,7 @@ const login = {
     innerPay: () => {
         modal.innerHTML = " "
         modal.innerHTML = `
-        <form class="pay-form">
+        <form class="pay-form"> 
             <div class="pay-header">
                 Introduzca Datos del Contacto
                 <div class="pay-division-modal"></div>
@@ -118,6 +119,7 @@ const login = {
         dvEnganche.style.display = checkEnganche.checked ? "block" : "none";
         mensualidad.style.display = checkEnganche.checked ? "none" : "block"
     },
+    
     mostrarInfoLote : (e) =>{
         const info = document.getElementById('info-product')
         const trato = document.createElement('P');
@@ -132,6 +134,7 @@ const login = {
         info.appendChild(costo);
         total.textContent = 'Total: $' + e.target.dataset.costototal;
         info.appendChild(total);
+        
     },
     viewModal: (view) => {
         let modal = document.getElementById('container-modal')
@@ -153,6 +156,7 @@ const login = {
         console.log("Login: "+pay)
         let email = document.getElementById('correo')
         let password = document.getElementById('contrase_a')
+        const Msg = document.getElementById('error')
 
         let body = {
             email: email.value,
@@ -171,9 +175,10 @@ const login = {
             if(res.code != 0) {
                 console.log("No Login !!")
                 email.value = " "
-                password.value = " "
+                password.value = ""
                 Msg.innerText = "Usuario y/o contraseña incorrectos";
                 Msg.style.display = "block";
+                this.ocultarError()
                 return false
             }else{
                 this.iniciar(pay)
@@ -201,9 +206,13 @@ const login = {
         sessionStorage.setItem("usuario", "Fernanda")
         sessionStorage.setItem("correo", document.getElementById('correo').value)
         sessionStorage.setItem("sesion", true)
-        this.viewModal();
-        if(pay) this.innerPay();
+        this.viewModal(true)
         this.mostrarBoton()
+        if(pay) this.innerPay()
+        Loader.loadOpciones()
+        this.mostrarInfoLote(e)
+        // console.log(Loader.mapEvent())
+        
     },
     mostrarBoton: () =>{
         let btnLogin = document.getElementById('btn-login')
@@ -221,6 +230,13 @@ const login = {
             btnLogin.style.display = "none"
             nombreUsuario.innerText = "Bienvenido(a): "+ sessionStorage.getItem('usuario')
         }
+    },
+    // Mensaje error login 
+    ocultarError(){
+        const msgError = document.getElementById('error')
+        setTimeout(() => {      
+            msgError.remove();  
+        }, 3500);
     }
 
 }

@@ -408,12 +408,12 @@ h1{
 }
 @media(max-width:480px){
     .detalles-mapa{
-        top: calc(16vh - 75px);
+        top: calc(11vh - 75px);
       }
 }
 @media screen and (min-width:481px) and (max-width:768px){
     .detalles-mapa{
-        top: calc(22vh - 75px);
+        top: calc(18vh - 75px);
       }
 }
 

@@ -202,6 +202,7 @@ const loader = {
                     Login.viewModal(true)
                     this.loadOpciones()
                     Login.mostrarInfoLote(e)
+                    
                 }else{
                     MostrarAlerta();
                 }
@@ -227,7 +228,7 @@ const loader = {
                 posicionX = e.pageX
                 posicionY = e.pageY
                 e.target.style.fill = '#e5b252'
-                e.target.style.cursor = 'pointer'
+                e.target.style.cursor = 'pointer' 
                 Mapas.showPopup(toolTip, posicionX, posicionY)
             }
         })
