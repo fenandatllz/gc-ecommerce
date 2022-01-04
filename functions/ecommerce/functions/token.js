@@ -10,7 +10,7 @@ const functions = {
         req.session.token = token
 
         return true
-    }
+    },
 }
 
 module.exports = functions
