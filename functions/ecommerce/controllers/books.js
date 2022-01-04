@@ -326,6 +326,23 @@ const books2 = {
     return fecha
   },
   async createFactura(req, res) {
+
+    let listaTrue = {
+      getItemBySku: false,
+      createProductCRM: false,
+      getItemByName: false,
+      createProductBooks: false,
+      getIdItem: false,
+      crm_getContactByEmail: false,
+      createContactCRM: false,
+      syncContactoBooks: false,
+      books_getContactByEmail: false,
+      createInvoice: false,
+      sendInvoice: false,
+    }
+
+    let listaRun = listaTrue
+
     try {
       console.log(req.session.login)
       if (!req.session.login) res.status(401).send({ code: 401, message: 'Invalid user' })
@@ -391,15 +408,45 @@ const books2 = {
           })
 
         }
+        
         item_crm_id = await crm.getItemBySku(sku, accessToken)
-        if (!item_crm_id) item_crm_id = await crm.createProductCRM(item_name, sku, rate, nombre_fracionamiento, Fraccionamiento, tempManzana, tempLote, accessToken)
+        if(item_crm_id){
+          // Producto encontrdo en CRM
+          listaTrue.getItemBySku = true
+        }else{
+          // Producto no encontrado en CRM
+          item_crm_id = await crm.createProductCRM(item_name, sku, rate, nombre_fracionamiento, Fraccionamiento, tempManzana, tempLote, accessToken)
+          // 1 - id>int, 2 - false>bool, 3 - error>array 
+          if(item_crm_id){
+             listaTrue.createProductCRM = true // Producto creado en CRM
+          }else{
+            throw Error('El producto no se encontró, ni se pudo crear en CRM')
+          }
+        }
+
         item_books_id = await books.getItemByName(item_name, accessToken)
-        if (!item_books_id) item_books_id = await books.createProductBooks(item_name, sku, rate, accessToken)
+        if (item_books_id){
+          // Producto encontrdo en Books
+          listaTrue.getItemByName = true
+        }else{
+          // Producto no encontrado en Books
+          item_books_id = await books.createProductBooks(item_name, sku, rate, accessToken)
+          if(item_books_id) listaTrue.createProductBooks = true // Producto creado en Books
+        }
+        
+        
 
       } else {
         item_books_id = await books.getIdItem(item, accessToken)
-        // item_books_id = books.getItemBySKU(item_name, accessToken)
+        if(item_books_id) listaTrue.getIdItem = true // Producto encontrado en Books
       }
+
+      // if (!item_crm_id){ 
+      //   let listaTrue = listaTrue.map((l) => { if(!l) return l })
+      //   throw Error('')
+      // }
+
+      // if (!item_books_id) throw Error('')
 
       // Verifica el JWT
       const decoded = jwt.verify(req.session.token, process.env.JWT_SECRET)

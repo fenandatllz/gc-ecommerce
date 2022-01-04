@@ -1,7 +1,5 @@
 'use strict'
 
-import Loader from './loader.js'
-import Commerce from './commerce.js'
 import Zoho from './zoho.js'
 
 // add login

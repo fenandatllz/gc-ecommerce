@@ -2,7 +2,6 @@
 
 import Login from './login.js'
 import Mapas from './mapas.js'
-import Zoho from './zoho.js'
 
 
 let fracc = []
