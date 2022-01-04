@@ -2,6 +2,7 @@
 
 import Login from './login.js'
 import Loader from './loader.js'
+import { loteSeleccionado } from './loader.js'
 
 
 // carga de Cards/Detaills
@@ -11,12 +12,15 @@ Loader.getDesarollos(type)
 
 
 // agrega login/pay dinamicamente
-if (sessionStorage.getItem("sesion")) {
-    if(type) Login.innerPay()
-    Login.mostrarBoton()
-} else {
-    Login.innerLogin(type)
-    Login.mostrarBoton()
+export function validarSesion(){
+    if (sessionStorage.getItem("sesion")) {
+        if(type) Login.innerPay()
+        Loader.loadOpciones()
+        Login.mostrarBoton()
+    } else {
+        Login.innerLogin(type)
+        Login.mostrarBoton()
+    }
 }
 
 // cerrar sesion
@@ -34,3 +38,4 @@ containerModal.addEventListener('click', (e) => {
 })
 
 Loader.toggleLoader()
+validarSesion()

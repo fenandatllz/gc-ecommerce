@@ -1,8 +1,7 @@
 'use strict'
 
 import Loader from './loader.js'
-
-
+import { loteSeleccionado } from './loader.js'
 
 // add login
 const modal = document.getElementById('modal')
@@ -10,6 +9,7 @@ const nombreUsuario = document.getElementById('nombre-usuario')
 const body = document.getElementsByTagName("body")
 let type = body[0].dataset.type
 let loginForms,c
+export let sesionPago = false
 
 const login = {
     innerLogin(pay){
@@ -51,6 +51,7 @@ const login = {
 
         btnLogin.addEventListener('click', () => {
             this.viewModal(true)
+            sesionPago = true;
         })
 
         // inicio de sesion 
@@ -119,24 +120,24 @@ const login = {
         dvEnganche.style.display = checkEnganche.checked ? "block" : "none";
         mensualidad.style.display = checkEnganche.checked ? "none" : "block"
     },
-    
-    mostrarInfoLote : (e) =>{
+
+    mostrarInfoLote : (loteSeleccionado) =>{
         const info = document.getElementById('info-product')
         const trato = document.createElement('P');
         const dimension = document.createElement('P');
         const costo = document.createElement('P');
         const total = document.createElement('P');
-        trato.textContent = "Producto: " + e.target.dataset.trato;
+        trato.textContent = "Producto: " + loteSeleccionado.target.dataset.trato;
         info.appendChild(trato);
-        dimension.textContent = "Dimensión m2: " + e.target.dataset.dimension;
+        dimension.textContent = "Dimensión m2: " + loteSeleccionado.target.dataset.dimension;
         info.appendChild(dimension);
-        costo.textContent = 'Costo M2 : $' + e.target.dataset.costom2;
+        costo.textContent = 'Costo M2 : $' + loteSeleccionado.target.dataset.costom2;
         info.appendChild(costo);
-        total.textContent = 'Total: $' + e.target.dataset.costototal;
+        total.textContent = 'Total: $' + loteSeleccionado.target.dataset.costototal;
         info.appendChild(total);
         
     },
-    viewModal: (view) => {
+    viewModal:  (view) => {
         let modal = document.getElementById('container-modal')
         if(view){
             modal.style.display = "flex"
@@ -206,13 +207,17 @@ const login = {
         sessionStorage.setItem("usuario", "Fernanda")
         sessionStorage.setItem("correo", document.getElementById('correo').value)
         sessionStorage.setItem("sesion", true)
-        this.viewModal(true)
         this.mostrarBoton()
-        if(pay) this.innerPay()
-        Loader.loadOpciones()
-        this.mostrarInfoLote(e)
-        // console.log(Loader.mapEvent())
-        
+        this.viewModal(false)
+        if(sesionPago == false)
+        {
+            this.viewModal(true)
+            if(pay) this.innerPay()
+            Loader.loadOpciones()
+            this.mostrarInfoLote(loteSeleccionado) 
+        }
+        console.log("SesionPago: " + sesionPago)    
+          
     },
     mostrarBoton: () =>{
         let btnLogin = document.getElementById('btn-login')
@@ -238,7 +243,6 @@ const login = {
             msgError.remove();  
         }, 3500);
     }
-
 }
 
 export default login

@@ -3,9 +3,9 @@
 import Login from './login.js'
 import Mapas from './mapas.js'
 import {MostrarAlerta} from './navegacion.js'
-import {zoomIn} from './mapas.js'
-import {zoomOut} from './mapas.js'
-import {zoomInit} from './mapas.js'
+import {zoomIn, zoomOut, zoomInit} from './mapas.js'
+import { validarSesion } from './main.js'
+export let loteSeleccionado
 
 
 
@@ -194,14 +194,13 @@ const loader = {
             // const modal = document.getElementById('modal')
             // const modalLogin = document.getElementById("modal-login")
             if (e.target.matches('[data-lote]')) {
-                
-                let disponible = e.target.dataset.disponible
-                if( disponible == "true")
+                loteSeleccionado = e
+                console.log("Lote: "+ loteSeleccionado)
+                if(e.target.dataset.disponible == "true")
                 {
-                    console.log("Mapa: "+ e.target.dataset.disponible)
                     Login.viewModal(true)
-                    this.loadOpciones()
-                    Login.mostrarInfoLote(e)
+                    validarSesion()
+                    Login.mostrarInfoLote(loteSeleccionado)
                     
                 }else{
                     MostrarAlerta();
