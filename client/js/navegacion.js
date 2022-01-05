@@ -17,32 +17,17 @@ $(document).ready(function () {
 
 });
 
-//DivEnganche
-function MostrarDiv(checkEnganche) {
-    let dvEnganche = document.getElementById("mostrarEnganche");
-    let mensualidad = document.getElementById('mensualidad')
-    dvEnganche.style.display = checkEnganche.checked ? "block" : "none";
-    mensualidad.style.display = checkEnganche.checked ? "none" : "block"
-}
+// Alerta "No se puede seleccionar lote"
+let z;
+let alertaLote = document.getElementById("toast3");
 
-//Botones Zoom
-let zoom = 1;
-let height = 95;
-
-$('.zoom').on('click', function () {
-    zoom += 0.1;
-    height += 5;
-    $('.target').css('transform', 'scale(' + zoom + ')');
-    $('.mapa-interactivo').height(height + 'vh');
-});
-$('.zoom-init').on('click', function () {
-    zoom = 1;
-    $('.target').css('transform', 'scale(' + zoom + ')');
-});
-$('.zoom-out').on('click', function () {
-    if (zoom != 1) {
-        zoom -= 0.1;
-        $('.target').css('transform', 'scale(' + zoom + ')');
+ function MostrarAlerta(){
+     clearTimeout(z);
+     alertaLote.style.transform = "translateX(0)";
+     z = setTimeout(()=>{
+         alertaLote.style.transform = "translateX(400px)"
+        }, 4000);
     }
-});
+
+export {MostrarAlerta};
 

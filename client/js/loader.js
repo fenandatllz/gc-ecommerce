@@ -2,7 +2,10 @@
 
 import Login from './login.js'
 import Mapas from './mapas.js'
-
+import {MostrarAlerta} from './navegacion.js'
+import {zoomIn, zoomOut, zoomInit} from './mapas.js'
+import { validarSesion } from './main.js'
+export let loteSeleccionado
 
 let fracc = []
 
@@ -67,14 +70,12 @@ const loader = {
     const imgs = JSON.parse(frac.imgs)
     console.log(imgs)
     imgs.forEach((element, index) => {
+      let li = document.createElement("li")
       let img = document.createElement('img')
-      if (index == 0) {
-        img.src = `${element}`
-      } else {
-        img.src = `${element}`
-      }
-      carrucel.appendChild(img)
-      carrucel.style.display = 'flex'
+      img.src = `${element}`
+      carrucel.appendChild(li);
+      li.appendChild(img);
+      carrucel.style.display = "flex";
     })
 
     // agrega detalles
@@ -115,6 +116,21 @@ const loader = {
       servicios.appendChild(p)
     })
 
+    // agrega galeria 
+    const galeria = document.querySelector('.gallery');
+
+       imgs.forEach(element => {
+       let enlaceImagen = document.createElement('A');
+       enlaceImagen.setAttribute("href", `${element}`);
+       galeria.appendChild(enlaceImagen);
+
+       let imagen = document.createElement('img');
+       imagen.src = `${element}`;
+       enlaceImagen.appendChild(imagen);
+
+        lightGallery(document.querySelector('.gallery'));
+    });
+
     // agrega mapa
     let mapa = document.getElementById('mapa-interactivo')
     const desarrollo = frac.Fraccionamiento.toLowerCase().replace(' ', '-')
@@ -131,8 +147,11 @@ const loader = {
 
     Mapas.bloquearManzana(fracc)
     this.mapEvent()
+    zoomIn()
+    zoomOut()
+    zoomInit()
   },
-  //Fecth Prueba
+  //Fetch Pago PM & Enganche
   loadOpciones() {
     const valores = window.location.search
     const urlParams = new URLSearchParams(valores)
@@ -195,19 +214,23 @@ const loader = {
     })
 
     mapa.addEventListener('click', (e) => {
-      // const desarrollo = document.querySelector('#nombre-desarrollo').innerHTML
-      // const info = document.querySelector('.info-apartado')
-      // let posicionModal = e.pageY
-      // const modal = document.getElementById('modal')
-      // const modalLogin = document.getElementById("modal-login")
       if (e.target.matches('[data-lote]')) {
-        Login.viewModal(true, e.target.id)
-        this.loadOpciones()
+        loteSeleccionado = e
+        console.log("Lote: "+ loteSeleccionado)
+        if(e.target.dataset.disponible == "true")
+        {
+          Login.viewModal(true, e.target.id)
+          validarSesion()
+          if(sessionStorage.getItem("sesion"))
+          Login.mostrarInfoLote(loteSeleccionado)          
+          }else{
+            MostrarAlerta()
+          }
       }
     })
 
     mapa.addEventListener('mouseover', (e) => {
-      if (e.target.matches('[data-lote]')) {
+      if (e.target.matches('[data-lote]') && e.target.dataset.disponible == 'true') {
         toolTip.innerHTML = ''
         let lote = document.createElement('p')
         lote.textContent = e.target.id
@@ -224,12 +247,15 @@ const loader = {
         toolTip.appendChild(total)
         posicionX = e.pageX
         posicionY = e.pageY
+        e.target.style.fill = '#e5b252'
+        e.target.style.cursor = 'pointer'
         Mapas.showPopup(toolTip, posicionX, posicionY)
       }
     })
 
     mapa.addEventListener('mouseout', (e) => {
-      if (e.target.matches('[data-lote]')) {
+      if (e.target.matches('[data-lote]') && e.target.dataset.disponible == 'true') {
+        e.target.style.fill = '#de9f27'              
         Mapas.hidePopup(toolTip)
       }
     })
