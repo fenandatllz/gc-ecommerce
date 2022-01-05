@@ -53,6 +53,8 @@ const mapa = {
   },
   // Obtener disponibilidad
   async getDisponiblidad(fraccionamiento, manzana){
+    preloader.style.display = 'flex'
+    containerMapa.style.display = 'none'
     const request = await fetch(
       `/server/ecommerce/crm/getDisponibilidad/${fraccionamiento}/${manzana}`
     )
