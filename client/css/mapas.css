@@ -1,67 +1,72 @@
-  .cls-1 {
-    filter: url(#filter);
-  }
-  
-  .cls-2 {
-    fill: #1a1a1a;
-    stroke:#de9f27;
-    stroke-width: 1px;
-  }
-
-  .cls-2, .cls-3, .cls-4, .cls-5 {
-    fill-rule: evenodd;
-  }
-.cls-5{
-  fill:#000;
+.cls-1 {
+  filter: url(#filter);
 }
-  .cls-3 {
-    fill: #010101;
-  }
 
-  .cls-4, .cls-6 {
-    fill: #e8bc68;
-    stroke: #e8bc68;
-    stroke-width: 6px;
-  }
+.cls-2 {
+  fill: #1a1a1a;
+  stroke:#de9f27;
+  stroke-width: 1px;
+}
 
-  [data-manzana]:hover{
-    fill: #de9f27;
-    cursor: pointer;
-  }
-  tspan{
-    font-weight: 700;
-    font-size: 25px;
-  }
-  .mapa-interactivo svg {
-    width:100%;
-    height:100%;
-  }
+.cls-2, .cls-3, .cls-4, .cls-5 {
+  fill-rule: evenodd;
+}
+.cls-5{
+fill:#000;
+}
+.cls-3 {
+  fill: #010101;
+}
+
+.cls-4, .cls-6 {
+  fill: #e8bc68;
+  stroke: #e8bc68;
+  stroke-width: 6px;
+}
+
+[data-manzana]:hover{
+  fill: #de9f27;
+  cursor: pointer;
+}
+tspan{
+  font-weight: 700;
+  font-size: 25px;
+}
+.mapa-interactivo svg {
+  width:100%;
+  height:100%;
+}
+.brujula{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 10px;
+  position: relative;
+  top: calc(30vh - 75px);
+  left: calc(3vw - 75px);
+  z-index: 1;
+}
+.brujula svg{
+  width: 10%;
+}
+
+@media(max-width:480px){
   .brujula{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding: 10px;
-    position: relative;
-    top: calc(30vh - 75px);
-    left: calc(3vw - 75px);
+    top: calc(15vh - 75px);
   }
-  .brujula svg{
-    width: 10%;
-  }
+}
 
-  @media(max-width:480px){
-    .brujula{
-      top: calc(15vh - 75px);
-    }
+@media screen and (min-width:481px) and (max-width:768px){
+  .brujula{
+    top: calc(24vh - 75px);
+    left: calc(7vw - 75px);
   }
-
-  @media screen and (min-width:481px) and (max-width:768px){
-    .brujula{
-      top: calc(24vh - 75px);
-      left: calc(7vw - 75px);
-    }
-    .brujula svg{
-      width:20%;
-    }
-  }
-  
+  .brujula svg{ 
+    width:20%;
+  } 
+}
+.disabled{
+  fill: #262626;
+  /* stroke: #de2727; */
+  stroke-width: 1.96px;
+}

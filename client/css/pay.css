@@ -1,99 +1,99 @@
 .pay-form{
-    margin: 5% 0;
+  margin: 5% 0;
 }
 .pay-form .pay-header {
-    text-align:center;
-    font-size:20px;
-    font-weight:600;
-    color:#222;
-    margin:20px 0px;
-  }
-  .pay-form .element:not(#info-apartado) {
-    padding: 12px 20px;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-  }
-  .pay-division-modal{
-    margin-top: 10px;
-    margin-left: 45px;
-    width: 76%;
-    height: 5px;
-    background-color: #DE9F27;
+  text-align:center;
+  font-size:20px;
+  font-weight:600;
+  color:#222;
+  margin:20px 0px;
+}
+.pay-form .element:not(#info-apartado) {
+  padding: 12px 20px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.pay-division-modal{
+  margin-top: 10px;
+  margin-left: 45px;
+  width: 76%;
+  height: 5px;
+  background-color: #DE9F27;
 }
 /* @media (max-width:480px){
-  .pay-division-modal{
-    display:none;
-  }
+.pay-division-modal{
+  display:none;
+}
 } */
-  /* .info-apartado{
-    font-size: small;
-    font-weight: 700;
+/* .info-apartado{
+  font-size: small;
+  font-weight: 700;
 } */
 #mensualidad{
-  padding: 0.8em 1.2em;
+padding: 0.8em 1.2em;
 }
-  .pay-form .element label {
-    width:100%;
-    display:flex;
-    font-size:14px;
-    color:#222;
-    margin-bottom:5px;
-  }
-  .pay-form .element input {
-    width:100%;
-    border:1px solid #aaa;
-    background:#eee;
-    border-radius:5px;
-    padding-right: 10%;
-  }
+.pay-form .element label {
+  width:100%;
+  display:flex;
+  font-size:14px;
+  color:#222;
+  margin-bottom:5px;
+}
+.pay-form .element input {
+  width:100%;
+  border:1px solid #aaa;
+  background:#eee;
+  border-radius:5px;
+  padding-right: 10%;
+}
 
 
-  .pay-form .element .enviar {
-    width:100%;
-    color: #4889da; 
-    font-size: 15px;
-    font-weight: 500;
-    padding: 0.5em 1.2em;
-    background: rgba(0,0,0,0);
-    border: 2px solid;
-    border-color: #4889da;
-    transition: all 1s ease;
-    position: relative;
-    border-radius:5px;
-    cursor: pointer;
-  }
-  .pay-form .element .enviar:hover {
-    background: #4889da;
-    color: #fff;
-  }
+.pay-form .element .enviar {
+  width:100%;
+  color: #4889da; 
+  font-size: 15px;
+  font-weight: 500;
+  padding: 0.5em 1.2em;
+  background: rgba(0,0,0,0);
+  border: 2px solid;
+  border-color: #4889da;
+  transition: all 1s ease;
+  position: relative;
+  border-radius:5px;
+  cursor: pointer;
+}
+.pay-form .element .enviar:hover {
+  background: #4889da;
+  color: #fff;
+}
 
-  .pay-form .element .cancelar {
-    width:100%;
-    color: #ff3838;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 0.5em 1.2em;
-    background: rgba(0,0,0,0);
-    border: 2px solid;
-    border-color: #ff3838;
-    transition: all 1s ease;
-    position: relative;
-    border-radius:5px;
-    cursor: pointer;
-  }
-  .pay-form .element .cancelar:hover {
-    background:#ff3838;
-    color: #fff;
-  }
-  .pay-form .element select{
-    width:100%;
-    padding: 8px 10px;
-    box-sizing:border-box;
-    outline:none;
-    border:1px solid #aaa;
-    background:#eee;
-    border-radius:5px;
-    height: 37px;
-    cursor: pointer;
-  }
+.pay-form .element .cancelar {
+  width:100%;
+  color: #ff3838;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 0.5em 1.2em;
+  background: rgba(0,0,0,0);
+  border: 2px solid;
+  border-color: #ff3838;
+  transition: all 1s ease;
+  position: relative;
+  border-radius:5px;
+  cursor: pointer;
+}
+.pay-form .element .cancelar:hover {
+  background:#ff3838;
+  color: #fff;
+}
+.pay-form .element select{
+  width:100%;
+  padding: 8px 10px;
+  box-sizing:border-box;
+  outline:none;
+  border:1px solid #aaa;
+  background:#eee;
+  border-radius:5px;
+  height: 37px;
+  cursor: pointer;
+}

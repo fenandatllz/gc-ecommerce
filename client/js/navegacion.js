@@ -1,4 +1,3 @@
-
 // Navegacion Flecha Arriba
 $(document).ready(function () {
 
@@ -18,17 +17,6 @@ $(document).ready(function () {
 
 });
 
-// function MostrarDiv(checkEnganche) {
-//     // const checkPrueba = document.getElementById('checkEnganche');
-//     let dvEnganche = document.getElementById("mostrarEnganche");
-//     let mensualidad = document.getElementById('mensualidad')
-
-//     dvEnganche.style.display = checkEnganche.checked ? "block" : "none";
-//     mensualidad.style.display = checkEnganche.checked ? "none" : "block"
-// }
-
-
-
 // Alerta "No se puede seleccionar lote"
 let z;
 let alertaLote = document.getElementById("toast3");
@@ -40,7 +28,6 @@ let alertaLote = document.getElementById("toast3");
          alertaLote.style.transform = "translateX(400px)"
         }, 4000);
     }
-
 
 export {MostrarAlerta};
 
