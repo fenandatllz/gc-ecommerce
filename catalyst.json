@@ -7,6 +7,6 @@
     "source": "functions"
   },
   "client": {
-    "source": "client"
+    "source": "src"
   }
 }

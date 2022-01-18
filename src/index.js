@@ -1,7 +1,13 @@
 'use strict'
 
-import Login from './login.js'
-import Loader from './loader.js'
+import Login from './js/login.js'
+import Loader from './js/loader.js';
+import './styles.css';
+import './css/all.css';
+import './css/load.css';
+import './css/login.css';
+import './css/mapas.css';
+import './css/pay.css';
 
 // carga de Cards/Detaills
 const body = document.getElementsByTagName('body')

@@ -1,7 +1,7 @@
 'use strict'
 
 let containerMapa = document.getElementById('mapa-interactivo')
-const preloader = document.getElementById('preloader-bg');
+// const preloader = document.getElementById('preloader-bg');
 let zoom = 1
 // const Name_frac = document.getElementById('nombre-desarrollo').textContent
 // const fracc = await Zoho.getFraccionamiento( Name_frac )
@@ -53,8 +53,8 @@ const mapa = {
   },
   // Obtener disponibilidad
   async getDisponiblidad(fraccionamiento, manzana){
-    preloader.style.display = 'flex'
-    containerMapa.style.display = 'none'
+    // preloader.style.display = 'flex'
+    // containerMapa.style.display = 'none'
     const request = await fetch(
       `/server/ecommerce/crm/getDisponibilidad/${fraccionamiento}/${manzana}`
     )
@@ -81,8 +81,8 @@ const mapa = {
         lote.dataset.disponible = true
       }
     })
-    preloader.style.display = 'none'
-    containerMapa.style.display = 'flex'
+    // preloader.style.display = 'none'
+    // containerMapa.style.display = 'flex'
   
     disponibilidad.map((product) => {
       try {

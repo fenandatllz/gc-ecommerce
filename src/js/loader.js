@@ -4,17 +4,15 @@ import Login from './login.js'
 import Mapas from './mapas.js'
 import {MostrarAlerta} from './navegacion.js'
 import {zoomIn, zoomOut, zoomInit} from './mapas.js'
-import { validarSesion } from './main.js'
+import { validarSesion } from '../index.js'
 export let loteSeleccionado
 
 let fracc = []
-
+// let loaderBg = document.querySelector('.loader_bg')
 const loader = {
-  toggleLoader: () => {
-    setTimeout(function () {
-      $('.loader_bg').fadeToggle()
-    }, 1500)
-  },
+  // toggleLoader: () => {
+  //     loaderBg.style.animation = "fadeIn 10s 1";
+  // },
   async getDesarollos(type) {
     const getJSON = async () => {
       let Desarollos = {}
