@@ -1,21 +1,18 @@
 // Navegacion Flecha Arriba
-$(document).ready(function () {
-
-    $('.arriba').click(function () {
-        $('body, html').animate({
-            scrollTop: '0px'
-        }, 300);
-    });
-
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 0) {
-            $('.arriba').slideDown(300);
-        } else {
-            $('.arriba').slideUp(300);
-        }
-    });
-
-});
+const btn_scrolltop = document.getElementById("btn_scrolltop")
+btn_scrolltop.addEventListener('click', () => {
+    window.scrollTo(0, 0)
+})
+window.onscroll = () => {
+    add_btn_scrolltop()
+}
+const add_btn_scrolltop = () => {
+    if (window.scrollY < 300) {
+        btn_scrolltop.classList.remove("btn-scrolltop-on")
+      } else {
+        btn_scrolltop.classList.add("btn-scrolltop-on")
+      }
+    }
 
 // Alerta "No se puede seleccionar lote"
 let z;

@@ -3,6 +3,7 @@
 import Zoho from './zoho.js'
 import Loader from './loader.js'
 import { loteSeleccionado } from './loader.js'
+import { showAlert } from './alertas.js'
 
 // add login
 const modal = document.getElementById('modal')
@@ -143,15 +144,15 @@ const login = {
         montoEnganche = modal.querySelector('#monto-enganche').value
         console.log(montoEnganche)
       }
-      const request = await Zoho.createInvoice(
-        productID,
-        fraccIndex,
-        esEnganche,
-        montoEnganche
-      )
-
-      console.log(request)
-
+      // const request = await Zoho.createInvoice(
+      //   productID,
+      //   fraccIndex,
+      //   esEnganche,
+      //   montoEnganche
+      // )
+      // showAlert('success', 'Envio Exitoso');
+      showAlert('danger', 'Error');
+      // showAlert('warning', 'Lote No Disponible');
       console.log(e)
     })
     return true

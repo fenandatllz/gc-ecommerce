@@ -2,7 +2,7 @@
 
 import Login from './login.js'
 import Mapas from './mapas.js'
-import {MostrarAlerta} from './navegacion.js'
+import { showAlert } from './alertas.js'
 import {zoomIn, zoomOut, zoomInit} from './mapas.js'
 import { validarSesion } from './main.js'
 export let loteSeleccionado
@@ -224,7 +224,7 @@ const loader = {
           if(sessionStorage.getItem("sesion"))
           Login.mostrarInfoLote(loteSeleccionado)          
           }else{
-            MostrarAlerta()
+            showAlert('warning', 'Lote No Disponible')
           }
       }
     })

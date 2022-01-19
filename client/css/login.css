@@ -83,8 +83,6 @@
 
 .input-group{
     padding: 2% 7%;
-    /* top:130px;
-    position:absolute; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
