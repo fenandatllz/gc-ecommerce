@@ -51,7 +51,7 @@ const loader = {
       card.innerHTML = `
                     <div class="desarrollo">
                         <div class="nombre-desarrollo">${i.fraccionamientos.Fraccionamiento}</div>
-                            <img src="${i.fraccionamientos.img}">
+                            <img loading="lazy" src="${i.fraccionamientos.img}">
                             <div class="capa"><img src="${i.fraccionamientos.logo}" alt=""></div>
                     </div>
                 `

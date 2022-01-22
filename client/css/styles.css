@@ -1,7 +1,8 @@
     /* General */
     html {
         box-sizing: border-box;
-        font-size: 62.5%; 
+        font-size: 62.5%;
+        scroll-behavior: smooth;
     }
     .descripcion{
         font-size: large;
@@ -30,10 +31,33 @@
         margin-top: 15px;
         width: 200px;
     }
-    .menu{
+    .menu-index{
         width: 100%;
+        height: 15%;
         padding: 3rem;
-        background-color: #000;
+        background: #000;
+        display: flex;
+        /* background: linear-gradient(to top,rgba(8, 7, 7, 0.247), rgba(10, 2, 2, 0.836)); */
+        /* background: linear-gradient(to top,rgba(8, 7, 7, 0), rgba(10, 2, 2, 0.774)); */
+        /* background-image: linear-gradient(to top, #808080, #605f60, #424041, #262324, #0a0202); */
+        /* background-image: linear-gradient(to top, #f3f3f3b6, #b1b1b1d5, #747274, #3d3a3b, #0a0202); */
+        /* background-image: linear-gradient(to top, #f3f3f3, #b1b1b1, #747374, #3c3a3b, #080303); */
+        /* background-image: linear-gradient(to top, #f3f3f3, #747374, #080303); */
+        /* background-image: linear-gradient(to top, #f3f3f3, #b1b1b1, #747374, #3c3b3b, #070404d2); */
+        /* background: linear-gradient(90deg, rgba(23,23,25,1) 0%, rgba(196,196,205,1) 39%, rgba(0,0,0,0.7234244039412641) 100%); */
+        /* background: linear-gradient(to top, black 30%, rgba(0.0.0.0.5)); */
+                background: linear-gradient(to top,rgba(8, 7, 7, 0), rgba(10, 2, 2, 0.774));
+        /* background-color: rgba(0,0,0, 0.5); */
+
+        justify-content: space-between;
+        /* position: absolute; */
+    }
+    .menu-details{
+        position: absolute;
+        width: 100%;
+        height: 40%;
+        padding: 3rem;
+        background: linear-gradient(to top,rgba(8, 7, 7, 0), rgba(10, 2, 2, 0.774));
         display: flex;
         justify-content: space-between;
     }
@@ -55,12 +79,13 @@
         height: 5px;
         background-color: #DE9F27;
         margin-bottom: 15px;
+
     }
     .division-mapa{
         width: 27%;
         height: 5px;
         background-color: #DE9F27;
-        margin-bottom: 15px;
+        /* margin-bottom: 15px; */
     }
     .contenedor {
         width: 80%;
@@ -129,8 +154,10 @@
     }
     .desarrollo img{
         width: 100%;
-        height: 251px;
+        height: 100%;
+        image-rendering: pixelated;
     }
+    
     
     @media (min-width: 769px){
         
@@ -348,10 +375,10 @@
     
     /* Mapa */
     .contenedor-mapa{
-        /* position: relative; */
+        position: relative;
         display: flex;
         flex-direction: column;
-        padding: 15px;  
+        padding: 15px;
     }
     
     .mapa-interactivo{
@@ -362,7 +389,6 @@
         border-radius: 11px;
         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
         background-color: #043125;
-        margin-top: -200px;
     }
     
     
@@ -377,6 +403,7 @@
        display: flex;
        justify-content: center;
        align-items: center;
+       z-index: 1;
       }  
       .zoom-flex{
         display: flex;
@@ -394,23 +421,20 @@
       }
     
     /* Div detalles mapa */
-    .detalles-mapa{
+    .detalles-mapa{ 
+        width: 95%;
+        position: absolute;
         display: flex;
         justify-content: space-between;
-        position:relative;
-        top: calc(20vh - 75px);
+        /* position:relative;
+        top: calc(20vh - 75px); */
         align-items: center;
         margin: 0% 2% ;
-        z-index: 1;
+        top: 5%; 
     }
     @media(max-width:480px){
         .detalles-mapa{
-            top: calc(11vh - 75px);
-          }
-    }
-    @media screen and (min-width:481px) and (max-width:768px){
-        .detalles-mapa{
-            top: calc(18vh - 75px);
+            width: 90%;
           }
     }
     
@@ -421,6 +445,7 @@
         border-radius: 15px;
         padding: 20px;
         padding-right: 45px;
+        z-index: 1;
     }
     .disponibilidad-mapa{
         font-size:15px; 
@@ -453,6 +478,7 @@
     /* Carrusel*/  
     .slider {
         width: 100%;
+        height: 100vh;
         margin: auto;
         overflow: hidden;
       }
@@ -469,7 +495,8 @@
       }
       .slider img {
         width: 100vw;
-        height: 90vh;
+        height: 100vh;
+        border:0;
         image-rendering: pixelated;
       }
       

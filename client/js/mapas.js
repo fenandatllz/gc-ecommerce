@@ -8,7 +8,7 @@ let zoom = 1
 export function zoomIn (){
   const btnZoom = document.getElementById('zoom')
   btnZoom.addEventListener('click',() =>{
-    zoom += 0.1;
+    zoom += 0.7;
     const target = document.querySelector('[id*="Manzana"]')
     console.log("target: " +target)
     target.style.transform = 'scale(' + zoom + ')'
@@ -20,7 +20,7 @@ export function zoomIn (){
    const btnZoomOut = document.getElementById('zoom-out')
    btnZoomOut.addEventListener('click', () =>{
     if (zoom != 1){
-      zoom -= 0.1
+      zoom -= 0.7
       const target = document.querySelector('[id*="Manzana"]')
       target.style.transform = 'scale(' + zoom + ')'
     }

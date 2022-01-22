@@ -3,12 +3,18 @@
     "fracionamiento": "Costa Dorada",
     "logo": "img/fraccionamientos/Costa-Dorada/CD Logo.png",
     "img": "img/fraccionamientos/Costa-Dorada/RENDER 03 DESDE EL MAR.jpg",
-    "imgs": [
-      "img/fraccionamientos/Costa-Dorada/DUPLEX FACHADA.jpg",
-      "img/fraccionamientos/Costa-Dorada/RENDER 02 COSTA DORADA.jpg",
-      "img/fraccionamientos/Costa-Dorada/RENDER ACCESO.jpg",
-      "img/fraccionamientos/Costa-Dorada/RENDER DIA.jpg"
+    "imgs": [                        
+      "https://grupoconcordia.com/paginawebimg/Costa-Dorada/CD.webp",                        
+      "https://grupoconcordia.com/paginawebimg/Costa-Dorada/CD_2.webp",                        
+      "https://grupoconcordia.com/paginawebimg/Costa-Dorada/CD_3.webp",                     
+      "https://grupoconcordia.com/paginawebimg/Costa-Dorada/CD_4.webp",                  
+      "https://grupoconcordia.com/paginawebimg/Costa-Dorada/CD_11.webp",     
+      "https://grupoconcordia.com/paginawebimg/Costa-Dorada/CD_16.webp",    
+      "https://grupoconcordia.com/paginawebimg/Costa-Dorada/CD_17.webp",   
+      "https://grupoconcordia.com/paginawebimg/Costa-Dorada/CD_18.webp",    
+      "https://grupoconcordia.com/paginawebimg/Costa-Dorada/CD_19.webp"    
     ],
+    
     "descripciones": [
       "Costa Dorada es uno de nuestros desarrollos que cuenta con todos los servicios necesarios para ser habitado. Se ubica en una zona estratégica, con fácil acceso a cualquiera de nuestras ciudades vecinas: Tijuana, Rosarito y San Diego. Justo en la puerta de entrada a la zona dorada del corredor turístico Rosarito – Ensenada.",
       "Costa Dorada garantiza la más alta plusvalía de la región, ya sea desde el punto de vista comercial, residencial, hotelero o gastronómico."
@@ -189,11 +195,11 @@
     "logo": "img/Fraccionamientos/Sahara/Sahara Logo.png",
     "img": "https://grupoconcordia.com/wp-content/uploads/2018/09/WhatsApp-Image-2020-08-24-at-1.11.15-PM.jpeg",
     "imgs": [
-      "img/fraccionamientos/Sahara/Sahara.jpg",
-      "img/fraccionamientos/Sahara/Sahara 2.JPG",
-      "img/fraccionamientos/Sahara/Sahara 3.JPG",
-      "img/fraccionamientos/Sahara/Sahara 4.jpg",
-      "img/fraccionamientos/Sahara/Sahara 5.JPG"
+      "https://grupoconcordia.com/paginawebimg/Sahara/Sahara.webp",
+      "https://grupoconcordia.com/paginawebimg/Sahara/Sahara_2.webp",
+      "https://grupoconcordia.com/paginawebimg/Sahara/Sahara_3.webp",
+      "https://grupoconcordia.com/paginawebimg/Sahara/Sahara_4.webp",
+      "https://grupoconcordia.com/paginawebimg/Sahara/Sahara_5.webp"
     ],
     "descripciones": [
       "Te presentamos Sahara Residential Beach Front; si alguna vez haz anhelado tener el mar como tu patio trasero, ¡Entonces es para ti!",
@@ -288,11 +294,11 @@
     "logo": "img/Fraccionamientos/Toscana/Toscana Logo.png",
     "img": "img/Fraccionamientos/Toscana/Toscana 3.JPG",
     "imgs": [
-      "img/Fraccionamientos/Toscana/Toscana.JPG",
-      "img/Fraccionamientos/Toscana/Toscana 2.JPG",
-      "img/Fraccionamientos/Toscana/Toscana 3.JPG",
-      "img/Fraccionamientos/Toscana/Casa Club.jpg",
-      "img/Fraccionamientos/Toscana/Casa Club DG.jpg"
+      "https://grupoconcordia.com/paginawebimg/Toscana/Toscana.webp",
+      "https://grupoconcordia.com/paginawebimg/Toscana/Toscana_2.webp",
+      "https://grupoconcordia.com/paginawebimg/Toscana/Toscana_3.webp",
+      "https://grupoconcordia.com/paginawebimg/Toscana/Toscana_4.webp",
+      "https://grupoconcordia.com/paginawebimg/Toscana/Toscana_5.webp"
     ],
     "descripciones": [
       "Concepto residencial exclusivo que ofrece un estilo de vida único: Villa Toscana Residencial es la perfecta combinación entre las exigencias de la vida moderna y actividades al aire libre que brindarán confort a tu estilo de vida.",

@@ -7,7 +7,7 @@ import { showAlert } from './alertas.js'
 
 // add login
 const modal = document.getElementById('modal')
-const nombreUsuario = document.getElementById('nombre-usuario')
+// const nombreUsuario = document.getElementById('nombre-usuario')
 const body = document.getElementsByTagName('body')
 let type = body[0].dataset.type
 let loginForms, c
@@ -274,14 +274,14 @@ const login = {
     if (sessionStorage.getItem('sesion') == null) {
       btnLogout.style.display = 'none'
       btnLogin.style.display = 'block'
-      nombreUsuario.innerText = ' '
+      // nombreUsuario.innerText = ' '
     }
 
     if (sessionStorage.getItem('sesion')) {
       btnLogout.style.display = 'block'
       btnLogin.style.display = 'none'
-      nombreUsuario.innerText =
-        'Bienvenido(a): ' + sessionStorage.getItem('usuario')
+      // nombreUsuario.innerText =
+        // 'Bienvenido(a): ' + sessionStorage.getItem('usuario')
     }
   },
   // Mensaje error login 
