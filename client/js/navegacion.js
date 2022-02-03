@@ -1,5 +1,7 @@
 // Navegacion Flecha Arriba
-const btn_scrolltop = document.getElementById("btn_scrolltop")
+const btn_scrolltop = document.getElementById("btn_scrolltop");
+
+
 btn_scrolltop.addEventListener('click', () => {
     window.scrollTo(0, 0)
 })

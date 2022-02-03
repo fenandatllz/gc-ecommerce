@@ -3,15 +3,25 @@
 let containerMapa = document.getElementById('mapa-interactivo')
 const preloader = document.getElementById('preloader-bg');
 let zoom = 1
-// const Name_frac = document.getElementById('nombre-desarrollo').textContent
-// const fracc = await Zoho.getFraccionamiento( Name_frac )
+let viewXY = 0
+
 export function zoomIn (){
   const btnZoom = document.getElementById('zoom')
   btnZoom.addEventListener('click',() =>{
-    zoom += 0.7;
+    //console.log("eventZoom: " + e.text)
+    zoom += 0.5;
+    viewXY -= 300
     const target = document.querySelector('[id*="Manzana"]')
     console.log("target: " +target)
+    // target.style.transform = 'translate(5%, 5%)'
     target.style.transform = 'scale(' + zoom + ')'
+    // target.style.width = zoom + '%'
+    // target.style.height = zoom + '%'
+    // nw = target.viewBox.baseVal.width + 100
+    // console.log("nw: " + nw)
+    // let nh = target.viewBox.baseVal.height + 100
+    // console.log("nh: " + nh)
+    // target.setAttribute('viewBox', viewXY + " " + viewXY + " " + target.viewBox.baseVal.width + " " + target.viewBox.baseVal.height)
     
   })
  }
@@ -19,10 +29,16 @@ export function zoomIn (){
  export function zoomOut (){
    const btnZoomOut = document.getElementById('zoom-out')
    btnZoomOut.addEventListener('click', () =>{
-    if (zoom != 1){
-      zoom -= 0.7
+    if (zoom > 1){
+      zoom -= 0.5
       const target = document.querySelector('[id*="Manzana"]')
+      // target.style.width = zoom + '%'
+      // target.style.height = zoom + '%'
+      // nw = target.viewBox.baseVal.width -   100
+      // target.setAttribute('viewBox', '0 0 ' + nw + " " + target.viewBox.baseVal.height)
       target.style.transform = 'scale(' + zoom + ')'
+
+
     }
    })
  }
@@ -32,8 +48,11 @@ export function zoomIn (){
   btnZoomInit.addEventListener('click', () =>{
     zoom = 1
     const target = document.querySelector('[id*="Manzana"]')
+    // let w = target.viewBox.baseVal.width
+    // target.style.width = zoom + '%'
+    // target.style.height = zoom + '%'
+    // target.setAttribute('viewBox', '0 0 ' + w + " " + target.viewBox.baseVal.height)
     target.style.transform = 'scale(' + zoom + ')'
-   
   })
 }
 
@@ -46,6 +65,12 @@ const mapa = {
         mapa.bloquearManzana(fracc)
         const target = document.querySelector('[id*="Manzana"]');
         target.style.transform = 'scale(' + zoom + ')'
+
+        // target.style.width = zoom + '%'
+        // target.style.height = zoom + '%'
+
+        // console.log("zoom Manzana: " + zoom)
+        // target.setAttribute('viewBox', '0 0 ' + nw + " " + target.viewBox.baseVal.height)
         zoomIn()
         zoomOut()
         zoomInit()
@@ -94,7 +119,7 @@ const mapa = {
           console.log(`M${product.Manzana}-L${product.Lote + product.Lote_Letra}`)
           lote = document.getElementById(`M${product.Manzana}-L${product.Lote + product.Lote_Letra}`)
         }
-        
+  
   
         lote.dataset.crm_id = product.id
         lote.dataset.trato = product.Product_Name
