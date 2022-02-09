@@ -311,8 +311,14 @@ const books = {
       { "id": "2234337000054406069", "name": "ELITE", "symbol": ":", "init": 107, "end": 109, "Lotes": null },
       { "id": "2234337000054406069", "name": "ELITE", "symbol": ":", "init": 111, "end": 112, "Lotes": null },
       { "id": "2234337000054406069", "name": "ELITE", "symbol": ":", "init": 196, "end": 199, "Lotes": null }
+
       
     ]
+
+    //TOSCANA 2
+      [       
+        { "id": "2234337000113132001", "name": "Villa Toscana2", "symbol": "--", "init": 2, "end": 27, "Lotes": null }       
+      ]
 */
 
 const books2 = {

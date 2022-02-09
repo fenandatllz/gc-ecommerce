@@ -133,16 +133,22 @@ const loader = {
 
     // agrega mapa
     let mapa = document.getElementById('mapa-interactivo')
-    const desarrollo = frac.Fraccionamiento.toLowerCase().replace(' ', '-')
+    let desarrollo = frac.Fraccionamiento.toLowerCase().replace(' ', '-')
+    console.log("desarrollo", desarrollo)
 
+    if(desarrollo.includes('sección')){
+      let temp = desarrollo.split(' sección ')
+
+      console.log("temp ", temp)
+
+      desarrollo = temp[0] +""+ temp[1]
+    }
+    
     mapa.innerHTML = ''
     const loadPlano = await fetch(`./desarrollos/${desarrollo}/plano.svg`)
     // const loadPlano = await fetch('https://grupoconcordia.com/paginawebimg/plano.svg')
 
-    console.log(loadPlano)
-
     let temp_svg = await loadPlano.text()
-    console.log( temp_svg )
     mapa.innerHTML = temp_svg
 
     Mapas.bloquearManzana(fracc)
