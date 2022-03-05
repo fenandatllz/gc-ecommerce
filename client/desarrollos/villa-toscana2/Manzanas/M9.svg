@@ -9,6 +9,7 @@
       </filter>
     </defs>
      <g class="cls-1" id="map" pointer-events="all">
+        <path id="M9-L1" class="cls-2" d="M1065,905l75-14-8,59-84-14,4-21,4-6,5-3Z"/>
         <path id="M9-L2" class="cls-2" d="M1140,891l-4,30,83,11,6-45-3-5-4-3-7-1Z"/>
         <path id="M9-L3" class="cls-2" d="M1219,932l-83-11-4,28,83,13Z"/>
         <path id="M9-L4" class="cls-2" d="M1215,962l-83-13-4,27,84,12Z"/>
